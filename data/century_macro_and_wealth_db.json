@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "last_updated": "2026-11-18T13:05:40.921229+09:00",
+  "last_updated": "2026-11-19T07:26:14.995434+09:00",
   "historical_coverage": "1926~2026 (100개년 글로벌 금융 전수)",
   "century_cycles": [
     {
@@ -74,7 +74,7 @@
       "tax_optimization": "국내 ISA(비과세 500만원) ➔ 연금저축/IRP(세액공제 900만원/5.5% 저율과세) ➔ 해외주식 양도세(250만원 기본공제) 분산 인출"
     }
   },
-  "total_streamed_events": 148620,
+  "total_streamed_events": 149040,
   "last_run_status": "SUCCESS_INCREMENT_ADDED",
   "daily_increment_count": 420
 }
