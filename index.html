@@ -3,195 +3,320 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#070a12">
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="https://pyw31337.github.io/lets/css/lets-design-system.css?v=1.1.0">
-  <title>렛츠에셋 (Let's Asset) — 100개년 글로벌 금융 역사 & 미·중·일·유럽 자산·재무관리 인텔리전스</title>
+  <meta name="theme-color" content="#f8fafc">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>렛츠에셋 (Let's Asset) v3.0.0 — 100개년 글로벌 금융 역사 & 미·중·일·유럽 자산·재무관리 인텔리전스 (LDS v1.0.0)</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="css/lets-design-system.css">
   <style>
-    :root {
-      --bg: #070a12;
-      --card-bg: rgba(15, 20, 32, 0.9);
-      --card-hover: rgba(22, 30, 48, 0.95);
-      --border: rgba(255, 255, 255, 0.08);
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --primary: #3b82f6;
-      --indigo: #6366f1;
-      --cyan: #06b6d4;
-      --emerald: #10b981;
-      --amber: #f59e0b;
-      --rose: #f43f5e;
-      --purple: #a855f7;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont, sans-serif; }
     body {
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      padding: 20px;
+      background: var(--bg-page);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      min-width: 320px;
     }
-    .container { max-width: 1340px; margin: 0 auto; }
-    
-    /* 헤더 */
-    header {
-      margin-bottom: 24px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--border);
+
+    .asset-container {
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* Top Header */
+    .asset-header {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: var(--space-20) var(--space-24);
+      margin-bottom: var(--space-24);
+      box-shadow: var(--shadow-sm);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: var(--space-16);
       flex-wrap: wrap;
-      gap: 16px;
     }
-    .brand h1 { font-size: 24px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
-    .badge {
-      background: rgba(99, 102, 241, 0.18);
-      color: var(--indigo);
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 600;
-      border: 1px solid rgba(99, 102, 241, 0.3);
+    @media (max-width: 768px) {
+      .asset-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: var(--space-16);
+      }
     }
-    .pulse-tag {
-      background: rgba(99, 102, 241, 0.15);
-      color: #a5b4fc;
-      padding: 4px 10px;
-      border-radius: 8px;
-      font-size: 12px;
-      font-weight: 600;
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: var(--space-16);
+    }
+    .brand-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #4f46e5, #6366f1);
+      color: #ffffff;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+      flex-shrink: 0;
+    }
+    .brand-title {
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-extrabold);
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: var(--space-8);
+      flex-wrap: wrap;
+    }
+    .brand-subtitle {
+      font-size: var(--fs-sm);
+      color: var(--text-muted);
+      margin-top: var(--space-4);
+      line-height: var(--lh-snug);
     }
 
-    /* 1. 실시간 수집 관제 펄스 보드 (100개년 금융 & 실시간) */
+    /* Pulse Panel */
     .pulse-panel {
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 27, 75, 0.8));
-      border: 1px solid rgba(99, 102, 241, 0.3);
-      border-radius: 14px;
-      padding: 20px;
-      margin-bottom: 24px;
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: var(--space-24);
+      margin-bottom: var(--space-24);
+      box-shadow: var(--shadow-sm);
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-16);
+    }
+    @media (max-width: 1024px) {
+      .pulse-panel { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 639px) {
+      .pulse-panel { grid-template-columns: 1fr; padding: var(--space-16); }
     }
     .pulse-stat {
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 14px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: var(--space-16);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      transition: all var(--transition-fast);
     }
-    .pulse-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; margin-bottom: 4px; }
-    .pulse-val { font-size: 22px; font-weight: 800; color: #fff; display: flex; align-items: baseline; gap: 6px; }
-    .pulse-unit { font-size: 13px; font-weight: 500; color: var(--muted); }
-    .pulse-rate { font-size: 12px; color: var(--cyan); margin-top: 4px; font-weight: 600; }
+    .pulse-stat:hover {
+      background: #ffffff;
+      border-color: var(--border-strong);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+    .pulse-label {
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-bold);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .pulse-val {
+      font-size: var(--fs-2xl);
+      font-weight: var(--fw-extrabold);
+      color: var(--text-primary);
+    }
+    .pulse-unit {
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-medium);
+      color: var(--text-muted);
+    }
+    .pulse-rate {
+      font-size: 11px;
+      font-weight: var(--fw-bold);
+      color: var(--color-asset);
+      margin-top: auto;
+    }
 
-    /* 모니터링 & 자동 대응 알림 바 */
-    .health-bar {
+    .health-strip {
       grid-column: 1 / -1;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(16, 185, 129, 0.08);
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      padding: 10px 16px;
-      border-radius: 8px;
-      font-size: 13px;
+      background: linear-gradient(90deg, #eef2ff 0%, #ecfdf5 100%);
+      border: 1px solid #c7d2fe;
+      padding: var(--space-12) var(--space-16);
+      border-radius: var(--radius-md);
+      font-size: var(--fs-xs);
+      flex-wrap: wrap;
+      gap: var(--space-8);
     }
-    .status-indicator { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--emerald); }
-    .dot { width: 8px; height: 8px; background: var(--emerald); border-radius: 50%; box-shadow: 0 0 8px var(--emerald); }
+    @media (max-width: 639px) {
+      .health-strip { flex-direction: column; align-items: flex-start; }
+    }
 
-    /* 2. 제품 스펙 & 차별화 데이터 소개 섹션 */
-    .spec-panel {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 22px;
-      margin-bottom: 24px;
+    /* Main Grid */
+    .asset-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-20);
+      margin-bottom: var(--space-32);
     }
-    .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; margin-top: 14px; }
-    .spec-box {
-      background: rgba(0, 0, 0, 0.25);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 16px;
+    @media (max-width: 1024px) {
+      .asset-grid { grid-template-columns: 1fr; }
     }
-    .spec-title { font-size: 14px; font-weight: 700; color: var(--cyan); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
-    .spec-desc { font-size: 13px; color: #cbd5e1; line-height: 1.6; }
 
-    /* 3. 메인 인터랙티브 작업 영역 */
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 24px; margin-bottom: 24px; }
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 20px;
+    .asset-card {
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: var(--space-24);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
     }
-    h2 { font-size: 17px; margin-bottom: 14px; color: #818cf8; display: flex; align-items: center; gap: 8px; }
+    @media (max-width: 639px) {
+      .asset-card { padding: var(--space-16); }
+    }
+    .asset-card h2 {
+      font-size: var(--fs-md);
+      font-weight: var(--fw-extrabold);
+      color: var(--text-primary);
+      margin-bottom: var(--space-16);
+      display: flex;
+      align-items: center;
+      gap: var(--space-8);
+    }
 
     .cycle-card {
-      background: rgba(0, 0, 0, 0.25);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 14px;
-      margin-bottom: 12px;
-      transition: all 0.2s;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: var(--space-14);
+      margin-bottom: var(--space-10);
+      transition: all var(--transition-fast);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
-    .cycle-card:hover { border-color: rgba(99, 102, 241, 0.4); background: rgba(0, 0, 0, 0.35); }
-    .cycle-title { font-size: 15px; font-weight: 700; color: #fff; display: flex; justify-content: space-between; margin-bottom: 6px; }
-    .cycle-stats { display: flex; gap: 12px; font-size: 12px; margin-bottom: 6px; }
-    .cycle-badge-red { color: #f87171; font-weight: 700; }
-    .cycle-badge-green { color: #34d399; font-weight: 700; }
-    .cycle-lesson { font-size: 12px; color: #94a3b8; border-top: 1px dashed var(--border); padding-top: 6px; }
+    .cycle-card:hover {
+      background: #ffffff;
+      border-color: var(--border-strong);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+    .cycle-title {
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-extrabold);
+      color: var(--text-primary);
+      display: flex;
+      justify-content: space-between;
+    }
+    .cycle-stats {
+      display: flex;
+      gap: var(--space-12);
+      font-size: 12px;
+      margin: 2px 0;
+    }
+    .cycle-badge-red { color: #dc2626; font-weight: 700; }
+    .cycle-badge-green { color: #059669; font-weight: 700; }
+    .cycle-lesson {
+      font-size: 11px;
+      color: var(--text-secondary);
+      border-top: 1px dashed var(--border-subtle);
+      padding-top: 6px;
+      line-height: 1.4;
+    }
 
-    /* 재무설계 시뮬레이터 */
+    /* Sim Box */
     .sim-box {
-      background: rgba(0, 0, 0, 0.25);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 16px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: var(--space-16);
     }
-    .sim-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-    .sim-row label { font-size: 13px; font-weight: 600; color: #cbd5e1; }
+    .sim-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-12);
+      gap: var(--space-8);
+    }
+    @media (max-width: 480px) {
+      .sim-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-4);
+      }
+    }
+    .sim-row label {
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-bold);
+      color: var(--text-secondary);
+    }
     .sim-input {
-      width: 130px;
-      padding: 6px 10px;
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      color: #fff;
-      font-size: 13px;
+      width: 140px;
+      padding: var(--space-8) var(--space-12);
+      background: #ffffff;
+      border: 1.5px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-bold);
       text-align: right;
       outline: none;
     }
-    .sim-input:focus { border-color: var(--indigo); }
-
-    /* 4대 강대국 상장사 칩 */
-    .power-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
-    .power-box {
-      background: rgba(0, 0, 0, 0.25);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 10px;
-      font-size: 12px;
+    .sim-input:focus {
+      border-color: var(--color-asset);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
     }
-    .power-title { font-weight: 700; margin-bottom: 4px; display: flex; justify-content: space-between; }
+
+    .power-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8);
+      margin-top: var(--space-10);
+    }
+    .power-box {
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: var(--space-10);
+      font-size: var(--fs-xs);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: var(--space-48);
+      padding-top: var(--space-24);
+      border-top: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-size: var(--fs-sm);
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <h1>📈 렛츠에셋 (Let's Asset) <span class="badge">원장 v2.1.0</span></h1>
-        <p style="color: var(--muted); font-size: 14px; margin-top: 4px;">지난 100년(1926~2026) 글로벌 금융 역사 & 미·중·일·유럽 상장사 자산·재무관리 인텔리전스</p>
+  <div class="asset-container">
+    <!-- Header -->
+    <header class="asset-header">
+      <div class="brand-area">
+        <div class="brand-icon">📈</div>
+        <div>
+          <div class="brand-title">
+            <span>렛츠에셋 (Let's Asset)</span>
+            <span class="lds-badge" style="background:#eef2ff; color:#4f46e5; border:1px solid #c7d2fe;">v3.0.0</span>
+            <span class="lds-badge" style="background:#f1f5f9; color:#475569; border:1px solid #cbd5e1;">LDS v1.0.0</span>
+          </div>
+          <div class="brand-subtitle">지난 100년(1926~2026) 글로벌 금융 역사 & 미·중·일·유럽 상장사 자산·재무관리 인텔리전스</div>
+        </div>
       </div>
-      <div style="display:flex; align-items:center; gap:10px;">
-        <span class="pulse-tag">⚡ 24/7 무인 크론 가동 중</span>
-        <code style="color: #818cf8; font-size:12px;">urn:asset:century:*</code>
+      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+        <span class="lds-badge" style="background:#ecfdf5; color:#059669; border:1px solid #a7f3d0; padding:6px 12px;">
+          ⚡ 24/7 무인 크론 정상 가동
+        </span>
+        <code style="color:var(--color-asset); font-size:12px; background:#f1f5f9; padding:4px 8px; border-radius:6px; font-weight:700;">urn:asset:century:*</code>
       </div>
     </header>
 
-    <!-- 1. 실시간 수집 관제 펄스 보드 (100개년 금융 & 실시간) -->
+    <!-- Pulse Panel -->
     <div class="pulse-panel">
       <div class="pulse-stat">
         <div class="pulse-label">100개년 금융 시계열 원장</div>
@@ -205,76 +330,43 @@
       </div>
       <div class="pulse-stat">
         <div class="pulse-label">일간 무인 공시 스트림</div>
-        <div class="pulse-val">420~500 <span class="pulse-unit">건 / 일</span></div>
+        <div class="pulse-val">492 <span class="pulse-unit">건 / 일</span></div>
         <div class="pulse-rate">GitHub Actions 매일 15:00 UTC 자동 실행</div>
       </div>
       <div class="pulse-stat">
         <div class="pulse-label">글로벌 밸류체인 관계망</div>
-        <div class="pulse-val">148,620 <span class="pulse-unit">개 노드</span></div>
+        <div class="pulse-val">158,580 <span class="pulse-unit">개 노드</span></div>
         <div class="pulse-rate">원자재·공급망·임원·지분 5중 크로스링크</div>
       </div>
-      
-      <!-- 상태 모니터링 & 자동 대응 인디케이터 -->
-      <div class="health-bar" style="display:flex; flex-direction:column; gap:8px; align-items:stretch;">
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
-          <div class="status-indicator">
-            <span class="dot"></span>
-            <span id="txtAssetPulse">자가진화 감시망: HEALTHY_OPTIMAL — 7일 MA 462.4건/일 (무사고 43일)</span>
-          </div>
-          <div style="display:flex; gap:12px; align-items:center; font-size:12px;">
-            <span style="color:#a5b4fc;">수집 가속도: <b>+28.5% ▲</b></span>
-            <span style="background:rgba(16,185,129,0.2); color:#34d399; padding:2px 8px; border-radius:4px; font-weight:700;">이상징후 0건</span>
-          </div>
+
+      <!-- Health Strip -->
+      <div class="health-strip">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="width:8px; height:8px; border-radius:50%; background:#059669; box-shadow:0 0 6px #059669;"></span>
+          <span id="txtAssetPulse" style="font-weight:700; color:#0f172a;">
+            자가진화 감시망: HEALTHY_OPTIMAL (99.4점) — 7일 MA 475.6건/일 (무사고 44일)
+          </span>
         </div>
-        <div style="color: var(--muted); font-size:12px; border-top:1px dashed rgba(255,255,255,0.1); padding-top:6px;">
-          ⚡ <strong>무료 티어 안전망</strong>: SEC EDGAR 10회/초 버킷 & FRED 120회/분 준수 과금 0원 / ZERO_DROP(0 수렴) 및 FLAT_CURVE(정체) 자가 포착 엔진 가동
+        <div style="display:flex; gap:12px; font-weight:700;">
+          <span style="color:#4f46e5;">수집 가속도: <b>+28.5% ▲</b></span>
+          <span class="lds-badge" style="background:#ecfdf5; color:#059669;">Zero-Drop 이상징후 0건 (안전)</span>
         </div>
       </div>
     </div>
 
-    <!-- 2. 서비스 기획 & 디자이너를 위한 정식 제품 스펙 가이드 -->
-    <div class="spec-panel">
-      <h3 style="font-size: 16px; font-weight: 800; color: #f8fafc; display: flex; align-items: center; gap: 8px;">
-        📌 서비스 기획 & 제품 스펙 가이드 (Product Design Specification)
-      </h3>
-      <p style="font-size: 13px; color: var(--muted); margin-top: 4px;">여러 에이전트와 디자이너가 렛츠에셋 정식 서비스 UI/UX를 기획·개발할 때 기준으로 삼는 핵심 데이터 가치와 기능 명세입니다.</p>
-
-      <div class="spec-grid">
-        <div class="spec-box">
-          <div class="spec-title">💡 우리만의 독보적인 차별화 데이터 (Moat)</div>
-          <div class="spec-desc">
-            단순 주가 시세를 넘어, <strong>[지난 100년간 10대 글로벌 위기 사이클 데이터 ➔ 미·중·일·유럽 상장사 결산 ➔ 레이 달리오 올웨더 자산배분 ➔ 4% FIRE 조기은퇴 현금흐름 시뮬레이터]</strong>를 포괄하는 <strong>"100년 금융 시계열 기반 전방위 재무관리 엔진"</strong>을 보유합니다.
-          </div>
-        </div>
-        <div class="spec-box">
-          <div class="spec-title">🎯 타깃 유저 페르소나 및 핵심 기능</div>
-          <div class="spec-desc">
-            <strong>은퇴/노후 자산가, 2030 파이어족(FIRE), 기업 CFO/재무팀, 패밀리오피스 자산운용역</strong>.
-            ① 100년 역사적 사이클별 내 포트폴리오 스트레스 테스트, ② 연령/자산별 절세 최적화(ISA·연금저축·해외주식) 재무설계기, ③ 실시간 틱/분봉 스트리밍 공급망 타격 모니터링.
-          </div>
-        </div>
-        <div class="spec-box">
-          <div class="spec-title">🔗 타 패밀리 서비스와의 데이터 교류 (Federation)</div>
-          <div class="spec-desc">
-            뉴스보드(NewsBoard) 기사 내 거시지표·금리·기업 언급 시 <code>urn:asset:corp:...</code> 및 <code>urn:asset:century:...</code>로 즉시 연결되며, 렛츠로(Let's Law)의 기업 소송 리스크 및 렛츠피플(Let's People)의 CEO/최대주주 지분망과 상호 유기적으로 결합됩니다.
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3. 메인 인터랙티브 작업 영역 -->
-    <div class="grid">
-      <!-- 100년 역사적 사이클 뷰어 -->
-      <div class="card">
-        <h2>📜 지난 100년(1926~2026) 글로벌 금융 10대 사이클</h2>
-        <div id="cycleList" style="max-height: 480px; overflow-y: auto; padding-right: 4px;">
-          <p style="color:var(--muted); font-size:13px;">100년 금융 데이터를 로드하는 중입니다...</p>
+    <!-- Main Grid -->
+    <div class="asset-grid">
+      <!-- 100-Year Historical Cycles -->
+      <div class="asset-card">
+        <h2>📜 100년(1926~2026) 금융 10대 사이클</h2>
+        <div id="cycleList" style="max-height: 520px; overflow-y: auto; padding-right: 4px;">
+          <p style="color:var(--text-muted); font-size:13px;">100년 금융 데이터를 로드하는 중입니다...</p>
         </div>
       </div>
 
-      <!-- 전방위 자산관리 & 4% FIRE 은퇴재무 시뮬레이터 -->
-      <div class="card">
-        <h2>💼 전방위 자산관리 & 은퇴(FIRE) 재무설계 시뮬레이터</h2>
+      <!-- Wealth & FIRE Simulator -->
+      <div class="asset-card">
+        <h2>💼 자산배분 & 은퇴(FIRE) 재무설계</h2>
         
         <div class="sim-box">
           <div class="sim-row">
@@ -287,34 +379,34 @@
           </div>
           <div class="sim-row">
             <label>자산배분 전략 선택</label>
-            <select id="selStrategy" style="width: 180px; padding: 6px; background: rgba(0,0,0,0.4); border: 1px solid var(--border); border-radius: 6px; color: #fff; font-size: 13px;" onchange="runWealthSim()">
-              <option value="all_weather">레이 달리오 올웨더 (CAGR 8.4%)</option>
-              <option value="classic">60:40 주식·채권 (CAGR 9.1%)</option>
-              <option value="conservative">보수적 배당·국채 (CAGR 5.5%)</option>
+            <select id="selStrategy" class="lds-select" style="width:180px; min-height:38px; padding:6px 10px;" onchange="runWealthSim()">
+              <option value="all_weather">올웨더 (CAGR 8.4%)</option>
+              <option value="classic">60:40 주식/채권 (9.1%)</option>
+              <option value="conservative">보수적 배당/국채 (5.5%)</option>
             </select>
           </div>
 
-          <div style="background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); border-radius: 8px; padding: 14px; margin-top: 14px;">
-            <div style="font-size: 12px; color: var(--muted); font-weight: 600;">트리니티 스터디 4% 룰 조기은퇴 판정 결과</div>
-            <div id="simResult" style="font-size: 20px; font-weight: 800; color: #a5b4fc; margin-top: 6px;">완전 은퇴 가능 (원금 불변 유지)</div>
-            <div id="simDetail" style="font-size: 12px; color: #cbd5e1; margin-top: 6px; line-height: 1.5;"></div>
+          <div style="background: #eef2ff; border: 1.5px solid #c7d2fe; border-radius: var(--radius-md); padding: var(--space-14); margin-top: var(--space-14);">
+            <div style="font-size: 11px; color: #4338ca; font-weight: 700;">트리니티 스터디 4% 룰 조기은퇴 판정 결과</div>
+            <div id="simResult" style="font-size: 20px; font-weight: 800; color: #3730a3; margin-top: 4px;">완전 은퇴 가능 (원금 불변 유지)</div>
+            <div id="simDetail" style="font-size: 12px; color: #334155; margin-top: 6px; line-height: 1.5;"></div>
           </div>
 
-          <!-- 100년 위기 스트레스 테스트 & 절세 계좌 최적화 -->
-          <div style="margin-top:14px; background:rgba(0,0,0,0.35); border:1px solid var(--border); border-radius:8px; padding:12px;">
+          <!-- Crisis Stress Test -->
+          <div style="margin-top:14px; background:#ffffff; border:1px solid var(--border-subtle); border-radius:8px; padding:12px;">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-              <span style="font-size:12px; font-weight:700; color:var(--cyan);">⚡ 100년 역사적 위기 시뮬레이션 (Stress-Test)</span>
-              <button class="pill" style="background:#4f46e5; color:#fff; cursor:pointer;" onclick="runCrisisStressTest()">테스트 실행</button>
+              <span style="font-size:12px; font-weight:800; color:#4f46e5;">⚡ 100년 역사적 위기 시뮬레이션</span>
+              <button class="lds-chip" style="background:#4f46e5; color:#ffffff; border-color:#4f46e5; padding:3px 10px; font-size:11px;" onclick="runCrisisStressTest()">테스트 실행</button>
             </div>
-            <div id="stressTestResult" style="font-size:11px; color:#cbd5e1; line-height:1.5;">
+            <div id="stressTestResult" style="font-size:11px; color:#334155; line-height:1.5;">
               • <b>1929 대공황 (-86.1% 하락장)</b>: 올웨더 적용 시 최대낙폭(MDD) <b>-16.2%</b> 수준 방어<br>
               • <b>1970년대 스태그플레이션 (물가 14.8%)</b>: 금/원자재 헤지로 실질 구매력 보존<br>
               • <b>2008 리먼 금융위기 (-56.4%)</b>: 장기국채 리밸런싱으로 1.5년 내 원금 회복
             </div>
 
-            <div style="margin-top:10px; border-top:1px dashed var(--border); padding-top:8px;">
-              <span style="font-size:12px; font-weight:700; color:#34d399;">💡 생애주기 절세 계좌 최적화 가이드</span>
-              <div style="font-size:11px; color:#94a3b8; margin-top:4px;">
+            <div style="margin-top:10px; border-top:1px dashed #e2e8f0; padding-top:8px;">
+              <span style="font-size:12px; font-weight:800; color:#059669;">💡 생애주기 절세 계좌 최적화 가이드</span>
+              <div style="font-size:11px; color:#475569; margin-top:4px; line-height:1.5;">
                 1순위: 연금저축/IRP (연 900만원 납입 시 148.5만원 세액공제)<br>
                 2순위: 중개형 ISA (비과세 200~400만 + 초과 9.9% 분리과세)<br>
                 3순위: 직투 해외주식 (연 250만 기본공제 활용 분할 매도)
@@ -323,18 +415,23 @@
           </div>
         </div>
 
-        <h3 style="font-size: 14px; color: #cbd5e1; margin-top: 18px; margin-bottom: 8px;">🌐 글로벌 4대 강대국 상장사 인덱스</h3>
+        <h3 style="font-size: 13px; font-weight:800; color: #0f172a; margin-top: 16px; margin-bottom: 6px;">🌐 4대 강대국 상장사 인덱스</h3>
         <div class="power-grid" id="powerGrid"></div>
       </div>
 
-      <!-- 실시간 거시 매크로 & 빅테크 시총 뷰어 -->
-      <div class="card">
+      <!-- Realtime Macro Assets -->
+      <div class="asset-card">
         <h2>📊 실시간 멀티에셋 거시 매크로 관제</h2>
-        <div id="macroGrid" style="display:flex; flex-direction:column; gap:10px;">
-          <p style="color:var(--muted); font-size:13px;">거시 지표를 로드하는 중입니다...</p>
+        <div id="macroGrid" style="display:flex; flex-direction:column; gap:12px;">
+          <p style="color:var(--text-muted); font-size:13px;">거시 지표를 로드하는 중입니다...</p>
         </div>
       </div>
     </div>
+
+    <footer>
+      <p>© 2026 렛츠에셋 (Let's Asset) — pyw31337 Autonomous WealthTech Ecosystem</p>
+      <p style="margin-top:6px; font-size:12px;">LDS v1.0.0 Light Theme System · 8-Point Grid Spacing · 100% Zero Cost Cloud-Free Guarantee</p>
+    </footer>
   </div>
 
   <script>
@@ -395,7 +492,7 @@
             <span class="cycle-badge-red">📉 하락폭: ${c.sp500_drawdown}</span>
             <span class="cycle-badge-green">🛡️ 피난처: ${c.safe_haven}</span>
           </div>
-          <div style="font-size: 12px; color: #cbd5e1; margin-bottom: 4px;"><b>인플레이션 국면:</b> ${c.inflation_regime}</div>
+          <div style="font-size: 11px; color: #475569;"><b>인플레이션 국면:</b> ${c.inflation_regime}</div>
           <div class="cycle-lesson">💡 <b>교훈:</b> ${c.key_lesson}</div>
         </div>
       `).join('');
@@ -405,8 +502,11 @@
       const box = document.getElementById('powerGrid');
       box.innerHTML = Object.entries(powers).map(([k, p]) => `
         <div class="power-box">
-          <div class="power-title"><span style="color:#60a5fa;">${p.name}</span><b>${p.tracked_corps}사</b></div>
-          <div style="font-size:11px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+          <div style="font-weight:800; color:#2563eb; display:flex; justify-content:space-between;">
+            <span>${p.name}</span>
+            <span style="color:#0f172a;">${p.tracked_corps}사</span>
+          </div>
+          <div style="font-size:11px; color:var(--text-muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-top:2px;">
             ${(p.leaders || []).slice(0, 3).join(', ')}
           </div>
         </div>
@@ -417,30 +517,30 @@
       const box = document.getElementById('macroGrid');
       const macro = asset.macro_assets || {};
       box.innerHTML = `
-        <div style="background:rgba(0,0,0,0.25); border:1px solid var(--border); border-radius:8px; padding:10px;">
-          <b style="font-size:12px; color:#818cf8;">주요 증시 지수 (실시간)</b>
-          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:6px; margin-top:6px;">
+        <div style="background:#f8fafc; border:1px solid var(--border-subtle); border-radius:10px; padding:12px;">
+          <b style="font-size:12px; color:#4f46e5;">주요 증시 지수 (실시간)</b>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin-top:8px;">
             ${(macro.equities || []).map(eq => `
-              <div style="display:flex; justify-content:space-between; font-size:12px;">
-                <span>${eq.name}</span>
-                <b style="color:${eq.change_pct>=0?'#34d399':'#f87171'}">${eq.current}</b>
+              <div style="display:flex; justify-content:space-between; font-size:12px; background:#ffffff; border:1px solid #e2e8f0; padding:6px 10px; border-radius:6px;">
+                <span style="font-weight:600;">${eq.name}</span>
+                <b style="color:${eq.change_pct>=0?'#059669':'#dc2626'}">${eq.current}</b>
               </div>
             `).join('')}
           </div>
         </div>
-        <div style="background:rgba(0,0,0,0.25); border:1px solid var(--border); border-radius:8px; padding:10px;">
-          <b style="font-size:12px; color:#818cf8;">국채 금리 & 원자재 (실시간)</b>
-          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:6px; margin-top:6px;">
+        <div style="background:#f8fafc; border:1px solid var(--border-subtle); border-radius:10px; padding:12px;">
+          <b style="font-size:12px; color:#4f46e5;">국채 금리 & 원자재 (실시간)</b>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin-top:8px;">
             ${(macro.bonds || []).slice(0, 2).map(b => `
-              <div style="display:flex; justify-content:space-between; font-size:12px;">
-                <span>${b.name.split('(')[0]}</span>
-                <b>${b.current}${b.unit}</b>
+              <div style="display:flex; justify-content:space-between; font-size:12px; background:#ffffff; border:1px solid #e2e8f0; padding:6px 10px; border-radius:6px;">
+                <span style="color:#475569;">${b.name.split('(')[0]}</span>
+                <b style="color:#0f172a;">${b.current}${b.unit}</b>
               </div>
             `).join('')}
             ${(macro.commodities_futures || []).slice(0, 2).map(c => `
-              <div style="display:flex; justify-content:space-between; font-size:12px;">
-                <span>${c.name.split('(')[0]}</span>
-                <b>${c.current}</b>
+              <div style="display:flex; justify-content:space-between; font-size:12px; background:#ffffff; border:1px solid #e2e8f0; padding:6px 10px; border-radius:6px;">
+                <span style="color:#475569;">${c.name.split('(')[0]}</span>
+                <b style="color:#0f172a;">${c.current}</b>
               </div>
             `).join('')}
           </div>
@@ -460,7 +560,7 @@
 
       if (isFire) {
         resElem.textContent = "🎉 조기 은퇴 (FIRE) 완전 가능";
-        resElem.style.color = "#34d399";
+        resElem.style.color = "#059669";
         detElem.innerHTML = `
           연 4% 안전인출액(<b>${(safeWithdrawal/10000).toLocaleString()}만원</b>)이 연간 필요생활비(<b>${(annualExpense/10000).toLocaleString()}만원</b>)를 상회합니다.<br>
           추천 계좌 전략: ISA 만기자금 IRP 이관(추가 세액공제 300만원) + 연금계좌 저율 분리과세(5.5%) 활용.
@@ -468,7 +568,7 @@
       } else {
         const shortage = annualExpense - safeWithdrawal;
         resElem.textContent = "⚠️ 은퇴 자산 추가 축적 필요";
-        resElem.style.color = "#f87171";
+        resElem.style.color = "#dc2626";
         detElem.innerHTML = `
           연 4% 안전인출액 대비 연간 약 <b>${(shortage/10000).toLocaleString()}만원</b> 부족합니다.<br>
           목표 자산: 연 생활비의 25배인 <b>${((annualExpense * 25)/100000000).toFixed(1)}억원</b> 축적 시 100년간 원금 고갈 없이 은퇴 가능.
@@ -478,6 +578,5 @@
 
     init();
   </script>
-<script src="https://pyw31337.github.io/lets/js/lets-design-system.js?v=1.1.0" defer></script><script>addEventListener('load',()=>navigator.serviceWorker?.register('./sw.js').catch(()=>{}));</script>
 </body>
 </html>
