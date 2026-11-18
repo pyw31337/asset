@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "last_updated": "2026-11-18T11:20:00+09:00",
+  "last_updated": "2026-11-18T13:05:59.006704+09:00",
   "historical_coverage": "1926~2026 (100개년 글로벌 금융 전수)",
   "century_cycles": [
     {
@@ -47,14 +47,23 @@
   "wealth_management_models": {
     "all_weather": {
       "name": "레이 달리오 올웨더 (All-Weather) 전략",
-      "allocation": { "us_stocks": 30, "long_treasury": 40, "inter_treasury": 15, "gold": 7.5, "commodities": 7.5 },
+      "allocation": {
+        "us_stocks": 30,
+        "long_treasury": 40,
+        "inter_treasury": 15,
+        "gold": 7.5,
+        "commodities": 7.5
+      },
       "cagr_100y": "8.4%",
       "max_drawdown": "-14.2% (1929년 대공황기에도 안정 방어)",
       "philosophy": "성장/인플레이션의 4개 국면(사계절)에 완벽 대응하는 리스크 패리티 전략."
     },
     "classic_60_40": {
       "name": "전통적 60/40 주식·채권 포트폴리오",
-      "allocation": { "us_stocks": 60, "us_bonds": 40 },
+      "allocation": {
+        "us_stocks": 60,
+        "us_bonds": 40
+      },
       "cagr_100y": "9.1%",
       "max_drawdown": "-31.4%",
       "philosophy": "장기 우상향 주식 자본이득과 채권 이자소득의 균형."
@@ -64,5 +73,8 @@
       "mechanism": "총 은퇴자산의 연 4%를 인출하더라도 30~50년간 원금이 고갈되지 않는 트리니티 연구 모델",
       "tax_optimization": "국내 ISA(비과세 500만원) ➔ 연금저축/IRP(세액공제 900만원/5.5% 저율과세) ➔ 해외주식 양도세(250만원 기본공제) 분산 인출"
     }
-  }
+  },
+  "total_streamed_events": 148620,
+  "last_run_status": "SUCCESS_INCREMENT_ADDED",
+  "daily_increment_count": 420
 }
