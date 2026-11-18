@@ -1,0 +1,14 @@
+{
+  "version": "2.1.0",
+  "major_powers_indices": {
+    "china_csi300": { "name": "중국 상해·심천 CSI 300", "tracked_corps": 300, "leaders": ["Tencent (0700.HK)", "Alibaba (9988.HK)", "CATL (300750.SZ)", "BYD (002594.SZ)", "Kweichow Moutai (600519.SS)"] },
+    "japan_nikkei225": { "name": "일본 닛케이 225", "tracked_corps": 225, "leaders": ["Toyota (7203.T)", "Sony (6758.T)", "Keyence (6861.T)", "Tokyo Electron (8035.T)", "Fast Retailing (9983.T)"] },
+    "europe_stoxx50": { "name": "유럽 EuroStoxx 50", "tracked_corps": 50, "leaders": ["ASML (ASML.AS)", "Novo Nordisk (NOVO-B.CO)", "LVMH (MC.PA)", "SAP (SAP.DE)", "Schneider Electric (SU.PA)"] },
+    "russia_moex": { "name": "러시아 MOEX 인덱스", "tracked_corps": 40, "leaders": ["Gazprom (GAZP.ME)", "Lukoil (LKOH.ME)", "Sberbank (SBER.ME)", "Rosneft (ROSN.ME)"] }
+  },
+  "global_macro_resilience": {
+    "us_china_tech_decoupling": "중국 반도체 국산화율 35% 추적 & 엔비디아 중국 특화칩(H20) 공급망 영향도",
+    "commodity_energy_axis": "러시아 가스·원유 인도/중국 우회 수출 흐름 및 OPEC+ 감산 쿼터 감제",
+    "european_semiconductor_chokepoint": "네덜란드 ASML 극자외선(EUV) 독점과 글로벌 파운드리 종속성"
+  }
+}

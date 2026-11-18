@@ -2,15 +2,16 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>렛츠에셋 (Let's Asset) — 100개년(1926~2026) 글로벌 금융 역사 & 전방위 자산·재무관리 인텔리전스</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>렛츠에셋 (Let's Asset) — 100개년 글로벌 금융 역사 & 미·중·일·유럽 자산·재무관리 인텔리전스</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <style>
     :root {
-      --bg: #090d16;
-      --card-bg: rgba(18, 24, 38, 0.85);
-      --card-hover: rgba(26, 36, 58, 0.95);
-      --border: rgba(255, 255, 255, 0.1);
-      --text: #f1f5f9;
+      --bg: #070a12;
+      --card-bg: rgba(15, 20, 32, 0.9);
+      --card-hover: rgba(22, 30, 48, 0.95);
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f8fafc;
       --muted: #94a3b8;
       --primary: #3b82f6;
       --indigo: #6366f1;
@@ -20,15 +21,14 @@
       --rose: #f43f5e;
       --purple: #a855f7;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont, sans-serif; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Pretendard", sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      padding: 24px;
+      padding: 20px;
     }
-    .container { max-width: 1320px; margin: 0 auto; }
+    .container { max-width: 1340px; margin: 0 auto; }
     
     /* 헤더 */
     header {
@@ -41,7 +41,7 @@
       flex-wrap: wrap;
       gap: 16px;
     }
-    .brand h1 { font-size: 26px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+    .brand h1 { font-size: 24px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
     .badge {
       background: rgba(99, 102, 241, 0.18);
       color: var(--indigo);
@@ -51,10 +51,18 @@
       font-weight: 600;
       border: 1px solid rgba(99, 102, 241, 0.3);
     }
+    .pulse-tag {
+      background: rgba(99, 102, 241, 0.15);
+      color: #a5b4fc;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+    }
 
     /* 1. 실시간 수집 관제 펄스 보드 (100개년 금융 & 실시간) */
     .pulse-panel {
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 27, 75, 0.7));
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 27, 75, 0.8));
       border: 1px solid rgba(99, 102, 241, 0.3);
       border-radius: 14px;
       padding: 20px;
@@ -62,9 +70,10 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
       gap: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
     .pulse-stat {
-      background: rgba(0, 0, 0, 0.25);
+      background: rgba(0, 0, 0, 0.3);
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: 14px;
@@ -89,7 +98,7 @@
     .status-indicator { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--emerald); }
     .dot { width: 8px; height: 8px; background: var(--emerald); border-radius: 50%; box-shadow: 0 0 8px var(--emerald); }
 
-    /* 2. 제품 스펙 & 차별화 데이터 소개 섹션 (기획자·디자이너용) */
+    /* 2. 제품 스펙 & 차별화 데이터 소개 섹션 */
     .spec-panel {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -107,27 +116,8 @@
     .spec-title { font-size: 14px; font-weight: 700; color: var(--cyan); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
     .spec-desc { font-size: 13px; color: #cbd5e1; line-height: 1.6; }
 
-    /* 네비게이션 탭 */
-    .nav-tabs { display: flex; gap: 10px; margin-bottom: 20px; }
-    .nav-btn {
-      padding: 9px 18px;
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      color: var(--muted);
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 700;
-      transition: all 0.2s;
-    }
-    .nav-btn.active {
-      background: var(--indigo);
-      color: #fff;
-      border-color: var(--indigo);
-    }
-
     /* 3. 메인 인터랙티브 작업 영역 */
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 24px; margin-bottom: 24px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 24px; margin-bottom: 24px; }
     .card {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -142,7 +132,9 @@
       border-radius: 10px;
       padding: 14px;
       margin-bottom: 12px;
+      transition: all 0.2s;
     }
+    .cycle-card:hover { border-color: rgba(99, 102, 241, 0.4); background: rgba(0, 0, 0, 0.35); }
     .cycle-title { font-size: 15px; font-weight: 700; color: #fff; display: flex; justify-content: space-between; margin-bottom: 6px; }
     .cycle-stats { display: flex; gap: 12px; font-size: 12px; margin-bottom: 6px; }
     .cycle-badge-red { color: #f87171; font-weight: 700; }
@@ -167,18 +159,32 @@
       color: #fff;
       font-size: 13px;
       text-align: right;
+      outline: none;
     }
+    .sim-input:focus { border-color: var(--indigo); }
+
+    /* 4대 강대국 상장사 칩 */
+    .power-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+    .power-box {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 12px;
+    }
+    .power-title { font-weight: 700; margin-bottom: 4px; display: flex; justify-content: space-between; }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
       <div class="brand">
-        <h1>📈 렛츠에셋 (Let's Asset) <span class="badge">100년 금융·재무관리 v2.0.0</span></h1>
-        <p style="color: var(--muted); font-size: 14px; margin-top: 4px;">지난 100년(1926~2026) 글로벌 금융 역사 빅데이터 & 전방위 자산관리·은퇴재무설계 온톨로지</p>
+        <h1>📈 렛츠에셋 (Let's Asset) <span class="badge">원장 v2.1.0</span></h1>
+        <p style="color: var(--muted); font-size: 14px; margin-top: 4px;">지난 100년(1926~2026) 글로벌 금융 역사 & 미·중·일·유럽 상장사 자산·재무관리 인텔리전스</p>
       </div>
-      <div style="font-size: 13px; color: var(--muted);">
-        온톨로지 URN: <code style="color: #818cf8">urn:asset:century:*</code>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span class="pulse-tag">⚡ 24/7 무인 크론 가동 중</span>
+        <code style="color: #818cf8; font-size:12px;">urn:asset:century:*</code>
       </div>
     </header>
 
@@ -190,18 +196,18 @@
         <div class="pulse-rate">▲ 대공황·스태그플레이션·2008금융위기 전수</div>
       </div>
       <div class="pulse-stat">
-        <div class="pulse-label">실시간 상장사 공시·시세 스트림</div>
-        <div class="pulse-val">9,348 <span class="pulse-unit">개사</span></div>
-        <div class="pulse-rate">SEC 6,850사 + DART 2,498사 15분 주기</div>
+        <div class="pulse-label">글로벌 상장사 결산 원장</div>
+        <div class="pulse-val" id="statCorps">9,963 <span class="pulse-unit">개사</span></div>
+        <div class="pulse-rate">미국 SEC + 한국 DART + 중·일·유럽 지수</div>
       </div>
       <div class="pulse-stat">
-        <div class="pulse-label">자산관리·포트폴리오 모델</div>
-        <div class="pulse-val">12 <span class="pulse-unit">개 전략</span></div>
-        <div class="pulse-rate">올웨더·영구포트·4% FIRE·절세최적화</div>
+        <div class="pulse-label">일간 무인 공시 스트림</div>
+        <div class="pulse-val">420~500 <span class="pulse-unit">건 / 일</span></div>
+        <div class="pulse-rate">GitHub Actions 매일 15:00 UTC 자동 실행</div>
       </div>
       <div class="pulse-stat">
         <div class="pulse-label">글로벌 밸류체인 관계망</div>
-        <div class="pulse-val">148,200 <span class="pulse-unit">개 노드</span></div>
+        <div class="pulse-val">148,620 <span class="pulse-unit">개 노드</span></div>
         <div class="pulse-rate">원자재·공급망·임원·지분 5중 크로스링크</div>
       </div>
       
@@ -209,10 +215,10 @@
       <div class="health-bar">
         <div class="status-indicator">
           <span class="dot"></span>
-          <span>수집 파이프라인: 정상 가동 중 (SEC EDGAR REST & DART & FRED 100년 매크로 API)</span>
+          <span>수집 파이프라인: 정상 가동 중 (SEC EDGAR & DART & FRED 100년 API)</span>
         </div>
         <div style="color: var(--muted);">
-          ⚡ <strong>장애 자동 대응</strong>: SEC 10 req/s 속도 제한 준수 토큰 버킷 작동 & DART 점검 시 로컬 캐시 서비스
+          ⚡ <strong>무료 티어 안전망</strong>: SEC 초당 10회 토큰 버킷 & FRED 분당 120회 제한 준수 과금 0원
         </div>
       </div>
     </div>
@@ -228,7 +234,7 @@
         <div class="spec-box">
           <div class="spec-title">💡 우리만의 독보적인 차별화 데이터 (Moat)</div>
           <div class="spec-desc">
-            단순 주가 시세를 넘어, <strong>[지난 100년간 10대 글로벌 위기 사이클 데이터 ➔ 15개년 재무 분식 탐지 ➔ 레이 달리오 올웨더 자산배분 ➔ 4% FIRE 조기은퇴 현금흐름 시뮬레이터]</strong>를 포괄하는 <strong>"100년 금융 시계열 기반 전방위 재무관리 엔진"</strong>을 보유합니다.
+            단순 주가 시세를 넘어, <strong>[지난 100년간 10대 글로벌 위기 사이클 데이터 ➔ 미·중·일·유럽 상장사 결산 ➔ 레이 달리오 올웨더 자산배분 ➔ 4% FIRE 조기은퇴 현금흐름 시뮬레이터]</strong>를 포괄하는 <strong>"100년 금융 시계열 기반 전방위 재무관리 엔진"</strong>을 보유합니다.
           </div>
         </div>
         <div class="spec-box">
@@ -285,6 +291,9 @@
             <div id="simDetail" style="font-size: 12px; color: #cbd5e1; margin-top: 6px; line-height: 1.5;"></div>
           </div>
         </div>
+
+        <h3 style="font-size: 14px; color: #cbd5e1; margin-top: 18px; margin-bottom: 8px;">🌐 글로벌 4대 강대국 상장사 인덱스</h3>
+        <div class="power-grid" id="powerGrid"></div>
       </div>
 
       <!-- 실시간 거시 매크로 & 빅테크 시총 뷰어 -->
@@ -300,18 +309,22 @@
   <script>
     let centuryDB = {};
     let assetDB = {};
+    let powersDB = {};
 
     async function init() {
       try {
-        const [cRes, aRes] = await Promise.all([
+        const [cRes, aRes, pRes] = await Promise.all([
           fetch('data/century_macro_and_wealth_db.json'),
-          fetch('data/asset_ontology.json')
+          fetch('data/asset_ontology.json'),
+          fetch('data/global_major_powers_corps.json')
         ]);
         centuryDB = await cRes.json();
         assetDB = await aRes.json();
+        powersDB = await pRes.json();
 
         renderCycles(centuryDB.century_cycles || []);
         renderMacro(assetDB);
+        renderPowers(powersDB.major_powers_indices || {});
         runWealthSim();
       } catch (err) {
         console.error('Data load error:', err);
@@ -331,6 +344,18 @@
           </div>
           <div style="font-size: 12px; color: #cbd5e1; margin-bottom: 4px;"><b>인플레이션 국면:</b> ${c.inflation_regime}</div>
           <div class="cycle-lesson">💡 <b>교훈:</b> ${c.key_lesson}</div>
+        </div>
+      `).join('');
+    }
+
+    function renderPowers(powers) {
+      const box = document.getElementById('powerGrid');
+      box.innerHTML = Object.entries(powers).map(([k, p]) => `
+        <div class="power-box">
+          <div class="power-title"><span style="color:#60a5fa;">${p.name}</span><b>${p.tracked_corps}사</b></div>
+          <div style="font-size:11px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            ${(p.leaders || []).slice(0, 3).join(', ')}
+          </div>
         </div>
       `).join('');
     }
@@ -373,7 +398,6 @@
     function runWealthSim() {
       const assetWon = (parseFloat(document.getElementById('inpAsset').value) || 0) * 100000000;
       const annualExpense = (parseFloat(document.getElementById('inpExpense').value) || 0) * 10000 * 12;
-      const strategy = document.getElementById('selStrategy').value;
 
       const safeWithdrawal = assetWon * 0.04;
       const isFire = safeWithdrawal >= annualExpense;
