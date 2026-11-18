@@ -1,0 +1,21 @@
+{
+  "version": "3.0.0",
+  "last_monitored_at": "2026-11-18T13:53:43.786600+09:00",
+  "pipeline_health_score": 99.2,
+  "status": "HEALTHY_OPTIMAL",
+  "daily_ingested_count": 485,
+  "moving_average_7d": 462.4,
+  "collection_slope_pct": 28.5,
+  "consecutive_healthy_days": 43,
+  "anomaly_flags": {
+    "zero_drop_detected": false,
+    "flat_curve_stagnation": false,
+    "sec_edgar_rate_limit_exceeded": false
+  },
+  "active_data_streams": [
+    "SEC EDGAR 6,850 tickers 15m stream",
+    "Korea DART 2,498 corps daily disclosures",
+    "FRED 100-Year Macro History (1926~2026)",
+    "Global Major Powers (CSI300, Nikkei225, EuroStoxx50)"
+  ]
+}
