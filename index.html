@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>렛츠에셋 (Let's Asset) — DART·SEC 글로벌 상장사 원장 & 15개년 크로스-보더 온톨로지 인텔리전스</title>
+  <title>렛츠에셋 (Let's Asset) — 100개년(1926~2026) 글로벌 금융 역사 & 전방위 자산·재무관리 인텔리전스</title>
   <style>
     :root {
       --bg: #090d16;
@@ -18,6 +18,7 @@
       --emerald: #10b981;
       --amber: #f59e0b;
       --rose: #f43f5e;
+      --purple: #a855f7;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -27,7 +28,7 @@
       line-height: 1.6;
       padding: 24px;
     }
-    .container { max-width: 1280px; margin: 0 auto; }
+    .container { max-width: 1320px; margin: 0 auto; }
     
     /* 헤더 */
     header {
@@ -51,7 +52,7 @@
       border: 1px solid rgba(99, 102, 241, 0.3);
     }
 
-    /* 1. 실시간 수집 관제 펄스 보드 */
+    /* 1. 실시간 수집 관제 펄스 보드 (100개년 금융 & 실시간) */
     .pulse-panel {
       background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 27, 75, 0.7));
       border: 1px solid rgba(99, 102, 241, 0.3);
@@ -59,7 +60,7 @@
       padding: 20px;
       margin-bottom: 24px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
       gap: 16px;
     }
     .pulse-stat {
@@ -106,6 +107,25 @@
     .spec-title { font-size: 14px; font-weight: 700; color: var(--cyan); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
     .spec-desc { font-size: 13px; color: #cbd5e1; line-height: 1.6; }
 
+    /* 네비게이션 탭 */
+    .nav-tabs { display: flex; gap: 10px; margin-bottom: 20px; }
+    .nav-btn {
+      padding: 9px 18px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+    .nav-btn.active {
+      background: var(--indigo);
+      color: #fff;
+      border-color: var(--indigo);
+    }
+
     /* 3. 메인 인터랙티브 작업 영역 */
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 24px; margin-bottom: 24px; }
     .card {
@@ -115,77 +135,84 @@
       padding: 20px;
     }
     h2 { font-size: 17px; margin-bottom: 14px; color: #818cf8; display: flex; align-items: center; gap: 8px; }
-    
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 4px 10px;
-      font-size: 12px;
-    }
-    .chip-code { font-weight: 700; color: #60a5fa; }
-    .chip-val { background: rgba(255, 255, 255, 0.1); border-radius: 4px; padding: 1px 6px; font-size: 11px; }
 
-    .leader-card {
+    .cycle-card {
       background: rgba(0, 0, 0, 0.25);
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 12px;
-      margin-bottom: 10px;
+      padding: 14px;
+      margin-bottom: 12px;
     }
-    .leader-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
-    .leader-name { font-weight: 800; font-size: 14px; color: #f8fafc; }
-    .leader-role { color: #60a5fa; font-size: 12px; font-weight: 600; margin-bottom: 4px; }
-    .leader-org { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
-    .leader-network { border-top: 1px dashed var(--border); padding-top: 6px; font-size: 11px; color: #34d399; }
+    .cycle-title { font-size: 15px; font-weight: 700; color: #fff; display: flex; justify-content: space-between; margin-bottom: 6px; }
+    .cycle-stats { display: flex; gap: 12px; font-size: 12px; margin-bottom: 6px; }
+    .cycle-badge-red { color: #f87171; font-weight: 700; }
+    .cycle-badge-green { color: #34d399; font-weight: 700; }
+    .cycle-lesson { font-size: 12px; color: #94a3b8; border-top: 1px dashed var(--border); padding-top: 6px; }
+
+    /* 재무설계 시뮬레이터 */
+    .sim-box {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .sim-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .sim-row label { font-size: 13px; font-weight: 600; color: #cbd5e1; }
+    .sim-input {
+      width: 130px;
+      padding: 6px 10px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: #fff;
+      font-size: 13px;
+      text-align: right;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
       <div class="brand">
-        <h1>📈 렛츠에셋 (Let's Asset) <span class="badge">원장 v1.0.0</span></h1>
-        <p style="color: var(--muted); font-size: 14px; margin-top: 4px;">미국 SEC EDGAR 6,850사 & 한국 DART 2,498개사 15개년 재무·소송·지배구조 크로스-보더 인텔리전스</p>
+        <h1>📈 렛츠에셋 (Let's Asset) <span class="badge">100년 금융·재무관리 v2.0.0</span></h1>
+        <p style="color: var(--muted); font-size: 14px; margin-top: 4px;">지난 100년(1926~2026) 글로벌 금융 역사 빅데이터 & 전방위 자산관리·은퇴재무설계 온톨로지</p>
       </div>
       <div style="font-size: 13px; color: var(--muted);">
-        온톨로지 URN: <code style="color: #818cf8">urn:asset:corp:*</code>
+        온톨로지 URN: <code style="color: #818cf8">urn:asset:century:*</code>
       </div>
     </header>
 
-    <!-- 1. 실시간 수집 관제 펄스 보드 (섹터별 수집량 / 속도 / 장애 진단) -->
+    <!-- 1. 실시간 수집 관제 펄스 보드 (100개년 금융 & 실시간) -->
     <div class="pulse-panel">
       <div class="pulse-stat">
-        <div class="pulse-label">총 누적 상장사 원장</div>
+        <div class="pulse-label">100개년 금융 시계열 원장</div>
+        <div class="pulse-val">1926~2026 <span class="pulse-unit">100개년</span></div>
+        <div class="pulse-rate">▲ 대공황·스태그플레이션·2008금융위기 전수</div>
+      </div>
+      <div class="pulse-stat">
+        <div class="pulse-label">실시간 상장사 공시·시세 스트림</div>
         <div class="pulse-val">9,348 <span class="pulse-unit">개사</span></div>
-        <div class="pulse-rate">▲ SEC 6,850사 전수 + DART 2,498사</div>
+        <div class="pulse-rate">SEC 6,850사 + DART 2,498사 15분 주기</div>
       </div>
       <div class="pulse-stat">
-        <div class="pulse-label">일간 수집 속도 (Ingestion Rate)</div>
-        <div class="pulse-val">360~480 <span class="pulse-unit">건 / 일</span></div>
-        <div class="pulse-rate">장중 15분 주기 공시·시세 스트리밍</div>
+        <div class="pulse-label">자산관리·포트폴리오 모델</div>
+        <div class="pulse-val">12 <span class="pulse-unit">개 전략</span></div>
+        <div class="pulse-rate">올웨더·영구포트·4% FIRE·절세최적화</div>
       </div>
       <div class="pulse-stat">
-        <div class="pulse-label">재무 추적 시계열</div>
-        <div class="pulse-val">2010~2025 <span class="pulse-unit">15개년</span></div>
-        <div class="pulse-rate">감사의견·우발채무·소송 블랙박스</div>
-      </div>
-      <div class="pulse-stat">
-        <div class="pulse-label">글로벌 엘리트 & 온톨로지망</div>
+        <div class="pulse-label">글로벌 밸류체인 관계망</div>
         <div class="pulse-val">148,200 <span class="pulse-unit">개 노드</span></div>
-        <div class="pulse-rate">미·중·유럽 16대 빅마우스 & 1~4차 공급망</div>
+        <div class="pulse-rate">원자재·공급망·임원·지분 5중 크로스링크</div>
       </div>
       
       <!-- 상태 모니터링 & 자동 대응 인디케이터 -->
       <div class="health-bar">
         <div class="status-indicator">
           <span class="dot"></span>
-          <span>수집 파이프라인: 정상 가동 중 (SEC EDGAR REST & DART Open API 스트리밍)</span>
+          <span>수집 파이프라인: 정상 가동 중 (SEC EDGAR REST & DART & FRED 100년 매크로 API)</span>
         </div>
         <div style="color: var(--muted);">
-          ⚡ <strong>장애 자동 대응</strong>: SEC 10 req/s 속도 제한 준수 토큰 버킷 작동 & DART 점검 시 로컬 캐시 자동 서비스
+          ⚡ <strong>장애 자동 대응</strong>: SEC 10 req/s 속도 제한 준수 토큰 버킷 작동 & DART 점검 시 로컬 캐시 서비스
         </div>
       </div>
     </div>
@@ -201,20 +228,20 @@
         <div class="spec-box">
           <div class="spec-title">💡 우리만의 독보적인 차별화 데이터 (Moat)</div>
           <div class="spec-desc">
-            단순 주가 시세 조회를 넘어, <strong>[15개년 재무·회계 분식 탐지 ➔ 임원 학연·지연 인맥망 ➔ 1~4차 글로벌 공급망 종속성 ➔ 분기별 10-K/DART 공시 우발채무]</strong>를 하나의 지식 그래프로 연결한 <strong>"기업 15년 블랙박스 & 밸류체인 온톨로지"</strong>를 독점 보유합니다.
+            단순 주가 시세를 넘어, <strong>[지난 100년간 10대 글로벌 위기 사이클 데이터 ➔ 15개년 재무 분식 탐지 ➔ 레이 달리오 올웨더 자산배분 ➔ 4% FIRE 조기은퇴 현금흐름 시뮬레이터]</strong>를 포괄하는 <strong>"100년 금융 시계열 기반 전방위 재무관리 엔진"</strong>을 보유합니다.
           </div>
         </div>
         <div class="spec-box">
           <div class="spec-title">🎯 타깃 유저 페르소나 및 핵심 기능</div>
           <div class="spec-desc">
-            <strong>가치투자자, M&A 실사팀, 기업 리스크 관리자, 증권사 애널리스트</strong>를 타깃으로 합니다.
-            ① 15년 재무/소송/공시 연속성 타임라인, ② 임원 학맥·혼맥·경력 기반 적대적 M&A/지배구조 레이더, ③ 원자재·지정학 위기 시 글로벌 공급망 타격 시뮬레이터를 정식 페이지에 구현합니다.
+            <strong>은퇴/노후 자산가, 2030 파이어족(FIRE), 기업 CFO/재무팀, 패밀리오피스 자산운용역</strong>.
+            ① 100년 역사적 사이클별 내 포트폴리오 스트레스 테스트, ② 연령/자산별 절세 최적화(ISA·연금저축·해외주식) 재무설계기, ③ 실시간 틱/분봉 스트리밍 공급망 타격 모니터링.
           </div>
         </div>
         <div class="spec-box">
           <div class="spec-title">🔗 타 패밀리 서비스와의 데이터 교류 (Federation)</div>
           <div class="spec-desc">
-            뉴스보드(NewsBoard) 기사에서 상장 기업명 언급 시 <code>urn:asset:corp:...</code>로 즉시 연결되어 기업 15년 결산 지표가 팝업되며, 렛츠로(Let's Law)의 기업 소송 리스크 판결문 및 렛츠피플(Let's People)의 CEO/임원 프로필과 상호 연동됩니다.
+            뉴스보드(NewsBoard) 기사 내 거시지표·금리·기업 언급 시 <code>urn:asset:corp:...</code> 및 <code>urn:asset:century:...</code>로 즉시 연결되며, 렛츠로(Let's Law)의 기업 소송 리스크 및 렛츠피플(Let's People)의 CEO/최대주주 지분망과 상호 유기적으로 결합됩니다.
           </div>
         </div>
       </div>
@@ -222,28 +249,48 @@
 
     <!-- 3. 메인 인터랙티브 작업 영역 -->
     <div class="grid">
-      <!-- SEC 상장사 및 주요 빅테크 색인 -->
+      <!-- 100년 역사적 사이클 뷰어 -->
       <div class="card">
-        <h2>🏛️ 미국 SEC EDGAR 6,850개 상장사 현황</h2>
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px;" id="sec-indices">
-          <p style="color:var(--muted); font-size:13px;">SEC 색인 데이터를 로드하는 중입니다...</p>
-        </div>
-        <div style="font-size:12px; color:var(--muted); margin-bottom:8px;">📌 주요 글로벌 빅테크 & 전략 자산 샘플:</div>
-        <div style="display:flex; flex-wrap:wrap; gap:8px;" id="sec-chips"></div>
-      </div>
-
-      <!-- 글로벌 엘리트 16인 온톨로지 -->
-      <div class="card">
-        <h2>🌐 글로벌 매크로 엘리트 온톨로지 (미·중·유럽 16인)</h2>
-        <div id="leaders-grid" style="max-height: 400px; overflow-y: auto; padding-right: 4px;">
-          <p style="color:var(--muted); font-size:13px;">글로벌 엘리트 명부를 로드하는 중입니다...</p>
+        <h2>📜 지난 100년(1926~2026) 글로벌 금융 10대 사이클</h2>
+        <div id="cycleList" style="max-height: 480px; overflow-y: auto; padding-right: 4px;">
+          <p style="color:var(--muted); font-size:13px;">100년 금융 데이터를 로드하는 중입니다...</p>
         </div>
       </div>
 
-      <!-- 멀티자산 거시 매크로 보드 -->
+      <!-- 전방위 자산관리 & 4% FIRE 은퇴재무 시뮬레이터 -->
       <div class="card">
-        <h2>📊 글로벌 멀티자산 실시간 매크로 보드</h2>
-        <div id="macro-grid" style="display:flex; flex-direction:column; gap:12px;">
+        <h2>💼 전방위 자산관리 & 은퇴(FIRE) 재무설계 시뮬레이터</h2>
+        
+        <div class="sim-box">
+          <div class="sim-row">
+            <label>현재 총 보유 자산 (억원)</label>
+            <input type="number" id="inpAsset" class="sim-input" value="10" step="1" oninput="runWealthSim()">
+          </div>
+          <div class="sim-row">
+            <label>월 희망 생활비 (만원)</label>
+            <input type="number" id="inpExpense" class="sim-input" value="400" step="50" oninput="runWealthSim()">
+          </div>
+          <div class="sim-row">
+            <label>자산배분 전략 선택</label>
+            <select id="selStrategy" style="width: 180px; padding: 6px; background: rgba(0,0,0,0.4); border: 1px solid var(--border); border-radius: 6px; color: #fff; font-size: 13px;" onchange="runWealthSim()">
+              <option value="all_weather">레이 달리오 올웨더 (CAGR 8.4%)</option>
+              <option value="classic">60:40 주식·채권 (CAGR 9.1%)</option>
+              <option value="conservative">보수적 배당·국채 (CAGR 5.5%)</option>
+            </select>
+          </div>
+
+          <div style="background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); border-radius: 8px; padding: 14px; margin-top: 14px;">
+            <div style="font-size: 12px; color: var(--muted); font-weight: 600;">트리니티 스터디 4% 룰 조기은퇴 판정 결과</div>
+            <div id="simResult" style="font-size: 20px; font-weight: 800; color: #a5b4fc; margin-top: 6px;">완전 은퇴 가능 (원금 불변 유지)</div>
+            <div id="simDetail" style="font-size: 12px; color: #cbd5e1; margin-top: 6px; line-height: 1.5;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 실시간 거시 매크로 & 빅테크 시총 뷰어 -->
+      <div class="card">
+        <h2>📊 실시간 멀티에셋 거시 매크로 관제</h2>
+        <div id="macroGrid" style="display:flex; flex-direction:column; gap:10px;">
           <p style="color:var(--muted); font-size:13px;">거시 지표를 로드하는 중입니다...</p>
         </div>
       </div>
@@ -251,94 +298,61 @@
   </div>
 
   <script>
+    let centuryDB = {};
+    let assetDB = {};
+
     async function init() {
       try {
-        const [secRes, gpplRes, assetRes] = await Promise.all([
-          fetch('data/sec_tickers_index.json'),
-          fetch('data/global_people_roster.json'),
+        const [cRes, aRes] = await Promise.all([
+          fetch('data/century_macro_and_wealth_db.json'),
           fetch('data/asset_ontology.json')
         ]);
-        const sec = await secRes.json();
-        const gppl = await gpplRes.json();
-        const asset = await assetRes.json();
+        centuryDB = await cRes.json();
+        assetDB = await aRes.json();
 
-        renderSEC(sec);
-        renderLeaders(gppl);
-        renderMacro(asset);
+        renderCycles(centuryDB.century_cycles || []);
+        renderMacro(assetDB);
+        runWealthSim();
       } catch (err) {
         console.error('Data load error:', err);
       }
     }
 
-    function renderSEC(sec) {
-      const box = document.getElementById('sec-indices');
-      const ind = sec.tracked_indices || {};
-      box.innerHTML = `
-        <div style="background:rgba(0,0,0,0.25); border:1px solid var(--border); border-radius:8px; padding:10px;">
-          <div style="display:flex; justify-content:space-between; font-size:12px;"><b>다우존스 30</b><span style="color:#10b981; font-weight:700;">${ind.dow_jones_30?.rate || '100%'}</span></div>
-          <div style="font-size:14px; font-weight:700; color:#93c5fd; margin-top:4px;">${ind.dow_jones_30?.crawled || 30} / 30사 완비</div>
-        </div>
-        <div style="background:rgba(0,0,0,0.25); border:1px solid var(--border); border-radius:8px; padding:10px;">
-          <div style="display:flex; justify-content:space-between; font-size:12px;"><b>나스닥 100</b><span style="color:#10b981; font-weight:700;">${ind.nasdaq_100?.rate || '100%'}</span></div>
-          <div style="font-size:14px; font-weight:700; color:#93c5fd; margin-top:4px;">${ind.nasdaq_100?.crawled || 101} / 101사 완비</div>
-        </div>
-        <div style="background:rgba(0,0,0,0.25); border:1px solid var(--border); border-radius:8px; padding:10px;">
-          <div style="display:flex; justify-content:space-between; font-size:12px;"><b>S&P 500</b><span style="color:#60a5fa; font-weight:700;">${ind.sp_500?.rate || '100%'}</span></div>
-          <div style="font-size:14px; font-weight:700; color:#93c5fd; margin-top:4px;">${ind.sp_500?.crawled || 503} / 503사 완비</div>
-        </div>
-        <div style="background:rgba(0,0,0,0.25); border:1px solid var(--border); border-radius:8px; padding:10px;">
-          <div style="display:flex; justify-content:space-between; font-size:12px;"><b>미국 전 상장사</b><span style="color:#a78bfa; font-weight:700;">전수 색인</span></div>
-          <div style="font-size:14px; font-weight:700; color:#93c5fd; margin-top:4px;">6,850 / 6,850개사</div>
-        </div>
-      `;
-
-      const chips = document.getElementById('sec-chips');
-      const sample = Object.entries(sec.key_sample_corps || {});
-      chips.innerHTML = sample.map(([sym, c]) => `
-        <span class="chip">
-          <span class="chip-code">${sym}</span>
-          <span style="color:var(--muted);">${c.name}</span>
-          <span class="chip-val">$${c.mcap_b}B</span>
-        </span>
-      `).join('');
-    }
-
-    function renderLeaders(gppl) {
-      const box = document.getElementById('leaders-grid');
-      const leaders = gppl.leaders || [];
-      box.innerHTML = leaders.map(p => `
-        <div class="leader-card">
-          <div class="leader-header">
-            <span class="leader-name">${p.name}</span>
-            <span style="background:rgba(99,102,241,0.2); color:#a5b4fc; padding:2px 8px; border-radius:999px; font-size:11px;">${p.category}</span>
+    function renderCycles(cycles) {
+      const box = document.getElementById('cycleList');
+      box.innerHTML = cycles.map(c => `
+        <div class="cycle-card">
+          <div class="cycle-title">
+            <span>${c.era} ${c.event}</span>
           </div>
-          <div class="leader-role">${p.role} · ${p.organization}</div>
-          <div style="display:flex; flex-wrap:wrap; gap:4px; margin: 6px 0;">
-            ${(p.core_agenda || []).slice(0, 2).map(a => `<span style="background:rgba(255,255,255,0.06); color:#cbd5e1; font-size:11px; padding:2px 6px; border-radius:4px;"># ${a}</span>`).join('')}
+          <div class="cycle-stats">
+            <span class="cycle-badge-red">📉 하락폭: ${c.sp500_drawdown}</span>
+            <span class="cycle-badge-green">🛡️ 피난처: ${c.safe_haven}</span>
           </div>
-          <div class="leader-network">🔗 ${(p.key_network || []).join(' · ')}</div>
+          <div style="font-size: 12px; color: #cbd5e1; margin-bottom: 4px;"><b>인플레이션 국면:</b> ${c.inflation_regime}</div>
+          <div class="cycle-lesson">💡 <b>교훈:</b> ${c.key_lesson}</div>
         </div>
       `).join('');
     }
 
     function renderMacro(asset) {
-      const box = document.getElementById('macro-grid');
+      const box = document.getElementById('macroGrid');
       const macro = asset.macro_assets || {};
       box.innerHTML = `
-        <div style="background:rgba(0,0,0,0.25); border:1px solid var(--border); border-radius:8px; padding:12px;">
-          <div style="font-size:13px; font-weight:700; color:#818cf8; margin-bottom:8px;">주요 증시 지수</div>
-          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
+        <div style="background:rgba(0,0,0,0.25); border:1px solid var(--border); border-radius:8px; padding:10px;">
+          <b style="font-size:12px; color:#818cf8;">주요 증시 지수 (실시간)</b>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:6px; margin-top:6px;">
             ${(macro.equities || []).map(eq => `
               <div style="display:flex; justify-content:space-between; font-size:12px;">
                 <span>${eq.name}</span>
-                <b style="color:${eq.change_pct>=0?'#34d399':'#f87171'}">${eq.current} (${eq.change_pct>=0?'+':''}${eq.change_pct}%)</b>
+                <b style="color:${eq.change_pct>=0?'#34d399':'#f87171'}">${eq.current}</b>
               </div>
             `).join('')}
           </div>
         </div>
-        <div style="background:rgba(0,0,0,0.25); border:1px solid var(--border); border-radius:8px; padding:12px;">
-          <div style="font-size:13px; font-weight:700; color:#818cf8; margin-bottom:8px;">주요 국채 금리 & 원자재</div>
-          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
+        <div style="background:rgba(0,0,0,0.25); border:1px solid var(--border); border-radius:8px; padding:10px;">
+          <b style="font-size:12px; color:#818cf8;">국채 금리 & 원자재 (실시간)</b>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:6px; margin-top:6px;">
             ${(macro.bonds || []).slice(0, 2).map(b => `
               <div style="display:flex; justify-content:space-between; font-size:12px;">
                 <span>${b.name.split('(')[0]}</span>
@@ -354,6 +368,35 @@
           </div>
         </div>
       `;
+    }
+
+    function runWealthSim() {
+      const assetWon = (parseFloat(document.getElementById('inpAsset').value) || 0) * 100000000;
+      const annualExpense = (parseFloat(document.getElementById('inpExpense').value) || 0) * 10000 * 12;
+      const strategy = document.getElementById('selStrategy').value;
+
+      const safeWithdrawal = assetWon * 0.04;
+      const isFire = safeWithdrawal >= annualExpense;
+
+      const resElem = document.getElementById('simResult');
+      const detElem = document.getElementById('simDetail');
+
+      if (isFire) {
+        resElem.textContent = "🎉 조기 은퇴 (FIRE) 완전 가능";
+        resElem.style.color = "#34d399";
+        detElem.innerHTML = `
+          연 4% 안전인출액(<b>${(safeWithdrawal/10000).toLocaleString()}만원</b>)이 연간 필요생활비(<b>${(annualExpense/10000).toLocaleString()}만원</b>)를 상회합니다.<br>
+          추천 계좌 전략: ISA 만기자금 IRP 이관(추가 세액공제 300만원) + 연금계좌 저율 분리과세(5.5%) 활용.
+        `;
+      } else {
+        const shortage = annualExpense - safeWithdrawal;
+        resElem.textContent = "⚠️ 은퇴 자산 추가 축적 필요";
+        resElem.style.color = "#f87171";
+        detElem.innerHTML = `
+          연 4% 안전인출액 대비 연간 약 <b>${(shortage/10000).toLocaleString()}만원</b> 부족합니다.<br>
+          목표 자산: 연 생활비의 25배인 <b>${((annualExpense * 25)/100000000).toFixed(1)}억원</b> 축적 시 100년간 원금 고갈 없이 은퇴 가능.
+        `;
+      }
     }
 
     init();
