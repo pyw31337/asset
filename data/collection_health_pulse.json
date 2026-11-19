@@ -1,6 +1,6 @@
 {
   "version": "3.0.0",
-  "last_monitored_at": "2026-11-19T07:26:14.995434+09:00",
+  "last_monitored_at": "2026-11-20T07:31:29.248790+09:00",
   "pipeline_health_score": 99.2,
   "status": "HEALTHY_OPTIMAL",
   "daily_ingested_count": 420,
