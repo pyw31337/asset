@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f7f8fa">
-  <title>Let's Asset (렛츠에셋) — 금융투자 & 현물투자 통합 인텔리전스 (LDS v2.5.0)</title>
+  <title>Let's Asset (렛츠에셋) — 블룸버그·ICIJ·피치북 벤치마크 자산 인텔리전스 (LDS v2.5.0)</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <style>
     :root {
@@ -21,12 +21,13 @@
       --market-blue: #2563eb;
       --land-emerald: #059669;
       --tax-rose: #e11d48;
+      --amber-gold: #d97706;
       --border-hairline: rgba(0, 0, 0, 0.06);
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 20px;
       --radius-full: 9999px;
-      --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.05);
+      --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.06);
       --font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
     }
 
@@ -42,10 +43,10 @@
       color: var(--text-primary);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
-      padding: 0 0 96px;
+      padding: 0 0 120px;
     }
 
-    /* Wide Edge-to-Edge Container */
+    /* Wide Canvas (LDS v2.5.0 규격 1680px) */
     .wide-canvas {
       max-width: 1680px;
       margin: 0 auto;
@@ -88,54 +89,53 @@
     .brand-wrap {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       text-decoration: none;
       color: inherit;
     }
     .brand-icon-box {
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border-radius: var(--radius-md);
-      background: var(--primary);
+      background: linear-gradient(135deg, #1e293b, #0f172a);
       color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
     }
     .brand-title {
       font-size: 20px;
       font-weight: 900;
       letter-spacing: -0.03em;
       color: var(--text-black);
+      line-height: 1.1;
     }
-    .brand-tag {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--primary);
-      background: var(--primary-light);
-      padding: 3px 8px;
-      border-radius: var(--radius-full);
-      letter-spacing: 0.04em;
+    .brand-tagline {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
     }
 
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
     .nav-btn {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: var(--bg-subtle);
-      color: var(--text-secondary);
-      border: 1px solid var(--border-hairline);
-      padding: 8px 16px;
+      padding: 10px 18px;
       border-radius: var(--radius-full);
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
       text-decoration: none;
-      transition: all 0.15s ease;
+      border: 1px solid var(--border-hairline);
+      background: var(--bg-surface);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
     }
     .nav-btn:hover {
       background: var(--bg-hover);
@@ -146,144 +146,165 @@
       color: #ffffff;
       border-color: var(--primary);
     }
-
-    /* Wide Hero Cockpit Section (Black vs Light Typographic Contrast) */
-    .hero-cockpit {
-      padding: 48px 0 64px;
-      position: relative;
+    .nav-btn.primary:hover {
+      background: #1b64da;
     }
-    .hero-eyebrow {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--primary);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 12px;
-      display: flex;
+
+    /* Wide Hero Zone (LDS v2.5.0 Black 900 vs Light 300) */
+    .hero-zone {
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      padding: 56px 48px;
+      margin-bottom: 48px;
+      border: 1px solid var(--border-hairline);
+    }
+    @media (max-width: 768px) {
+      .hero-zone { padding: 32px 20px; }
+    }
+    .hero-badge {
+      display: inline-flex;
       align-items: center;
       gap: 8px;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      background: #0f172a;
+      color: #f8fafc;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      margin-bottom: 20px;
     }
-    .hero-title {
-      font-size: clamp(34px, 4.5vw, 56px);
+    .hero-headline {
+      font-size: clamp(32px, 4.5vw, 56px);
       font-weight: 900;
       color: var(--text-black);
       letter-spacing: -0.04em;
       line-height: 1.15;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
-    .hero-subtitle {
-      font-size: clamp(15px, 1.3vw, 18px);
+    .hero-headline span.light {
       font-weight: 300;
       color: var(--text-secondary);
-      line-height: 1.7;
-      max-width: 920px;
-      margin-bottom: 40px;
+    }
+    .hero-subline {
+      font-size: 17px;
+      color: var(--text-secondary);
+      max-width: 980px;
+      line-height: 1.6;
+      font-weight: 400;
+      margin-bottom: 36px;
+    }
+    .hero-subline strong {
+      color: var(--text-black);
+      font-weight: 700;
     }
 
-    /* Hero Massive Metric Cockpit Row */
-    .hero-kpi-row {
+    /* Hero Macro KPI Cards */
+    .hero-kpi-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
-      padding: 32px 0 0;
+      gap: 20px;
+      padding-top: 28px;
       border-top: 1px solid var(--border-hairline);
     }
-    @media (max-width: 960px) {
-      .hero-kpi-row { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    @media (max-width: 1024px) {
+      .hero-kpi-grid { grid-template-columns: repeat(2, 1fr); }
     }
-    @media (max-width: 480px) {
-      .hero-kpi-row { grid-template-columns: 1fr; }
+    @media (max-width: 600px) {
+      .hero-kpi-grid { grid-template-columns: 1fr; }
     }
-    .kpi-col {
+    .kpi-card {
+      background: var(--bg-subtle);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 8px;
     }
     .kpi-label {
-      font-size: 13px;
-      font-weight: 600;
+      font-size: 12px;
+      font-weight: 700;
       color: var(--text-muted);
       letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
-    .kpi-val-row {
+    .kpi-val-box {
       display: flex;
       align-items: baseline;
       gap: 6px;
     }
     .kpi-number {
-      font-size: clamp(32px, 3.2vw, 44px);
+      font-size: 28px;
       font-weight: 900;
       color: var(--text-black);
-      letter-spacing: -0.04em;
-      line-height: 1.0;
-      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.03em;
     }
     .kpi-unit {
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--text-muted);
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 600;
     }
-    .kpi-meta {
+    .kpi-desc {
       font-size: 12px;
-      font-weight: 400;
       color: var(--text-secondary);
       line-height: 1.4;
     }
 
-    /* Segment Navigation Track */
-    .segment-bar {
-      display: flex;
-      gap: 8px;
-      background: var(--bg-subtle);
-      padding: 6px;
-      border-radius: var(--radius-full);
-      border: 1px solid var(--border-hairline);
-      margin: 48px 0 36px;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-    .segment-bar::-webkit-scrollbar { display: none; }
-    .segment-btn {
-      padding: 10px 22px;
-      border-radius: var(--radius-full);
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-secondary);
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all 0.15s ease;
+    /* 5-Lenses Navigation Segment Bar */
+    .lenses-segment-wrap {
       display: flex;
       align-items: center;
       gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      margin-bottom: 40px;
+      scrollbar-width: none;
     }
-    .segment-btn:hover { color: var(--text-black); }
-    .segment-btn.active {
+    .lenses-segment-wrap::-webkit-scrollbar { display: none; }
+    .lens-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 24px;
       background: var(--bg-surface);
-      color: var(--text-black);
-      font-weight: 800;
       border: 1px solid var(--border-hairline);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    }
-    .segment-badge {
-      font-size: 11px;
-      padding: 2px 7px;
       border-radius: var(--radius-full);
-      background: var(--bg-subtle);
-      font-weight: 700;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text-secondary);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
     }
-    .segment-btn.active .segment-badge {
-      background: var(--primary-light);
-      color: var(--primary);
+    .lens-btn:hover {
+      background: var(--bg-hover);
+      color: var(--text-black);
+    }
+    .lens-btn.active {
+      background: var(--text-black);
+      color: #ffffff;
+      border-color: var(--text-black);
+    }
+    .lens-badge {
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      background: rgba(0, 0, 0, 0.08);
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .lens-btn.active .lens-badge {
+      background: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
     }
 
-    /* Content Section Grid: Whitespace-Driven Layout */
+    /* Section Styling */
     .section-wrap {
-      margin-bottom: 72px;
+      margin-bottom: 64px;
     }
     .section-header {
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
@@ -293,135 +314,302 @@
     .section-title {
       font-size: 26px;
       font-weight: 900;
-      letter-spacing: -0.03em;
       color: var(--text-black);
+      letter-spacing: -0.03em;
       display: flex;
       align-items: center;
       gap: 10px;
     }
     .section-subtitle {
       font-size: 14px;
-      font-weight: 300;
       color: var(--text-secondary);
       margin-top: 4px;
     }
 
-    /* Cards Grid */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
-      gap: 24px;
-    }
-    @media (max-width: 640px) {
-      .cards-grid { grid-template-columns: 1fr; }
-    }
-
-    /* Asset Card (LDS v2.5.0 Level 0 Flush Surface) */
-    .asset-card {
+    /* Narrative Stories Lens */
+    .narrative-card {
       background: var(--bg-surface);
       border: 1px solid var(--border-hairline);
       border-radius: var(--radius-lg);
-      padding: 28px;
-      box-shadow: none;
-      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
+      padding: 40px;
+      margin-bottom: 32px;
+      transition: box-shadow 0.25s ease;
     }
-    .asset-card:hover {
-      transform: translateY(-2px);
+    .narrative-card:hover {
       box-shadow: var(--shadow-hover);
-      border-color: rgba(49, 130, 246, 0.25);
     }
-    .card-top {
+    .narrative-badge-row {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 14px;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
     }
-    .card-title-group {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+    .badge-pill {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background: var(--bg-subtle);
+      color: var(--text-secondary);
     }
-    .card-title {
-      font-size: 19px;
+    .badge-pill.highlight {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+    .badge-pill.alert {
+      background: #ffe4e6;
+      color: var(--tax-rose);
+    }
+    .narrative-title {
+      font-size: 24px;
       font-weight: 900;
       color: var(--text-black);
+      line-height: 1.35;
       letter-spacing: -0.02em;
+      margin-bottom: 24px;
     }
-    .card-category-pill {
+    .narrative-timeline {
+      position: relative;
+      padding-left: 28px;
+      border-left: 2px solid #e2e8f0;
+      margin-left: 8px;
+    }
+    .timeline-step {
+      position: relative;
+      margin-bottom: 32px;
+    }
+    .timeline-step:last-child {
+      margin-bottom: 0;
+    }
+    .timeline-step::before {
+      content: '';
+      position: absolute;
+      left: -35px;
+      top: 3px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 3px solid #ffffff;
+      box-shadow: 0 0 0 2px var(--primary);
+    }
+    .timeline-stage-tag {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 4px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    .timeline-step-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-black);
+      margin-bottom: 8px;
+    }
+    .timeline-step-content {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+    .narrative-connections-box {
+      margin-top: 28px;
+      padding: 20px 24px;
+      background: var(--bg-subtle);
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+    .connection-tag {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 4px 10px;
-      border-radius: var(--radius-full);
-      font-size: 11.5px;
+      font-size: 13px;
       font-weight: 700;
-    }
-    .card-category-pill.market {
-      background: #eff6ff;
-      color: var(--market-blue);
-    }
-    .card-category-pill.land {
-      background: #ecfdf5;
-      color: var(--land-emerald);
-    }
-    .card-category-pill.ontology {
-      background: #fdf2f8;
-      color: #be185d;
+      color: var(--text-primary);
+      background: #ffffff;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-hairline);
     }
 
-    /* Card Metrics Matrix */
-    .card-metrics-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      padding: 16px;
-      background: var(--bg-page);
-      border-radius: var(--radius-md);
-    }
-    .submetric-col {
+    /* Bloomberg Billionaires Table & Cards */
+    .billionaire-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      padding: 32px;
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 20px;
+      transition: all 0.2s ease;
     }
-    .submetric-label {
-      font-size: 11.5px;
-      font-weight: 500;
-      color: var(--text-muted);
+    .billionaire-card:hover {
+      box-shadow: var(--shadow-hover);
     }
-    .submetric-val {
-      font-size: 17px;
+    .billionaire-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .billionaire-avatar {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      flex-shrink: 0;
+    }
+    .billionaire-meta {
+      flex: 1;
+    }
+    .rank-badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 900;
+      padding: 2px 8px;
+      background: var(--text-black);
+      color: #ffffff;
+      border-radius: 4px;
+      margin-bottom: 4px;
+    }
+    .billionaire-name {
+      font-size: 22px;
       font-weight: 900;
       color: var(--text-black);
       letter-spacing: -0.02em;
-      font-variant-numeric: tabular-nums;
     }
-
-    .card-details-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+    .billionaire-title {
       font-size: 13px;
-      line-height: 1.5;
+      color: var(--text-secondary);
+      font-weight: 600;
     }
-    .card-detail-item {
+    .net-worth-highlight {
+      text-align: right;
+    }
+    .net-worth-val {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--text-black);
+      letter-spacing: -0.03em;
+    }
+    .net-worth-change {
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .change-up { color: #dc2626; }
+    .change-down { color: #2563eb; }
+
+    /* Asset Allocation Stacked Bar */
+    .breakdown-bar-wrap {
       display: flex;
-      justify-content: space-between;
-      gap: 10px;
+      height: 12px;
+      border-radius: var(--radius-full);
+      overflow: hidden;
+      background: #e2e8f0;
+      margin: 8px 0 12px;
+    }
+    .bar-slice { height: 100%; }
+    .bar-slice.equities { background: #2563eb; }
+    .bar-slice.private { background: #8b5cf6; }
+    .bar-slice.real-estate { background: #059669; }
+    .bar-slice.cash { background: #d97706; }
+
+    .breakdown-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 12px;
       color: var(--text-secondary);
     }
-    .card-detail-item strong {
-      color: var(--text-black);
-      font-weight: 700;
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+    }
+    .legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    /* UBO & Real Estate Section */
+    .ubo-box {
+      background: var(--bg-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      font-size: 13px;
+    }
+    .ubo-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .ubo-item:last-child { border-bottom: none; }
+    .ubo-label { font-weight: 700; color: var(--text-primary); }
+    .ubo-val { color: var(--text-secondary); }
+
+    /* Tax Radar Card */
+    .radar-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-top: 4px solid var(--tax-rose);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: all 0.2s ease;
+    }
+    .radar-card:hover {
+      box-shadow: var(--shadow-hover);
+    }
+    .radar-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .radar-avatar {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--tax-rose);
+      flex-shrink: 0;
+    }
+    .radar-paradox-callout {
+      background: #fff1f2;
+      border-left: 4px solid var(--tax-rose);
+      padding: 16px 20px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      line-height: 1.6;
+      color: #9f1239;
+      font-weight: 600;
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 1024px) {
+      .grid-2 { grid-template-columns: 1fr; }
     }
 
     /* Footer */
     .site-footer {
       border-top: 1px solid var(--border-hairline);
-      padding: 48px 0;
-      margin-top: 64px;
+      padding: 48px 0 24px;
+      margin-top: 80px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -437,151 +625,158 @@
     .footer-links a {
       color: var(--text-secondary);
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
     }
-    .footer-links a:hover { color: var(--primary); }
+    .footer-links a:hover {
+      color: var(--primary);
+    }
   </style>
 </head>
 <body>
 
-  <!-- Top Full-Width Navigation -->
+  <!-- Full-Width Top Navigation -->
   <header class="top-nav">
-    <div class="wide-canvas top-nav-inner">
-      <a href="https://pyw31337.github.io/lets/" class="brand-wrap">
-        <div class="brand-icon-box">
-          <svg class="icon icon-lg" viewBox="0 0 24 24">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-          </svg>
-        </div>
-        <div>
-          <div style="display:flex; align-items:center; gap:8px;">
-            <h1 class="brand-title">Let's Asset</h1>
-            <span class="brand-tag">INTELLIGENCE</span>
+    <div class="wide-canvas">
+      <div class="top-nav-inner">
+        <a href="index.html" class="brand-wrap">
+          <div class="brand-icon-box">
+            <svg class="icon icon-lg" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
           </div>
-          <div style="font-size:12px; font-weight:300; color:var(--text-muted);">금융투자 & 현물투자 자산 원장</div>
-        </div>
-      </a>
+          <div>
+            <div class="brand-title">Let's Asset Intelligence</div>
+            <div class="brand-tagline">블룸버그 억만장자 인덱스 · ICIJ 오프쇼어 리크스 · 피치북 자본 온톨로지</div>
+          </div>
+        </a>
 
-      <div class="nav-actions">
-        <a href="https://pyw31337.github.io/lets/" class="nav-btn">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
-          마스터 허브
-        </a>
-        <a href="https://pyw31337.github.io/people/" class="nav-btn">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
-          인물 온톨로지
-        </a>
-        <button class="nav-btn primary" onclick="refreshAssetData()">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg>
-          새로고침
-        </button>
+        <div class="nav-actions">
+          <a href="https://pyw31337.github.io/lets/" class="nav-btn">
+            <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            마스터 허브
+          </a>
+          <a href="https://pyw31337.github.io/people/" class="nav-btn">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+            피플 인텔리전스
+          </a>
+          <button class="nav-btn primary" onclick="refreshAssetData()">
+            <svg class="icon" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+            데이터 새로고침
+          </button>
+        </div>
       </div>
     </div>
   </header>
 
+  <!-- Main Body Content -->
   <main class="wide-canvas">
-    
-    <!-- Wide Hero Cockpit Section (Black vs Light Extreme Contrast) -->
-    <section class="hero-cockpit">
-      <div class="hero-eyebrow">
-        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-        Let's Ecosystem Asset Intelligence · LDS v2.5.0
+
+    <!-- Wide Hero Zone -->
+    <section class="hero-zone">
+      <div class="hero-badge">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        GLOBAL ASSET BENCHMARK · LDS v2.5.0
       </div>
-      <h2 class="hero-title">
-        금융과 현물의 경계를 넘어,<br>
-        자산·기업·체납을 꿰뚫는 온톨로지 관제.
-      </h2>
-      <p class="hero-subtitle">
-        향후 독립 분립할 <strong>Let's Market (금융투자: 주식·채권·기업매출)</strong>과 <strong>Let's Land (현물투자: 빌딩·토지·부동산실거래)</strong> 데이터를 실시간 통합 수집하고, 재계 리더의 지분과 고액 체납자의 은닉 자산을 교차 분석합니다.
+      <h1 class="hero-headline">
+        자본의 숨겨진 맥락과 <span class="light">실소유주(UBO)를 해부하다.</span>
+      </h1>
+      <p class="hero-subline">
+        단순한 주가나 재산 나열을 넘어, <strong>이해진과 김범수의 34년 동행과 결별 서사</strong>, 
+        네이버 1784 사옥과 서초사옥의 <strong>등기상 법인 vs 실소유주 오너의 지배구조</strong>, 
+        도산대로 185억 빌딩을 은닉한 채 17억 세금을 버티는 <strong>체납의 역설</strong>을 입체적으로 추적합니다.
       </p>
 
-      <!-- 4 Massive Metric Columns (900 Black vs 300 Light) -->
-      <div class="hero-kpi-row">
-        <div class="kpi-col">
-          <span class="kpi-label">추적 금융투자 자산 (Let's Market)</span>
-          <div class="kpi-val-row">
-            <span class="kpi-number" id="kpiMarketAssets">328.5</span>
+      <div class="hero-kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-label">
+            <svg class="icon" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline></svg>
+            블룸버그 5대 부호 순자산
+          </div>
+          <div class="kpi-val-box">
+            <span class="kpi-number" id="kpiWealth">32.48</span>
             <span class="kpi-unit">조 원</span>
           </div>
-          <span class="kpi-meta">KOSPI·KOSDAQ DART 상장 지분</span>
+          <div class="kpi-desc">이재용·서정진·김범수·이해진·방시혁</div>
         </div>
 
-        <div class="kpi-col">
-          <span class="kpi-label">추적 현물투자 자산 (Let's Land)</span>
-          <div class="kpi-val-row">
-            <span class="kpi-number" id="kpiLandAssets">42.8</span>
+        <div class="kpi-card">
+          <div class="kpi-label">
+            <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+            추적 프라임 부동산 자산
+          </div>
+          <div class="kpi-val-box">
+            <span class="kpi-number" id="kpiRealEstate">42.80</span>
             <span class="kpi-unit">조 원</span>
           </div>
-          <span class="kpi-meta">프라임 오피스·상업빌딩·고급주택</span>
+          <div class="kpi-desc">1784·서초타운·송도R&D 등 UBO 맵핑</div>
         </div>
 
-        <div class="kpi-col">
-          <span class="kpi-label">크로스 온톨로지 접점</span>
-          <div class="kpi-val-row">
-            <span class="kpi-number" id="kpiEdges">42</span>
-            <span class="kpi-unit">개 링크</span>
+        <div class="kpi-card">
+          <div class="kpi-label">
+            <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+            고액 체납 은닉 추적망
           </div>
-          <span class="kpi-meta">인물 ↔ 기업 ↔ 부동산 ↔ 체납</span>
-        </div>
-
-        <div class="kpi-col">
-          <span class="kpi-label">체납 대비 징수 분석 대상</span>
-          <div class="kpi-val-row">
-            <span class="kpi-number">13,697</span>
+          <div class="kpi-val-box">
+            <span class="kpi-number" id="kpiDefaulters">13,697</span>
             <span class="kpi-unit">명</span>
           </div>
-          <span class="kpi-meta">행안부·지자체 고액 체납자 원장</span>
+          <div class="kpi-desc">신사동 185억 빌딩 강제 공매 추진</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-label">
+            <svg class="icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle></svg>
+            자본 마피아 클러스터
+          </div>
+          <div class="kpi-val-box">
+            <span class="kpi-number" id="kpiMafia">58.20</span>
+            <span class="kpi-unit">조 원</span>
+          </div>
+          <div class="kpi-desc">삼성SDS 사내벤처 & 본엔젤스 계보</div>
         </div>
       </div>
     </section>
 
-    <!-- Segment Filter Bar -->
-    <div class="segment-bar" id="segmentTrack">
-      <button class="segment-btn active" onclick="switchFilter('all', this)">
-        <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-        전체 온톨로지 통합
-        <span class="segment-badge" id="badgeAll">전체</span>
+    <!-- 5-Lenses Navigation Segment Bar -->
+    <div class="lenses-segment-wrap">
+      <button class="lens-btn active" onclick="switchLens('stories', this)">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        심층 온톨로지 서사 (Stories)
+        <span class="lens-badge">3대 드라마</span>
       </button>
-      <button class="segment-btn" onclick="switchFilter('market', this)">
-        <svg class="icon" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
-        Let's Market (금융투자)
-        <span class="segment-badge" id="badgeMarket">5</span>
+
+      <button class="lens-btn" onclick="switchLens('bloomberg', this)">
+        <svg class="icon" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline></svg>
+        블룸버그 순자산 리더보드 (Market)
+        <span class="lens-badge">Top 5</span>
       </button>
-      <button class="segment-btn" onclick="switchFilter('land', this)">
+
+      <button class="lens-btn" onclick="switchLens('land', this)">
         <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-        Let's Land (현물·부동산)
-        <span class="segment-badge" id="badgeLand">5</span>
+        프라임 부동산 & UBO 원장 (Land)
+        <span class="lens-badge">42.8조</span>
       </button>
-      <button class="segment-btn" onclick="switchFilter('ontology', this)">
-        <svg class="icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
-        인물·기업·체납 브리지 접점
-        <span class="segment-badge" id="badgeOntology">3</span>
+
+      <button class="lens-btn" onclick="switchLens('radar', this)">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a10 10 0 0 1 10 10"></path></svg>
+        오프쇼어 & 체납 추적 레이더 (Radar)
+        <span class="lens-badge">체납의 역설</span>
+      </button>
+
+      <button class="lens-btn" onclick="switchLens('mafia', this)">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle></svg>
+        창업가 자본 마피아 (PitchBook)
+        <span class="lens-badge">58.2조</span>
       </button>
     </div>
 
-    <!-- Dynamic Cards Container -->
-    <section class="section-wrap">
-      <div class="section-header">
-        <div>
-          <h3 class="section-title" id="sectionTitle">
-            <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-            금융 및 현물 자산 온톨로지 원장
-          </h3>
-          <p class="section-subtitle" id="sectionSubtitle">
-            상장 주식 시가총액, 연간 매출/영업이익, 프라임 오피스 실거래 추정가 및 체납 압류 현황을 실시간 관제합니다.
-          </p>
-        </div>
-      </div>
-
-      <div class="cards-grid" id="cardsGrid">
-        <!-- Rendered dynamically via JavaScript -->
-      </div>
-    </section>
+    <!-- Dynamic Lens Content View -->
+    <div id="lensContainer">
+      <!-- Injected via JavaScript -->
+    </div>
 
     <!-- Footer -->
     <footer class="site-footer">
       <div>
-        <strong>Let's Asset Intelligence Platform</strong> · LDS v2.5.0 Wide Editorial
+        <strong>Let's Asset Intelligence Platform</strong> · LDS v2.5.0 Global Editorial & Narrative Ontologies
       </div>
       <div class="footer-links">
         <a href="https://pyw31337.github.io/lets/">Let's 마스터 허브</a>
@@ -594,185 +789,377 @@
 
   <script>
     let assetData = null;
-    let currentFilter = 'all';
+    let currentLens = 'stories';
 
     async function loadAssetData() {
       try {
         const res = await fetch('data/asset_ontology.json');
         if (!res.ok) throw new Error('Failed to load asset ontology JSON');
         assetData = await res.json();
-        renderDashboard();
+        renderActiveLens();
       } catch (e) {
         console.error(e);
-        document.getElementById('cardsGrid').innerHTML = '<p style="color:#ef4444; padding:32px;">자산 데이터를 로드하는 중 오류가 발생했습니다.</p>';
+        document.getElementById('lensContainer').innerHTML = '<p style="color:#ef4444; padding:32px;">데이터를 불러오는 중 오류가 발생했습니다.</p>';
       }
     }
 
-    function switchFilter(filter, btn) {
-      currentFilter = filter;
-      document.querySelectorAll('.segment-btn').forEach(b => b.classList.remove('active'));
+    function switchLens(lens, btn) {
+      currentLens = lens;
+      document.querySelectorAll('.lens-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      renderDashboard();
+      renderActiveLens();
     }
 
-    function renderDashboard() {
+    function renderActiveLens() {
       if (!assetData) return;
+      const container = document.getElementById('lensContainer');
 
-      const mkt = assetData.lets_market_financial || {};
+      if (currentLens === 'stories') {
+        renderStoriesLens(container);
+      } else if (currentLens === 'bloomberg') {
+        renderBloombergLens(container);
+      } else if (currentLens === 'land') {
+        renderLandLens(container);
+      } else if (currentLens === 'radar') {
+        renderRadarLens(container);
+      } else if (currentLens === 'mafia') {
+        renderMafiaLens(container);
+      }
+    }
+
+    /* 1. 심층 온톨로지 서사 (Stories) */
+    function renderStoriesLens(container) {
+      const stories = assetData.deep_narratives || [];
+      let html = `
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+              심층 온톨로지 대하 서사 (Deep Narrative Chronicles)
+            </h2>
+            <p class="section-subtitle">자본의 이동 뒤에 숨겨진 34년간의 인간적 애증, 결별, 지배구조의 기만과 체납의 역설을 분석합니다.</p>
+          </div>
+        </div>
+      `;
+
+      stories.forEach(st => {
+        let isStory1 = st.id === 'narrative-story-001';
+        let isStory2 = st.id === 'narrative-story-002';
+        let isStory3 = st.id === 'narrative-story-003';
+
+        html += `
+          <article class="narrative-card">
+            <div class="narrative-badge-row">
+              <span class="badge-pill highlight">${st.period}</span>
+              ${st.characters.map(c => `<span class="badge-pill">${c}</span>`).join('')}
+              ${isStory3 ? '<span class="badge-pill alert">고액체납 실태 추적</span>' : ''}
+              ${isStory2 ? '<span class="badge-pill highlight">UBO 실질지배자 해부</span>' : ''}
+            </div>
+
+            <h3 class="narrative-title">${st.title}</h3>
+
+            <div class="narrative-timeline">
+              ${st.chapters.map(ch => `
+                <div class="timeline-step">
+                  <div class="timeline-stage-tag">${ch.stage}</div>
+                  <h4 class="timeline-step-title">${ch.title}</h4>
+                  <p class="timeline-step-content">${ch.content}</p>
+                </div>
+              `).join('')}
+            </div>
+
+            <div class="narrative-connections-box">
+              <span style="font-size:12px; font-weight:800; color:var(--text-muted); text-transform:uppercase;">온톨로지 핵심 접점:</span>
+              ${(st.ontology_connections || []).map(conn => {
+                if (conn.entity) return `<span class="connection-tag">${conn.entity} ➔ ${conn.role}</span>`;
+                if (conn.property) return `<span class="connection-tag">🏢 ${conn.property}: ${conn.legal_owner} (등기) ➔ <strong>${conn.ubo} (실주인, ${conn.val})</strong></span>`;
+                if (conn.defaulter) return `<span class="connection-tag" style="color:var(--tax-rose);">⚠️ ${conn.defaulter}: 체납 ${conn.delinquent_tax} vs <strong>은닉재산 ${conn.hidden_asset} (${conn.status})</strong></span>`;
+                return '';
+              }).join('')}
+            </div>
+          </article>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    /* 2. 블룸버그 순자산 리더보드 (Bloomberg Market) */
+    function renderBloombergLens(container) {
+      const billionaires = assetData.bloomberg_billionaires || [];
+      let html = `
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">
+              <svg class="icon" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline></svg>
+              블룸버그 스타일 순자산 리더보드 (Bloomberg Billionaires Index)
+            </h2>
+            <p class="section-subtitle">DART 지분 공시와 실시간 시장가치를 결합한 순자산 및 자산 포트폴리오 비중 폭포수 분석입니다.</p>
+          </div>
+        </div>
+        <div class="grid-2">
+      `;
+
+      billionaires.forEach(b => {
+        const isUp = b.daily_change_billion_krw >= 0;
+        const bd = b.asset_breakdown || {};
+        html += `
+          <div class="billionaire-card">
+            <div class="billionaire-header">
+              <img src="${b.photo_webp}" alt="${b.name}" class="billionaire-avatar" loading="lazy">
+              <div class="billionaire-meta">
+                <span class="rank-badge">RANK #${b.rank}</span>
+                <h3 class="billionaire-name">${b.name} <span style="font-size:14px; font-weight:400; color:var(--text-muted);">${b.name_en}</span></h3>
+                <div class="billionaire-title">${b.primary_org}</div>
+              </div>
+              <div class="net-worth-highlight">
+                <div class="net-worth-val">${b.net_worth_trillion_krw.toFixed(2)}조</div>
+                <div class="net-worth-change ${isUp ? 'change-up' : 'change-down'}">
+                  ${isUp ? '▲ +' : '▼ '}${Math.abs(b.daily_change_billion_krw)}억 (${b.daily_change_pct}%)
+                </div>
+              </div>
+            </div>
+
+            <!-- Asset Breakdown Stacked Bar -->
+            <div>
+              <div style="display:flex; justify-content:space-between; font-size:12px; font-weight:700;">
+                <span>포트폴리오 자산 구성비</span>
+                <span style="color:var(--text-muted);">$${b.net_worth_usd_billion}B</span>
+              </div>
+              <div class="breakdown-bar-wrap">
+                <div class="bar-slice equities" style="width:${bd.public_equities_pct}%;" title="상장주식 ${bd.public_equities_pct}%"></div>
+                <div class="bar-slice private" style="width:${bd.private_assets_pct}%;" title="비상장/펀드 ${bd.private_assets_pct}%"></div>
+                <div class="bar-slice real-estate" style="width:${bd.real_estate_pct}%;" title="부동산 ${bd.real_estate_pct}%"></div>
+                <div class="bar-slice cash" style="width:${bd.cash_and_other_pct}%;" title="현금 및 기타 ${bd.cash_and_other_pct}%"></div>
+              </div>
+              <div class="breakdown-legend">
+                <span class="legend-item"><span class="legend-dot" style="background:#2563eb;"></span>상장주식 ${bd.public_equities_pct}%</span>
+                <span class="legend-item"><span class="legend-dot" style="background:#8b5cf6;"></span>비상장 ${bd.private_assets_pct}%</span>
+                <span class="legend-item"><span class="legend-dot" style="background:#059669;"></span>부동산 ${bd.real_estate_pct}%</span>
+                <span class="legend-item"><span class="legend-dot" style="background:#d97706;"></span>현금 ${bd.cash_and_other_pct}%</span>
+              </div>
+            </div>
+
+            <!-- Major Holdings (DART) -->
+            <div class="ubo-box">
+              <div style="font-size:12px; font-weight:800; color:var(--text-muted); margin-bottom:6px;">DART 주요 지분 및 가치</div>
+              ${(b.major_holdings || []).map(h => `
+                <div class="ubo-item">
+                  <span class="ubo-label">${h.entity} (${h.stake_pct}%)</span>
+                  <span class="ubo-val">${h.val_trillion_krw ? h.val_trillion_krw + '조 원' : '장부가치'}</span>
+                </div>
+              `).join('')}
+            </div>
+
+            <!-- UBO Real Estate Links -->
+            <div class="ubo-box" style="background:#f8fafc; border:1px dashed #cbd5e1;">
+              <div style="font-size:12px; font-weight:800; color:var(--text-black); margin-bottom:6px;">실소유 프라임 부동산 (UBO)</div>
+              ${(b.ubo_physical_assets || []).map(p => `
+                <div class="ubo-item">
+                  <span class="ubo-label">${p.name} (~${p.est_billion_krw}억)</span>
+                  <span class="ubo-val" style="font-size:12px; color:var(--primary); font-weight:700;">${p.ubo_role}</span>
+                </div>
+              `).join('')}
+            </div>
+
+            <!-- Tax & Judicial Status -->
+            <div style="font-size:12px; color:var(--text-secondary); display:flex; justify-content:space-between; align-items:center; padding-top:6px;">
+              <span>납세 상태: <strong style="color:var(--land-emerald);">${b.tax_and_justice_profile.tax_status}</strong></span>
+              <span style="font-size:11px; color:var(--text-muted);">${b.tax_and_justice_profile.judicial_risk.split(' ')[0]} 관련</span>
+            </div>
+          </div>
+        `;
+      });
+
+      html += `</div>`;
+      container.innerHTML = html;
+    }
+
+    /* 3. 프라임 부동산 & UBO 원장 (Land) */
+    function renderLandLens(container) {
       const land = assetData.lets_land_physical || {};
-      const junc = assetData.ontology_junctions || {};
+      const properties = land.properties || [];
+      let html = `
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">
+              <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+              프라임 부동산 & 실소유주(UBO) 원장 (Let's Land)
+            </h2>
+            <p class="section-subtitle">법인 등기부상 명의와 실질 지배자(오너/창업가) 간의 괴리를 추적하고 권리 상태를 관제합니다.</p>
+          </div>
+        </div>
+        <div class="grid-2">
+      `;
 
-      document.getElementById('kpiMarketAssets').innerText = mkt.total_tracked_assets_krw_trillion || '328.5';
-      document.getElementById('kpiLandAssets').innerText = land.total_tracked_assets_krw_trillion || '42.8';
-      document.getElementById('kpiEdges').innerText = junc.edges_count || '42';
-
-      const grid = document.getElementById('cardsGrid');
-      let cardsHtml = '';
-
-      // 1. Let's Market Cards
-      if (currentFilter === 'all' || currentFilter === 'market') {
-        (mkt.equities || []).forEach(eq => {
-          cardsHtml += `
-            <div class="asset-card">
-              <div class="card-top">
-                <div class="card-title-group">
-                  <div class="card-title">${eq.entity}</div>
-                  <div style="font-size:12px; color:var(--text-muted);">${eq.market} 상장사 · 건전성: ${eq.financial_health || '우수'}</div>
-                </div>
-                <span class="card-category-pill market">
-                  <svg class="icon" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline></svg>
-                  Let's Market
-                </span>
+      properties.forEach(p => {
+        const isSeizure = p.tax_lien_status && p.tax_lien_status.includes('ENFORCEMENT');
+        html += `
+          <div class="billionaire-card" style="${isSeizure ? 'border-top:4px solid var(--tax-rose);' : 'border-top:4px solid var(--land-emerald);'}">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+              <div>
+                <span class="badge-pill highlight">${p.type}</span>
+                <h3 style="font-size:22px; font-weight:900; color:var(--text-black); margin-top:8px;">${p.name}</h3>
+                <div style="font-size:13px; color:var(--text-muted);">${p.location}</div>
               </div>
-
-              <div class="card-metrics-row">
-                <div class="submetric-col">
-                  <span class="submetric-label">시가총액</span>
-                  <span class="submetric-val">${eq.market_cap_trillion_krw}조</span>
-                </div>
-                <div class="submetric-col">
-                  <span class="submetric-label">연간 매출</span>
-                  <span class="submetric-val">${eq.annual_revenue_trillion_krw}조</span>
-                </div>
-                <div class="submetric-col">
-                  <span class="submetric-label">영업이익</span>
-                  <span class="submetric-val" style="color:var(--primary);">${eq.annual_operating_profit_trillion_krw}조</span>
-                </div>
-              </div>
-
-              <div class="card-details-list">
-                <div class="card-detail-item">
-                  <span>주요 대주주 지분 (DART):</span>
-                  <strong>${(eq.major_stakeholders || []).map(s => `${s.name} ${s.stake_pct}% (${s.value_trillion_krw ? s.value_trillion_krw + '조' : ''})`).join(' · ')}</strong>
-                </div>
-                <div class="card-detail-item">
-                  <span>납세/체납 상태:</span>
-                  <strong style="color:var(--land-emerald);">${eq.tax_delinquency_status}</strong>
+              <div style="text-align:right;">
+                <div style="font-size:24px; font-weight:900; color:var(--land-emerald);">${p.estimated_market_value_billion_krw.toLocaleString()}억</div>
+                <div style="font-size:12px; color:${isSeizure ? 'var(--tax-rose)' : 'var(--land-emerald)'}; font-weight:800;">
+                  ${isSeizure ? '⚠️ 압류 및 공매 진행 중' : '✓ 권리 침해 없음'}
                 </div>
               </div>
             </div>
-          `;
-        });
-      }
 
-      // 2. Let's Land Cards
-      if (currentFilter === 'all' || currentFilter === 'land') {
-        (land.properties || []).forEach(prop => {
-          const isPending = prop.tax_lien_status && prop.tax_lien_status.includes('ENFORCEMENT');
-          cardsHtml += `
-            <div class="asset-card" style="${isPending ? 'border-top:3.5px solid var(--tax-rose);' : ''}">
-              <div class="card-top">
-                <div class="card-title-group">
-                  <div class="card-title">${prop.name}</div>
-                  <div style="font-size:12px; color:var(--text-muted);">${prop.location}</div>
-                </div>
-                <span class="card-category-pill land">
-                  <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
-                  Let's Land
-                </span>
+            <div class="ubo-box">
+              <div class="ubo-item">
+                <span class="ubo-label">등기부상 법적 소유자:</span>
+                <span class="ubo-val"><strong>${p.owner_entity}</strong></span>
               </div>
+              ${p.connected_people ? `
+                <div class="ubo-item">
+                  <span class="ubo-label">실질 지배자 (UBO):</span>
+                  <span class="ubo-val" style="color:var(--primary); font-weight:800;">${p.connected_people.join(' · ')}</span>
+                </div>
+              ` : ''}
+              ${p.connected_defaulters ? `
+                <div class="ubo-item" style="color:var(--tax-rose);">
+                  <span class="ubo-label">연계 체납자 은닉 타깃:</span>
+                  <span class="ubo-val"><strong>${p.connected_defaulters.map(d => `${d.name} (${d.delinquent_amount_billion_krw}억 체납)`).join(', ')}</strong></span>
+                </div>
+              ` : ''}
+            </div>
 
-              <div class="card-metrics-row">
-                <div class="submetric-col">
-                  <span class="submetric-label">추정 시가</span>
-                  <span class="submetric-val" style="color:var(--land-emerald);">${prop.estimated_market_value_billion_krw.toLocaleString()}억</span>
-                </div>
-                <div class="submetric-col">
-                  <span class="submetric-label">부동산 유형</span>
-                  <span class="submetric-val" style="font-size:13px; font-weight:700;">${prop.type.split(' ')[0]}</span>
-                </div>
-                <div class="submetric-col">
-                  <span class="submetric-label">압류/권리 상태</span>
-                  <span class="submetric-val" style="font-size:12px; color:${isPending ? 'var(--tax-rose)' : 'var(--land-emerald)'};">
-                    ${isPending ? '압류 진행 중' : '정상 권리'}
-                  </span>
-                </div>
+            <div style="font-size:13px; color:var(--text-secondary); line-height:1.5;">
+              <strong>지배구조 맥락:</strong> 등기 소유주는 <em>${p.owner_entity}</em>이지만, 
+              실질적 의사결정권과 자본 흐름은 <em>${p.connected_people ? p.connected_people[0] : '차명 신탁 법인'}</em>에게 귀속되어 있습니다.
+            </div>
+          </div>
+        `;
+      });
+
+      html += `</div>`;
+      container.innerHTML = html;
+    }
+
+    /* 4. 오프쇼어 & 체납 추적 레이더 (Radar) */
+    function renderRadarLens(container) {
+      const radar = assetData.offshore_and_tax_radar || [];
+      let html = `
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">
+              <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a10 10 0 0 1 10 10"></path></svg>
+              오프쇼어 & 고액체납 은닉 추적 레이더 (ICIJ & Tax Radar)
+            </h2>
+            <p class="section-subtitle">버진아일랜드(BVI) 역외 페이퍼컴퍼니와 차명 법인 뒤에 숨긴 은닉 자산 및 체납의 역설을 고발합니다.</p>
+          </div>
+        </div>
+        <div class="grid-2">
+      `;
+
+      radar.forEach(r => {
+        const hid = r.suspected_hidden_assets || {};
+        const off = r.offshore_link || {};
+        html += `
+          <div class="radar-card">
+            <div class="radar-header">
+              <img src="${r.photo_webp}" alt="${r.name}" class="radar-avatar" loading="lazy">
+              <div style="flex:1;">
+                <span class="badge-pill alert">${r.delinquency_type}</span>
+                <h3 style="font-size:20px; font-weight:900; color:var(--text-black); margin-top:4px;">${r.name}</h3>
+                <div style="font-size:12px; color:var(--text-muted);">${r.jurisdiction} · 체납 기간: ${r.delinquent_period}</div>
               </div>
-
-              <div class="card-details-list">
-                <div class="card-detail-item">
-                  <span>소유 주체:</span>
-                  <strong>${prop.owner_entity}</strong>
-                </div>
-                ${prop.connected_people ? `
-                  <div class="card-detail-item">
-                    <span>연계 인물:</span>
-                    <strong>${prop.connected_people.join(' · ')}</strong>
-                  </div>
-                ` : ''}
-                ${prop.connected_defaulters ? `
-                  <div class="card-detail-item" style="color:var(--tax-rose);">
-                    <span>연계 고액 체납자:</span>
-                    <strong>${prop.connected_defaulters.map(d => `${d.name} (${d.delinquent_amount_billion_krw}억 체납)`).join(', ')}</strong>
-                  </div>
-                ` : ''}
+              <div style="text-align:right;">
+                <div style="font-size:24px; font-weight:900; color:var(--tax-rose);">${r.delinquent_amount_billion_krw}억</div>
+                <div style="font-size:12px; color:var(--text-muted); font-weight:700;">상습 고액체납</div>
               </div>
             </div>
-          `;
-        });
-      }
 
-      // 3. Ontology Cross-Bridge Cards
-      if (currentFilter === 'all' || currentFilter === 'ontology') {
-        (junc.sample_bridges || []).forEach(br => {
-          const isDefaulter = br.person.includes('체납');
-          cardsHtml += `
-            <div class="asset-card" style="${isDefaulter ? 'border-top:3.5px solid var(--tax-rose);' : 'border-top:3.5px solid #be185d;'}">
-              <div class="card-top">
-                <div class="card-title-group">
-                  <div class="card-title">${br.person}</div>
-                  <div style="font-size:12px; color:var(--text-muted);">${br.ontology_signature}</div>
-                </div>
-                <span class="card-category-pill ontology">
-                  <svg class="icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle></svg>
-                  온톨로지 접점
-                </span>
+            <div class="radar-paradox-callout">
+              <strong>체납의 역설:</strong> ${r.paradox_summary}
+            </div>
+
+            <div class="ubo-box">
+              <div style="font-size:12px; font-weight:800; color:var(--tax-rose); margin-bottom:8px;">은닉 혐의 포착 부동산 (강제 공매 타깃)</div>
+              <div class="ubo-item">
+                <span class="ubo-label">물건지:</span>
+                <span class="ubo-val"><strong>${hid.property_name}</strong></span>
               </div>
-
-              <div class="card-details-list" style="margin-top:6px;">
-                <div class="card-detail-item">
-                  <span>📈 금융투자 (Let's Market):</span>
-                  <strong>${br.market_assets}</strong>
-                </div>
-                <div class="card-detail-item">
-                  <span>🏢 현물투자 (Let's Land):</span>
-                  <strong>${br.land_assets}</strong>
-                </div>
-                <div class="card-detail-item">
-                  <span>💼 기업 매출 규모:</span>
-                  <strong>${br.enterprise_revenue}</strong>
-                </div>
-                <div class="card-detail-item">
-                  <span>⚖️ 체납 현황:</span>
-                  <strong style="color:${isDefaulter ? 'var(--tax-rose)' : 'var(--land-emerald)'};">${br.tax_delinquency}</strong>
-                </div>
+              <div class="ubo-item">
+                <span class="ubo-label">추정 시가:</span>
+                <span class="ubo-val" style="color:var(--text-black); font-weight:900;">${hid.estimated_market_value_billion_krw}억 원</span>
+              </div>
+              <div class="ubo-item">
+                <span class="ubo-label">차명 등기 소유주:</span>
+                <span class="ubo-val">${hid.legal_owner}</span>
+              </div>
+              <div class="ubo-item">
+                <span class="ubo-label">징수 및 압류 현황:</span>
+                <span class="ubo-val" style="color:var(--tax-rose); font-weight:700;">${hid.seizure_status}</span>
               </div>
             </div>
-          `;
-        });
-      }
 
-      grid.innerHTML = cardsHtml;
+            ${off.has_offshore_entity ? `
+              <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:var(--radius-md); padding:16px 20px; font-size:13px;">
+                <div style="font-size:11px; font-weight:800; color:var(--primary); margin-bottom:4px;">🌐 ICIJ 오프쇼어 리크스 연계 역외 법인</div>
+                <div><strong>${off.entity_name}</strong> (${off.jurisdiction})</div>
+                <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">${off.leak_source}</div>
+              </div>
+            ` : ''}
+
+            <div style="font-size:12px; color:var(--text-secondary); line-height:1.5;">
+              <strong>수법 분석:</strong> ${hid.evasion_modus_operandi || '차명 신탁 및 고의 폐업을 통한 세금 징수 회피'}
+            </div>
+          </div>
+        `;
+      });
+
+      html += `</div>`;
+      container.innerHTML = html;
+    }
+
+    /* 5. 창업가 자본 마피아 (PitchBook / Crunchbase) */
+    function renderMafiaLens(container) {
+      const mafias = assetData.founder_capital_mafia || [];
+      let html = `
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">
+              <svg class="icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle></svg>
+              창업가 자본 마피아 클러스터 (PitchBook & Crunchbase)
+            </h2>
+            <p class="section-subtitle">대한민국 IT 자본을 태동시킨 사내벤처 요람과 초기 엔젤투자의 연쇄 성공 궤적입니다.</p>
+          </div>
+        </div>
+      `;
+
+      mafias.forEach(m => {
+        html += `
+          <div class="narrative-card">
+            <div class="narrative-badge-row">
+              <span class="badge-pill highlight">${m.origin_year}</span>
+              ${m.origin_place ? `<span class="badge-pill">${m.origin_place}</span>` : ''}
+              <span class="badge-pill">기업가치 ${m.total_cluster_enterprise_value_trillion_krw}조 원</span>
+            </div>
+
+            <h3 class="narrative-title">${m.cluster_name}</h3>
+            <p style="font-size:15px; color:var(--text-secondary); margin-bottom:24px; line-height:1.6;">
+              ${m.narrative_insight}
+            </p>
+
+            <div class="grid-2">
+              ${m.key_figures.map(f => `
+                <div style="background:var(--bg-subtle); padding:18px 22px; border-radius:var(--radius-md);">
+                  <div style="font-size:17px; font-weight:900; color:var(--text-black); margin-bottom:4px;">${f.name}</div>
+                  <div style="font-size:13px; color:var(--text-secondary); line-height:1.4;">${f.role}</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
     }
 
     function refreshAssetData() {
