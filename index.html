@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f7f8fa">
-  <title>Let's Asset (렛츠에셋) — 블룸버그·ICIJ·피치북 벤치마크 자산 인텔리전스 (LDS v2.5.0)</title>
+  <title>Let's Asset (렛츠에셋) — 글로벌 8대 인텔리전스 심층 온톨로지 플랫폼 (LDS v2.5.0)</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <style>
     :root {
@@ -22,6 +22,7 @@
       --land-emerald: #059669;
       --tax-rose: #e11d48;
       --amber-gold: #d97706;
+      --purple-royal: #7c3aed;
       --border-hairline: rgba(0, 0, 0, 0.06);
       --radius-sm: 8px;
       --radius-md: 14px;
@@ -155,7 +156,7 @@
       background: var(--bg-surface);
       border-radius: var(--radius-lg);
       padding: 56px 48px;
-      margin-bottom: 48px;
+      margin-bottom: 44px;
       border: 1px solid var(--border-hairline);
     }
     @media (max-width: 768px) {
@@ -189,7 +190,7 @@
     .hero-subline {
       font-size: 17px;
       color: var(--text-secondary);
-      max-width: 980px;
+      max-width: 1040px;
       line-height: 1.6;
       font-weight: 400;
       margin-bottom: 36px;
@@ -252,31 +253,33 @@
       line-height: 1.4;
     }
 
-    /* 5-Lenses Navigation Segment Bar */
+    /* 7-Lenses Navigation Segment Bar */
     .lenses-segment-wrap {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       overflow-x: auto;
-      padding-bottom: 12px;
+      padding: 6px 4px 16px;
       margin-bottom: 40px;
-      scrollbar-width: none;
+      scrollbar-width: thin;
+      user-select: none;
+      -webkit-overflow-scrolling: touch;
     }
-    .lenses-segment-wrap::-webkit-scrollbar { display: none; }
     .lens-btn {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 12px 24px;
+      gap: 8px;
+      padding: 12px 22px;
       background: var(--bg-surface);
       border: 1px solid var(--border-hairline);
       border-radius: var(--radius-full);
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 800;
       color: var(--text-secondary);
       cursor: pointer;
       white-space: nowrap;
       transition: all 0.2s ease;
+      flex-shrink: 0;
     }
     .lens-btn:hover {
       background: var(--bg-hover);
@@ -360,6 +363,14 @@
     .badge-pill.alert {
       background: #ffe4e6;
       color: var(--tax-rose);
+    }
+    .badge-pill.purple {
+      background: #ede9fe;
+      color: var(--purple-royal);
+    }
+    .badge-pill.amber {
+      background: #fef3c7;
+      color: var(--amber-gold);
     }
     .narrative-title {
       font-size: 24px;
@@ -556,7 +567,7 @@
     .ubo-label { font-weight: 700; color: var(--text-primary); }
     .ubo-val { color: var(--text-secondary); }
 
-    /* Tax Radar Card */
+    /* Radar Cards */
     .radar-card {
       background: var(--bg-surface);
       border: 1px solid var(--border-hairline);
@@ -644,7 +655,7 @@
           </div>
           <div>
             <div class="brand-title">Let's Asset Intelligence</div>
-            <div class="brand-tagline">블룸버그 억만장자 인덱스 · ICIJ 오프쇼어 리크스 · 피치북 자본 온톨로지</div>
+            <div class="brand-tagline">글로벌 8대 인텔리전스 심층 온톨로지 원장 (블룸버그 · ICIJ · 리틀시스 · 웨일위즈덤)</div>
           </div>
         </a>
 
@@ -673,15 +684,15 @@
     <section class="hero-zone">
       <div class="hero-badge">
         <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-        GLOBAL ASSET BENCHMARK · LDS v2.5.0
+        GLOBAL OSINT & FININT BENCHMARK · LDS v2.5.0
       </div>
       <h1 class="hero-headline">
-        자본의 숨겨진 맥락과 <span class="light">실소유주(UBO)를 해부하다.</span>
+        표면적 숫자를 넘어 <span class="light">자본의 은밀한 이해관계를 해부하다.</span>
       </h1>
       <p class="hero-subline">
-        단순한 주가나 재산 나열을 넘어, <strong>이해진과 김범수의 34년 동행과 결별 서사</strong>, 
-        네이버 1784 사옥과 서초사옥의 <strong>등기상 법인 vs 실소유주 오너의 지배구조</strong>, 
-        도산대로 185억 빌딩을 은닉한 채 17억 세금을 버티는 <strong>체납의 역설</strong>을 입체적으로 추적합니다.
+        블룸버그 억만장자 순위와 ICIJ 오프쇼어 리크스를 넘어, <strong>검찰 징역 5년 구형이 1심 무죄로 뒤집힌 대형로펌 전관예우 회전문 인사</strong>, 
+        0.91% 지분으로 이수만의 30년 제국을 뒤흔든 <strong>행동주의 펀드 머니게임</strong>, 
+        2.3조 원에 달하는 <strong>이건희 컬렉션 상속세 물납과 미술품 비자금</strong>까지 실질적 권력과 자본의 온톨로지를 추적합니다.
       </p>
 
       <div class="hero-kpi-grid">
@@ -700,47 +711,47 @@
         <div class="kpi-card">
           <div class="kpi-label">
             <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
-            추적 프라임 부동산 자산
+            추적 프라임 부동산 (UBO)
           </div>
           <div class="kpi-val-box">
             <span class="kpi-number" id="kpiRealEstate">42.80</span>
             <span class="kpi-unit">조 원</span>
           </div>
-          <div class="kpi-desc">1784·서초타운·송도R&D 등 UBO 맵핑</div>
+          <div class="kpi-desc">1784·서초타운 등 법인 등기 vs 실소유주</div>
         </div>
 
         <div class="kpi-card">
           <div class="kpi-label">
-            <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
-            고액 체납 은닉 추적망
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            초고액 미술품 자산 원장
           </div>
           <div class="kpi-val-box">
-            <span class="kpi-number" id="kpiDefaulters">13,697</span>
-            <span class="kpi-unit">명</span>
-          </div>
-          <div class="kpi-desc">신사동 185억 빌딩 강제 공매 추진</div>
-        </div>
-
-        <div class="kpi-card">
-          <div class="kpi-label">
-            <svg class="icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle></svg>
-            자본 마피아 클러스터
-          </div>
-          <div class="kpi-val-box">
-            <span class="kpi-number" id="kpiMafia">58.20</span>
+            <span class="kpi-number" id="kpiArtWealth">2.68</span>
             <span class="kpi-unit">조 원</span>
           </div>
-          <div class="kpi-desc">삼성SDS 사내벤처 & 본엔젤스 계보</div>
+          <div class="kpi-desc">이건희 컬렉션 물납 & 비자금 추적</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-label">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+            전관예우 회전문 인사
+          </div>
+          <div class="kpi-val-box">
+            <span class="kpi-number" id="kpiRevolving">24</span>
+            <span class="kpi-unit">명</span>
+          </div>
+          <div class="kpi-desc">특수부 판검사 ➔ 로펌 ➔ 사외이사</div>
         </div>
       </div>
     </section>
 
-    <!-- 5-Lenses Navigation Segment Bar -->
-    <div class="lenses-segment-wrap">
+    <!-- 7-Lenses Navigation Segment Bar (Carousel Tactile) -->
+    <div class="lenses-segment-wrap" id="lensCarousel">
       <button class="lens-btn active" onclick="switchLens('stories', this)">
         <svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
         심층 온톨로지 서사 (Stories)
-        <span class="lens-badge">3대 드라마</span>
+        <span class="lens-badge">5대 대하 드라마</span>
       </button>
 
       <button class="lens-btn" onclick="switchLens('bloomberg', this)">
@@ -755,16 +766,28 @@
         <span class="lens-badge">42.8조</span>
       </button>
 
-      <button class="lens-btn" onclick="switchLens('radar', this)">
-        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a10 10 0 0 1 10 10"></path></svg>
-        오프쇼어 & 체납 추적 레이더 (Radar)
-        <span class="lens-badge">체납의 역설</span>
+      <button class="lens-btn" onclick="switchLens('revolving', this)">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        전관예우 회전문 & 사법 카르텔 (LittleSis)
+        <span class="lens-badge">사법 방어망</span>
       </button>
 
-      <button class="lens-btn" onclick="switchLens('mafia', this)">
-        <svg class="icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle></svg>
-        창업가 자본 마피아 (PitchBook)
-        <span class="lens-badge">58.2조</span>
+      <button class="lens-btn" onclick="switchLens('activist', this)">
+        <svg class="icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+        행동주의 펀드 워치 (WhaleWisdom)
+        <span class="lens-badge">0.91%의 반란</span>
+      </button>
+
+      <button class="lens-btn" onclick="switchLens('art', this)">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 16 12 12 8"></polygon></svg>
+        초고액 미술품 자산 (MutualArt)
+        <span class="lens-badge">2.68조 물납</span>
+      </button>
+
+      <button class="lens-btn" onclick="switchLens('radar', this)">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a10 10 0 0 1 10 10"></path></svg>
+        오프쇼어 & 글로벌 제재 레이더 (OpenSanctions)
+        <span class="lens-badge">권도형·체납</span>
       </button>
     </div>
 
@@ -776,7 +799,7 @@
     <!-- Footer -->
     <footer class="site-footer">
       <div>
-        <strong>Let's Asset Intelligence Platform</strong> · LDS v2.5.0 Global Editorial & Narrative Ontologies
+        <strong>Let's Asset Intelligence Platform</strong> · LDS v2.5.0 Global Editorial & Deep Narrative Ontologies
       </div>
       <div class="footer-links">
         <a href="https://pyw31337.github.io/lets/">Let's 마스터 허브</a>
@@ -820,10 +843,14 @@
         renderBloombergLens(container);
       } else if (currentLens === 'land') {
         renderLandLens(container);
+      } else if (currentLens === 'revolving') {
+        renderRevolvingLens(container);
+      } else if (currentLens === 'activist') {
+        renderActivistLens(container);
+      } else if (currentLens === 'art') {
+        renderArtLens(container);
       } else if (currentLens === 'radar') {
         renderRadarLens(container);
-      } else if (currentLens === 'mafia') {
-        renderMafiaLens(container);
       }
     }
 
@@ -835,9 +862,9 @@
           <div>
             <h2 class="section-title">
               <svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-              심층 온톨로지 대하 서사 (Deep Narrative Chronicles)
+              심층 온톨로지 5대 대하 서사 (Deep Narrative Chronicles)
             </h2>
-            <p class="section-subtitle">자본의 이동 뒤에 숨겨진 34년간의 인간적 애증, 결별, 지배구조의 기만과 체납의 역설을 분석합니다.</p>
+            <p class="section-subtitle">단순한 숫자 나열을 넘어 인간적 애증, 결별, 전관예우 사법 카르텔, 행동주의 펀드 전쟁을 챕터별로 해부합니다.</p>
           </div>
         </div>
       `;
@@ -846,13 +873,17 @@
         let isStory1 = st.id === 'narrative-story-001';
         let isStory2 = st.id === 'narrative-story-002';
         let isStory3 = st.id === 'narrative-story-003';
+        let isStory4 = st.id === 'narrative-story-004';
+        let isStory5 = st.id === 'narrative-story-005';
 
         html += `
           <article class="narrative-card">
             <div class="narrative-badge-row">
               <span class="badge-pill highlight">${st.period}</span>
               ${st.characters.map(c => `<span class="badge-pill">${c}</span>`).join('')}
-              ${isStory3 ? '<span class="badge-pill alert">고액체납 실태 추적</span>' : ''}
+              ${isStory4 ? '<span class="badge-pill purple">0.91% 행동주의 전쟁</span>' : ''}
+              ${isStory5 ? '<span class="badge-pill amber">전관예우 1심 무죄 카르텔</span>' : ''}
+              ${isStory3 ? '<span class="badge-pill alert">고액체납 은닉 추적</span>' : ''}
               ${isStory2 ? '<span class="badge-pill highlight">UBO 실질지배자 해부</span>' : ''}
             </div>
 
@@ -869,11 +900,11 @@
             </div>
 
             <div class="narrative-connections-box">
-              <span style="font-size:12px; font-weight:800; color:var(--text-muted); text-transform:uppercase;">온톨로지 핵심 접점:</span>
+              <span style="font-size:12px; font-weight:800; color:var(--text-muted); text-transform:uppercase;">핵심 접점 온톨로지:</span>
               ${(st.ontology_connections || []).map(conn => {
-                if (conn.entity) return `<span class="connection-tag">${conn.entity} ➔ ${conn.role}</span>`;
+                if (conn.entity) return `<span class="connection-tag">${conn.entity} ➔ <strong>${conn.role}</strong></span>`;
                 if (conn.property) return `<span class="connection-tag">🏢 ${conn.property}: ${conn.legal_owner} (등기) ➔ <strong>${conn.ubo} (실주인, ${conn.val})</strong></span>`;
-                if (conn.defaulter) return `<span class="connection-tag" style="color:var(--tax-rose);">⚠️ ${conn.defaulter}: 체납 ${conn.delinquent_tax} vs <strong>은닉재산 ${conn.hidden_asset} (${conn.status})</strong></span>`;
+                if (conn.defaulter) return `<span class="connection-tag" style="color:var(--tax-rose);">⚠️ ${conn.defaulter}: 체납 ${conn.delinquent_tax} vs <strong>은닉 ${conn.hidden_asset} (${conn.status})</strong></span>`;
                 return '';
               }).join('')}
             </div>
@@ -920,7 +951,6 @@
               </div>
             </div>
 
-            <!-- Asset Breakdown Stacked Bar -->
             <div>
               <div style="display:flex; justify-content:space-between; font-size:12px; font-weight:700;">
                 <span>포트폴리오 자산 구성비</span>
@@ -940,7 +970,6 @@
               </div>
             </div>
 
-            <!-- Major Holdings (DART) -->
             <div class="ubo-box">
               <div style="font-size:12px; font-weight:800; color:var(--text-muted); margin-bottom:6px;">DART 주요 지분 및 가치</div>
               ${(b.major_holdings || []).map(h => `
@@ -951,7 +980,6 @@
               `).join('')}
             </div>
 
-            <!-- UBO Real Estate Links -->
             <div class="ubo-box" style="background:#f8fafc; border:1px dashed #cbd5e1;">
               <div style="font-size:12px; font-weight:800; color:var(--text-black); margin-bottom:6px;">실소유 프라임 부동산 (UBO)</div>
               ${(b.ubo_physical_assets || []).map(p => `
@@ -962,7 +990,6 @@
               `).join('')}
             </div>
 
-            <!-- Tax & Judicial Status -->
             <div style="font-size:12px; color:var(--text-secondary); display:flex; justify-content:space-between; align-items:center; padding-top:6px;">
               <span>납세 상태: <strong style="color:var(--land-emerald);">${b.tax_and_justice_profile.tax_status}</strong></span>
               <span style="font-size:11px; color:var(--text-muted);">${b.tax_and_justice_profile.judicial_risk.split(' ')[0]} 관련</span>
@@ -1041,23 +1068,199 @@
       container.innerHTML = html;
     }
 
-    /* 4. 오프쇼어 & 체납 추적 레이더 (Radar) */
-    function renderRadarLens(container) {
-      const radar = assetData.offshore_and_tax_radar || [];
+    /* 4. 전관예우 회전문 & 사법 카르텔 (LittleSis) */
+    function renderRevolvingLens(container) {
+      const cartels = assetData.revolving_door_cartels || [];
       let html = `
         <div class="section-header">
           <div>
             <h2 class="section-title">
-              <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a10 10 0 0 1 10 10"></path></svg>
-              오프쇼어 & 고액체납 은닉 추적 레이더 (ICIJ & Tax Radar)
+              <svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              전관예우 회전문 & 사법 카르텔 온톨로지 (LittleSis 벤치마크)
             </h2>
-            <p class="section-subtitle">버진아일랜드(BVI) 역외 페이퍼컴퍼니와 차명 법인 뒤에 숨긴 은닉 자산 및 체납의 역설을 고발합니다.</p>
+            <p class="section-subtitle">판검사·고위 관료 출신의 대형 로펌 이직과 대기업 사외이사·변호인단 영입을 통한 사법 방어선을 분석합니다.</p>
+          </div>
+        </div>
+      `;
+
+      cartels.forEach(c => {
+        html += `
+          <div class="narrative-card">
+            <div class="narrative-badge-row">
+              <span class="badge-pill amber">${c.target_corp}</span>
+              <span class="badge-pill highlight">방어 성공률 ${c.risk_mitigation_score}</span>
+              <span class="badge-pill">연간 추정 법률비용 ${c.annual_legal_cost_est_billion_krw}억</span>
+            </div>
+
+            <h3 class="narrative-title">${c.cluster_title}</h3>
+            <p style="font-size:15px; color:var(--text-secondary); margin-bottom:24px; line-height:1.6;">
+              ${c.summary}
+            </p>
+
+            <div class="grid-2">
+              ${c.key_personnel.map(k => `
+                <div style="background:var(--bg-subtle); padding:20px 24px; border-radius:var(--radius-md); border-left:4px solid var(--amber-gold);">
+                  <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;">
+                    <strong style="font-size:17px; color:var(--text-black);">${k.name}</strong>
+                    <span style="font-size:12px; color:var(--amber-gold); font-weight:800;">${k.current_role.split('/')[0]}</span>
+                  </div>
+                  <div style="font-size:12px; color:var(--text-muted); margin-bottom:8px;">이력: ${k.origin}</div>
+                  <div style="font-size:13px; color:var(--text-primary); line-height:1.5;"><strong>방어 메커니즘:</strong> ${k.mechanism}</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    /* 5. 행동주의 펀드 워치 (WhaleWisdom) */
+    function renderActivistLens(container) {
+      const fundWars = assetData.activist_fund_wars || [];
+      let html = `
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">
+              <svg class="icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              행동주의 펀드 vs 오너 경영권 대결 (WhaleWisdom 벤치마크)
+            </h2>
+            <p class="section-subtitle">0.91% 지분으로 이수만을 몰아낸 얼라인파트너스와 삼성물산을 공격한 앨리엇의 자본전쟁 메커니즘입니다.</p>
+          </div>
+        </div>
+      `;
+
+      fundWars.forEach(fw => {
+        html += `
+          <div class="narrative-card">
+            <div class="narrative-badge-row">
+              <span class="badge-pill purple">${fw.fund_type}</span>
+              <span class="badge-pill highlight">타깃: ${fw.target_entity}</span>
+              <span class="badge-pill alert">공격 지분율: ${fw.stake_pct_at_attack}%</span>
+              <span class="badge-pill">동원 자본: ${fw.capital_mobilized_billion_krw.toLocaleString()}억</span>
+            </div>
+
+            <h3 class="narrative-title">${fw.fund_name}의 경영권 공격</h3>
+
+            <div style="background:#f5f3ff; border:1px solid #ddd6fe; padding:18px 22px; border-radius:var(--radius-md); margin-bottom:20px; font-size:14px; color:#5b21b6; line-height:1.6;">
+              <strong>공격 명분:</strong> ${fw.attack_rationale}
+            </div>
+
+            <p style="font-size:15px; color:var(--text-secondary); line-height:1.65; margin-bottom:20px;">
+              <strong>전쟁 결과:</strong> ${fw.battle_outcome}
+            </p>
+
+            <div class="ubo-box" style="background:#faf5ff;">
+              <span class="ubo-label">지배구조(UBO) 지각 변동:</span>
+              <span class="ubo-val" style="color:var(--purple-royal); font-weight:800;">${fw.ubo_shift}</span>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    /* 6. 초고액 미술품 자산 (MutualArt & Let's Art) */
+    function renderArtLens(container) {
+      const arts = assetData.art_hidden_wealth || [];
+      let html = `
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">
+              <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 16 12 12 8"></polygon></svg>
+              초고액 미술품 자산 & 비자금 은닉 (MutualArt & Let's Art)
+            </h2>
+            <p class="section-subtitle">2.3조 원 상당의 이건희 컬렉션 상속세 물납 절세와 오리온 서미갤러리 140억 회화 비자금 환가를 해부합니다.</p>
           </div>
         </div>
         <div class="grid-2">
       `;
 
-      radar.forEach(r => {
+      arts.forEach(a => {
+        html += `
+          <div class="billionaire-card" style="border-top:4px solid var(--purple-royal);">
+            <div>
+              <span class="badge-pill purple">${a.owner}</span>
+              <h3 style="font-size:22px; font-weight:900; color:var(--text-black); margin-top:8px;">${a.collection_title}</h3>
+              <div style="font-size:13px; color:var(--text-muted);">소장 작품 수: ${a.pieces_count.toLocaleString()}점</div>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:baseline; padding:12px 0; border-top:1px solid var(--border-hairline); border-bottom:1px solid var(--border-hairline);">
+              <span style="font-size:13px; font-weight:700;">추정 미술품 감정가:</span>
+              <span style="font-size:24px; font-weight:900; color:var(--purple-royal);">${a.estimated_value_trillion_krw}조 원</span>
+            </div>
+
+            <div class="ubo-box">
+              <div style="font-size:12px; font-weight:800; color:var(--purple-royal); margin-bottom:8px;">대표 마스터피스 (국보 및 블루칩)</div>
+              ${a.key_masterpieces.map(m => `
+                <div class="ubo-item">
+                  <span class="ubo-label">${m}</span>
+                  <span class="ubo-val" style="color:var(--text-muted); font-size:12px;">원작 확인</span>
+                </div>
+              `).join('')}
+            </div>
+
+            <p style="font-size:13.5px; color:var(--text-secondary); line-height:1.6;">
+              <strong>자산 전략 온톨로지:</strong> ${a.asset_narrative}
+            </p>
+          </div>
+        `;
+      });
+
+      html += `</div>`;
+      container.innerHTML = html;
+    }
+
+    /* 7. 오프쇼어 & 글로벌 제재 레이더 (OpenSanctions) */
+    function renderRadarLens(container) {
+      const peps = assetData.global_pep_and_sanctions || [];
+      const taxRadar = assetData.offshore_and_tax_radar || [];
+      let html = `
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">
+              <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a10 10 0 0 1 10 10"></path></svg>
+              오프쇼어 & 글로벌 제재·체납 레이더 (OpenSanctions & ICIJ)
+            </h2>
+            <p class="section-subtitle">권도형의 스위스 시그넘 은행 1,800억 가상자산과 BVI 페이퍼컴퍼니 뒤에 숨긴 도산대로 185억 빌딩을 추적합니다.</p>
+          </div>
+        </div>
+        <div class="grid-2">
+      `;
+
+      peps.forEach(p => {
+        html += `
+          <div class="radar-card">
+            <div class="radar-header">
+              <img src="${p.photo_webp}" alt="${p.name}" class="radar-avatar" loading="lazy">
+              <div style="flex:1;">
+                <span class="badge-pill alert">인터폴 적색수배 (Red Notice)</span>
+                <h3 style="font-size:20px; font-weight:900; color:var(--text-black); margin-top:4px;">${p.name} <span style="font-size:13px; font-weight:500; color:var(--text-muted);">(${p.alias})</span></h3>
+                <div style="font-size:12px; color:var(--text-muted);">${p.sanction_jurisdictions.join(' · ')}</div>
+              </div>
+              <div style="text-align:right;">
+                <div style="font-size:24px; font-weight:900; color:var(--tax-rose);">${p.hidden_wealth_est_billion_krw}억</div>
+                <div style="font-size:12px; color:var(--text-muted); font-weight:700;">은닉 포착 자산</div>
+              </div>
+            </div>
+
+            <div class="radar-paradox-callout">
+              <strong>은닉 및 탈루 수법:</strong> ${p.modus_operandi}
+            </div>
+
+            <div class="ubo-box">
+              <div class="ubo-item">
+                <span class="ubo-label">사법 처분 상태:</span>
+                <span class="ubo-val" style="color:var(--tax-rose); font-weight:700;">${p.status}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      taxRadar.forEach(r => {
         const hid = r.suspected_hidden_assets || {};
         const off = r.offshore_link || {};
         html += `
@@ -1106,59 +1309,11 @@
                 <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">${off.leak_source}</div>
               </div>
             ` : ''}
-
-            <div style="font-size:12px; color:var(--text-secondary); line-height:1.5;">
-              <strong>수법 분석:</strong> ${hid.evasion_modus_operandi || '차명 신탁 및 고의 폐업을 통한 세금 징수 회피'}
-            </div>
           </div>
         `;
       });
 
       html += `</div>`;
-      container.innerHTML = html;
-    }
-
-    /* 5. 창업가 자본 마피아 (PitchBook / Crunchbase) */
-    function renderMafiaLens(container) {
-      const mafias = assetData.founder_capital_mafia || [];
-      let html = `
-        <div class="section-header">
-          <div>
-            <h2 class="section-title">
-              <svg class="icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle></svg>
-              창업가 자본 마피아 클러스터 (PitchBook & Crunchbase)
-            </h2>
-            <p class="section-subtitle">대한민국 IT 자본을 태동시킨 사내벤처 요람과 초기 엔젤투자의 연쇄 성공 궤적입니다.</p>
-          </div>
-        </div>
-      `;
-
-      mafias.forEach(m => {
-        html += `
-          <div class="narrative-card">
-            <div class="narrative-badge-row">
-              <span class="badge-pill highlight">${m.origin_year}</span>
-              ${m.origin_place ? `<span class="badge-pill">${m.origin_place}</span>` : ''}
-              <span class="badge-pill">기업가치 ${m.total_cluster_enterprise_value_trillion_krw}조 원</span>
-            </div>
-
-            <h3 class="narrative-title">${m.cluster_name}</h3>
-            <p style="font-size:15px; color:var(--text-secondary); margin-bottom:24px; line-height:1.6;">
-              ${m.narrative_insight}
-            </p>
-
-            <div class="grid-2">
-              ${m.key_figures.map(f => `
-                <div style="background:var(--bg-subtle); padding:18px 22px; border-radius:var(--radius-md);">
-                  <div style="font-size:17px; font-weight:900; color:var(--text-black); margin-bottom:4px;">${f.name}</div>
-                  <div style="font-size:13px; color:var(--text-secondary); line-height:1.4;">${f.role}</div>
-                </div>
-              `).join('')}
-            </div>
-          </div>
-        `;
-      });
-
       container.innerHTML = html;
     }
 
