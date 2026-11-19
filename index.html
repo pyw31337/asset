@@ -3,580 +3,783 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#f8fafc">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <title>렛츠에셋 (Let's Asset) v3.0.0 — 100개년 글로벌 금융 역사 & 미·중·일·유럽 자산·재무관리 인텔리전스 (LDS v1.0.0)</title>
+  <meta name="theme-color" content="#f7f8fa">
+  <title>Let's Asset (렛츠에셋) — 금융투자 & 현물투자 통합 인텔리전스 (LDS v2.5.0)</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-  <link rel="stylesheet" href="css/lets-design-system.css">
   <style>
+    :root {
+      --bg-page: #f7f8fa;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f2f4f6;
+      --bg-hover: #eef1f4;
+      --text-black: #0f172a;
+      --text-primary: #191f28;
+      --text-secondary: #4e5968;
+      --text-muted: #8b95a1;
+      --primary: #3182f6;
+      --primary-light: #e8f3ff;
+      --market-blue: #2563eb;
+      --land-emerald: #059669;
+      --tax-rose: #e11d48;
+      --border-hairline: rgba(0, 0, 0, 0.06);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.05);
+      --font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
+      font-family: var(--font-family);
       background: var(--bg-page);
       color: var(--text-primary);
-      overflow-x: hidden;
-      min-width: 320px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      padding: 0 0 96px;
     }
 
-    .asset-container {
-      max-width: 1440px;
+    /* Wide Edge-to-Edge Container */
+    .wide-canvas {
+      max-width: 1680px;
       margin: 0 auto;
+      padding: 0 40px;
       width: 100%;
     }
+    @media (max-width: 768px) {
+      .wide-canvas { padding: 0 16px; }
+    }
 
-    /* Top Header */
-    .asset-header {
+    /* SVG Icon Helpers */
+    .icon {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      stroke-width: 2;
+      stroke: currentColor;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+    .icon-lg { width: 28px; height: 28px; }
+
+    /* Top Full-Width Navigation Bar */
+    .top-nav {
       background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
-      padding: var(--space-20) var(--space-24);
-      margin-bottom: var(--space-24);
-      box-shadow: var(--shadow-sm);
+      border-bottom: 1px solid var(--border-hairline);
+      padding: 18px 0;
+      margin-bottom: 40px;
+    }
+    .top-nav-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: var(--space-16);
+      gap: 16px;
       flex-wrap: wrap;
     }
-    @media (max-width: 768px) {
-      .asset-header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: var(--space-16);
-      }
-    }
-    .brand-area {
+    .brand-wrap {
       display: flex;
       align-items: center;
-      gap: var(--space-16);
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
     }
-    .brand-icon {
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(135deg, #4f46e5, #6366f1);
-      color: #ffffff;
+    .brand-icon-box {
+      width: 40px;
+      height: 40px;
       border-radius: var(--radius-md);
+      background: var(--primary);
+      color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 26px;
-      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
-      flex-shrink: 0;
     }
     .brand-title {
-      font-size: var(--fs-xl);
-      font-weight: var(--fw-extrabold);
-      color: var(--text-primary);
-      display: flex;
-      align-items: center;
-      gap: var(--space-8);
-      flex-wrap: wrap;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--text-black);
     }
-    .brand-subtitle {
-      font-size: var(--fs-sm);
-      color: var(--text-muted);
-      margin-top: var(--space-4);
-      line-height: var(--lh-snug);
+    .brand-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.04em;
     }
 
-    /* Pulse Panel */
-    .pulse-panel {
-      background: var(--bg-surface);
-      border: 1.5px solid var(--border-subtle);
-      border-radius: var(--radius-xl);
-      padding: var(--space-24);
-      margin-bottom: var(--space-24);
-      box-shadow: var(--shadow-sm);
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-subtle);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-hairline);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .nav-btn:hover {
+      background: var(--bg-hover);
+      color: var(--text-black);
+    }
+    .nav-btn.primary {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Wide Hero Cockpit Section (Black vs Light Typographic Contrast) */
+    .hero-cockpit {
+      padding: 48px 0 64px;
+      position: relative;
+    }
+    .hero-eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-title {
+      font-size: clamp(34px, 4.5vw, 56px);
+      font-weight: 900;
+      color: var(--text-black);
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+    .hero-subtitle {
+      font-size: clamp(15px, 1.3vw, 18px);
+      font-weight: 300;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 920px;
+      margin-bottom: 40px;
+    }
+
+    /* Hero Massive Metric Cockpit Row */
+    .hero-kpi-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-16);
+      gap: 32px;
+      padding: 32px 0 0;
+      border-top: 1px solid var(--border-hairline);
     }
-    @media (max-width: 1024px) {
-      .pulse-panel { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 960px) {
+      .hero-kpi-row { grid-template-columns: repeat(2, 1fr); gap: 20px; }
     }
-    @media (max-width: 639px) {
-      .pulse-panel { grid-template-columns: 1fr; padding: var(--space-16); }
+    @media (max-width: 480px) {
+      .hero-kpi-row { grid-template-columns: 1fr; }
     }
-    .pulse-stat {
-      background: var(--bg-subtle);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: var(--space-16);
+    .kpi-col {
       display: flex;
       flex-direction: column;
-      gap: var(--space-4);
-      transition: all var(--transition-fast);
+      gap: 6px;
     }
-    .pulse-stat:hover {
-      background: #ffffff;
-      border-color: var(--border-strong);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
-    }
-    .pulse-label {
-      font-size: var(--fs-xs);
-      font-weight: var(--fw-bold);
+    .kpi-label {
+      font-size: 13px;
+      font-weight: 600;
       color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: -0.01em;
     }
-    .pulse-val {
-      font-size: var(--fs-2xl);
-      font-weight: var(--fw-extrabold);
-      color: var(--text-primary);
+    .kpi-val-row {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
     }
-    .pulse-unit {
-      font-size: var(--fs-sm);
-      font-weight: var(--fw-medium);
+    .kpi-number {
+      font-size: clamp(32px, 3.2vw, 44px);
+      font-weight: 900;
+      color: var(--text-black);
+      letter-spacing: -0.04em;
+      line-height: 1.0;
+      font-variant-numeric: tabular-nums;
+    }
+    .kpi-unit {
+      font-size: 15px;
+      font-weight: 300;
       color: var(--text-muted);
     }
-    .pulse-rate {
-      font-size: 11px;
-      font-weight: var(--fw-bold);
-      color: var(--color-asset);
-      margin-top: auto;
+    .kpi-meta {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.4;
     }
 
-    .health-strip {
-      grid-column: 1 / -1;
+    /* Segment Navigation Track */
+    .segment-bar {
+      display: flex;
+      gap: 8px;
+      background: var(--bg-subtle);
+      padding: 6px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-hairline);
+      margin: 48px 0 36px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .segment-bar::-webkit-scrollbar { display: none; }
+    .segment-btn {
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .segment-btn:hover { color: var(--text-black); }
+    .segment-btn.active {
+      background: var(--bg-surface);
+      color: var(--text-black);
+      font-weight: 800;
+      border: 1px solid var(--border-hairline);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+    .segment-badge {
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+      background: var(--bg-subtle);
+      font-weight: 700;
+    }
+    .segment-btn.active .segment-badge {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    /* Content Section Grid: Whitespace-Driven Layout */
+    .section-wrap {
+      margin-bottom: 72px;
+    }
+    .section-header {
+      margin-bottom: 28px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      background: linear-gradient(90deg, #eef2ff 0%, #ecfdf5 100%);
-      border: 1px solid #c7d2fe;
-      padding: var(--space-12) var(--space-16);
-      border-radius: var(--radius-md);
-      font-size: var(--fs-xs);
+      align-items: flex-end;
+      gap: 16px;
       flex-wrap: wrap;
-      gap: var(--space-8);
     }
-    @media (max-width: 639px) {
-      .health-strip { flex-direction: column; align-items: flex-start; }
+    .section-title {
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--text-black);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-subtitle {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-secondary);
+      margin-top: 4px;
     }
 
-    /* Main Grid */
-    .asset-grid {
+    /* Cards Grid */
+    .cards-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-20);
-      margin-bottom: var(--space-32);
+      grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+      gap: 24px;
     }
-    @media (max-width: 1024px) {
-      .asset-grid { grid-template-columns: 1fr; }
+    @media (max-width: 640px) {
+      .cards-grid { grid-template-columns: 1fr; }
     }
 
+    /* Asset Card (LDS v2.5.0 Level 0 Flush Surface) */
     .asset-card {
       background: var(--bg-surface);
-      border: 1.5px solid var(--border-subtle);
+      border: 1px solid var(--border-hairline);
       border-radius: var(--radius-lg);
-      padding: var(--space-24);
-      box-shadow: var(--shadow-sm);
+      padding: 28px;
+      box-shadow: none;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
       display: flex;
       flex-direction: column;
+      gap: 18px;
     }
-    @media (max-width: 639px) {
-      .asset-card { padding: var(--space-16); }
+    .asset-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(49, 130, 246, 0.25);
     }
-    .asset-card h2 {
-      font-size: var(--fs-md);
-      font-weight: var(--fw-extrabold);
-      color: var(--text-primary);
-      margin-bottom: var(--space-16);
+    .card-top {
       display: flex;
-      align-items: center;
-      gap: var(--space-8);
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
     }
-
-    .cycle-card {
-      background: var(--bg-subtle);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: var(--space-14);
-      margin-bottom: var(--space-10);
-      transition: all var(--transition-fast);
+    .card-title-group {
       display: flex;
       flex-direction: column;
       gap: 4px;
     }
-    .cycle-card:hover {
-      background: #ffffff;
-      border-color: var(--border-strong);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
+    .card-title {
+      font-size: 19px;
+      font-weight: 900;
+      color: var(--text-black);
+      letter-spacing: -0.02em;
     }
-    .cycle-title {
-      font-size: var(--fs-sm);
-      font-weight: var(--fw-extrabold);
-      color: var(--text-primary);
-      display: flex;
-      justify-content: space-between;
+    .card-category-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: 11.5px;
+      font-weight: 700;
     }
-    .cycle-stats {
-      display: flex;
-      gap: var(--space-12);
-      font-size: 12px;
-      margin: 2px 0;
+    .card-category-pill.market {
+      background: #eff6ff;
+      color: var(--market-blue);
     }
-    .cycle-badge-red { color: #dc2626; font-weight: 700; }
-    .cycle-badge-green { color: #059669; font-weight: 700; }
-    .cycle-lesson {
-      font-size: 11px;
-      color: var(--text-secondary);
-      border-top: 1px dashed var(--border-subtle);
-      padding-top: 6px;
-      line-height: 1.4;
+    .card-category-pill.land {
+      background: #ecfdf5;
+      color: var(--land-emerald);
+    }
+    .card-category-pill.ontology {
+      background: #fdf2f8;
+      color: #be185d;
     }
 
-    /* Sim Box */
-    .sim-box {
-      background: var(--bg-subtle);
-      border: 1px solid var(--border-subtle);
+    /* Card Metrics Matrix */
+    .card-metrics-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 16px;
+      background: var(--bg-page);
       border-radius: var(--radius-md);
-      padding: var(--space-16);
     }
-    .sim-row {
+    .submetric-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .submetric-label {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+    .submetric-val {
+      font-size: 17px;
+      font-weight: 900;
+      color: var(--text-black);
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .card-details-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .card-detail-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      color: var(--text-secondary);
+    }
+    .card-detail-item strong {
+      color: var(--text-black);
+      font-weight: 700;
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--border-hairline);
+      padding: 48px 0;
+      margin-top: 64px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: var(--space-12);
-      gap: var(--space-8);
-    }
-    @media (max-width: 480px) {
-      .sim-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-4);
-      }
-    }
-    .sim-row label {
-      font-size: var(--fs-xs);
-      font-weight: var(--fw-bold);
-      color: var(--text-secondary);
-    }
-    .sim-input {
-      width: 140px;
-      padding: var(--space-8) var(--space-12);
-      background: #ffffff;
-      border: 1.5px solid var(--border-strong);
-      border-radius: var(--radius-sm);
-      color: var(--text-primary);
-      font-size: var(--fs-sm);
-      font-weight: var(--fw-bold);
-      text-align: right;
-      outline: none;
-    }
-    .sim-input:focus {
-      border-color: var(--color-asset);
-      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
-    }
-
-    .power-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-8);
-      margin-top: var(--space-10);
-    }
-    .power-box {
-      background: #ffffff;
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: var(--space-10);
-      font-size: var(--fs-xs);
-    }
-
-    footer {
-      text-align: center;
-      margin-top: var(--space-48);
-      padding-top: var(--space-24);
-      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13px;
       color: var(--text-muted);
-      font-size: var(--fs-sm);
     }
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .footer-links a:hover { color: var(--primary); }
   </style>
 </head>
 <body>
-  <div class="asset-container">
-    <!-- Header -->
-    <header class="asset-header">
-      <div class="brand-area">
-        <div class="brand-icon">📈</div>
+
+  <!-- Top Full-Width Navigation -->
+  <header class="top-nav">
+    <div class="wide-canvas top-nav-inner">
+      <a href="https://pyw31337.github.io/lets/" class="brand-wrap">
+        <div class="brand-icon-box">
+          <svg class="icon icon-lg" viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+          </svg>
+        </div>
         <div>
-          <div class="brand-title">
-            <span>렛츠에셋 (Let's Asset)</span>
-            <span class="lds-badge" style="background:#eef2ff; color:#4f46e5; border:1px solid #c7d2fe;">v3.0.0</span>
-            <span class="lds-badge" style="background:#f1f5f9; color:#475569; border:1px solid #cbd5e1;">LDS v1.0.0</span>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <h1 class="brand-title">Let's Asset</h1>
+            <span class="brand-tag">INTELLIGENCE</span>
           </div>
-          <div class="brand-subtitle">지난 100년(1926~2026) 글로벌 금융 역사 & 미·중·일·유럽 상장사 자산·재무관리 인텔리전스</div>
+          <div style="font-size:12px; font-weight:300; color:var(--text-muted);">금융투자 & 현물투자 자산 원장</div>
         </div>
-      </div>
-      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-        <span class="lds-badge" style="background:#ecfdf5; color:#059669; border:1px solid #a7f3d0; padding:6px 12px;">
-          ⚡ 24/7 무인 크론 정상 가동
-        </span>
-        <code style="color:var(--color-asset); font-size:12px; background:#f1f5f9; padding:4px 8px; border-radius:6px; font-weight:700;">urn:asset:century:*</code>
-      </div>
-    </header>
+      </a>
 
-    <!-- Pulse Panel -->
-    <div class="pulse-panel">
-      <div class="pulse-stat">
-        <div class="pulse-label">100개년 금융 시계열 원장</div>
-        <div class="pulse-val">1926~2026 <span class="pulse-unit">100개년</span></div>
-        <div class="pulse-rate">▲ 대공황·스태그플레이션·2008금융위기 전수</div>
-      </div>
-      <div class="pulse-stat">
-        <div class="pulse-label">글로벌 상장사 결산 원장</div>
-        <div class="pulse-val" id="statCorps">9,963 <span class="pulse-unit">개사</span></div>
-        <div class="pulse-rate">미국 SEC + 한국 DART + 중·일·유럽 지수</div>
-      </div>
-      <div class="pulse-stat">
-        <div class="pulse-label">일간 무인 공시 스트림</div>
-        <div class="pulse-val">492 <span class="pulse-unit">건 / 일</span></div>
-        <div class="pulse-rate">GitHub Actions 매일 15:00 UTC 자동 실행</div>
-      </div>
-      <div class="pulse-stat">
-        <div class="pulse-label">글로벌 밸류체인 관계망</div>
-        <div class="pulse-val">158,580 <span class="pulse-unit">개 노드</span></div>
-        <div class="pulse-rate">원자재·공급망·임원·지분 5중 크로스링크</div>
-      </div>
-
-      <!-- Health Strip -->
-      <div class="health-strip">
-        <div style="display:flex; align-items:center; gap:8px;">
-          <span style="width:8px; height:8px; border-radius:50%; background:#059669; box-shadow:0 0 6px #059669;"></span>
-          <span id="txtAssetPulse" style="font-weight:700; color:#0f172a;">
-            자가진화 감시망: HEALTHY_OPTIMAL (99.4점) — 7일 MA 475.6건/일 (무사고 44일)
-          </span>
-        </div>
-        <div style="display:flex; gap:12px; font-weight:700;">
-          <span style="color:#4f46e5;">수집 가속도: <b>+28.5% ▲</b></span>
-          <span class="lds-badge" style="background:#ecfdf5; color:#059669;">Zero-Drop 이상징후 0건 (안전)</span>
-        </div>
+      <div class="nav-actions">
+        <a href="https://pyw31337.github.io/lets/" class="nav-btn">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+          마스터 허브
+        </a>
+        <a href="https://pyw31337.github.io/people/" class="nav-btn">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+          인물 온톨로지
+        </a>
+        <button class="nav-btn primary" onclick="refreshAssetData()">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg>
+          새로고침
+        </button>
       </div>
     </div>
+  </header>
 
-    <!-- Main Grid -->
-    <div class="asset-grid">
-      <!-- 100-Year Historical Cycles -->
-      <div class="asset-card">
-        <h2>📜 100년(1926~2026) 금융 10대 사이클</h2>
-        <div id="cycleList" style="max-height: 520px; overflow-y: auto; padding-right: 4px;">
-          <p style="color:var(--text-muted); font-size:13px;">100년 금융 데이터를 로드하는 중입니다...</p>
-        </div>
+  <main class="wide-canvas">
+    
+    <!-- Wide Hero Cockpit Section (Black vs Light Extreme Contrast) -->
+    <section class="hero-cockpit">
+      <div class="hero-eyebrow">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        Let's Ecosystem Asset Intelligence · LDS v2.5.0
       </div>
+      <h2 class="hero-title">
+        금융과 현물의 경계를 넘어,<br>
+        자산·기업·체납을 꿰뚫는 온톨로지 관제.
+      </h2>
+      <p class="hero-subtitle">
+        향후 독립 분립할 <strong>Let's Market (금융투자: 주식·채권·기업매출)</strong>과 <strong>Let's Land (현물투자: 빌딩·토지·부동산실거래)</strong> 데이터를 실시간 통합 수집하고, 재계 리더의 지분과 고액 체납자의 은닉 자산을 교차 분석합니다.
+      </p>
 
-      <!-- Wealth & FIRE Simulator -->
-      <div class="asset-card">
-        <h2>💼 자산배분 & 은퇴(FIRE) 재무설계</h2>
-        
-        <div class="sim-box">
-          <div class="sim-row">
-            <label>현재 총 보유 자산 (억원)</label>
-            <input type="number" id="inpAsset" class="sim-input" value="10" step="1" oninput="runWealthSim()">
+      <!-- 4 Massive Metric Columns (900 Black vs 300 Light) -->
+      <div class="hero-kpi-row">
+        <div class="kpi-col">
+          <span class="kpi-label">추적 금융투자 자산 (Let's Market)</span>
+          <div class="kpi-val-row">
+            <span class="kpi-number" id="kpiMarketAssets">328.5</span>
+            <span class="kpi-unit">조 원</span>
           </div>
-          <div class="sim-row">
-            <label>월 희망 생활비 (만원)</label>
-            <input type="number" id="inpExpense" class="sim-input" value="400" step="50" oninput="runWealthSim()">
-          </div>
-          <div class="sim-row">
-            <label>자산배분 전략 선택</label>
-            <select id="selStrategy" class="lds-select" style="width:180px; min-height:38px; padding:6px 10px;" onchange="runWealthSim()">
-              <option value="all_weather">올웨더 (CAGR 8.4%)</option>
-              <option value="classic">60:40 주식/채권 (9.1%)</option>
-              <option value="conservative">보수적 배당/국채 (5.5%)</option>
-            </select>
-          </div>
-
-          <div style="background: #eef2ff; border: 1.5px solid #c7d2fe; border-radius: var(--radius-md); padding: var(--space-14); margin-top: var(--space-14);">
-            <div style="font-size: 11px; color: #4338ca; font-weight: 700;">트리니티 스터디 4% 룰 조기은퇴 판정 결과</div>
-            <div id="simResult" style="font-size: 20px; font-weight: 800; color: #3730a3; margin-top: 4px;">완전 은퇴 가능 (원금 불변 유지)</div>
-            <div id="simDetail" style="font-size: 12px; color: #334155; margin-top: 6px; line-height: 1.5;"></div>
-          </div>
-
-          <!-- Crisis Stress Test -->
-          <div style="margin-top:14px; background:#ffffff; border:1px solid var(--border-subtle); border-radius:8px; padding:12px;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-              <span style="font-size:12px; font-weight:800; color:#4f46e5;">⚡ 100년 역사적 위기 시뮬레이션</span>
-              <button class="lds-chip" style="background:#4f46e5; color:#ffffff; border-color:#4f46e5; padding:3px 10px; font-size:11px;" onclick="runCrisisStressTest()">테스트 실행</button>
-            </div>
-            <div id="stressTestResult" style="font-size:11px; color:#334155; line-height:1.5;">
-              • <b>1929 대공황 (-86.1% 하락장)</b>: 올웨더 적용 시 최대낙폭(MDD) <b>-16.2%</b> 수준 방어<br>
-              • <b>1970년대 스태그플레이션 (물가 14.8%)</b>: 금/원자재 헤지로 실질 구매력 보존<br>
-              • <b>2008 리먼 금융위기 (-56.4%)</b>: 장기국채 리밸런싱으로 1.5년 내 원금 회복
-            </div>
-
-            <div style="margin-top:10px; border-top:1px dashed #e2e8f0; padding-top:8px;">
-              <span style="font-size:12px; font-weight:800; color:#059669;">💡 생애주기 절세 계좌 최적화 가이드</span>
-              <div style="font-size:11px; color:#475569; margin-top:4px; line-height:1.5;">
-                1순위: 연금저축/IRP (연 900만원 납입 시 148.5만원 세액공제)<br>
-                2순위: 중개형 ISA (비과세 200~400만 + 초과 9.9% 분리과세)<br>
-                3순위: 직투 해외주식 (연 250만 기본공제 활용 분할 매도)
-              </div>
-            </div>
-          </div>
+          <span class="kpi-meta">KOSPI·KOSDAQ DART 상장 지분</span>
         </div>
 
-        <h3 style="font-size: 13px; font-weight:800; color: #0f172a; margin-top: 16px; margin-bottom: 6px;">🌐 4대 강대국 상장사 인덱스</h3>
-        <div class="power-grid" id="powerGrid"></div>
-      </div>
+        <div class="kpi-col">
+          <span class="kpi-label">추적 현물투자 자산 (Let's Land)</span>
+          <div class="kpi-val-row">
+            <span class="kpi-number" id="kpiLandAssets">42.8</span>
+            <span class="kpi-unit">조 원</span>
+          </div>
+          <span class="kpi-meta">프라임 오피스·상업빌딩·고급주택</span>
+        </div>
 
-      <!-- Realtime Macro Assets -->
-      <div class="asset-card">
-        <h2>📊 실시간 멀티에셋 거시 매크로 관제</h2>
-        <div id="macroGrid" style="display:flex; flex-direction:column; gap:12px;">
-          <p style="color:var(--text-muted); font-size:13px;">거시 지표를 로드하는 중입니다...</p>
+        <div class="kpi-col">
+          <span class="kpi-label">크로스 온톨로지 접점</span>
+          <div class="kpi-val-row">
+            <span class="kpi-number" id="kpiEdges">42</span>
+            <span class="kpi-unit">개 링크</span>
+          </div>
+          <span class="kpi-meta">인물 ↔ 기업 ↔ 부동산 ↔ 체납</span>
+        </div>
+
+        <div class="kpi-col">
+          <span class="kpi-label">체납 대비 징수 분석 대상</span>
+          <div class="kpi-val-row">
+            <span class="kpi-number">13,697</span>
+            <span class="kpi-unit">명</span>
+          </div>
+          <span class="kpi-meta">행안부·지자체 고액 체납자 원장</span>
         </div>
       </div>
+    </section>
+
+    <!-- Segment Filter Bar -->
+    <div class="segment-bar" id="segmentTrack">
+      <button class="segment-btn active" onclick="switchFilter('all', this)">
+        <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+        전체 온톨로지 통합
+        <span class="segment-badge" id="badgeAll">전체</span>
+      </button>
+      <button class="segment-btn" onclick="switchFilter('market', this)">
+        <svg class="icon" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+        Let's Market (금융투자)
+        <span class="segment-badge" id="badgeMarket">5</span>
+      </button>
+      <button class="segment-btn" onclick="switchFilter('land', this)">
+        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+        Let's Land (현물·부동산)
+        <span class="segment-badge" id="badgeLand">5</span>
+      </button>
+      <button class="segment-btn" onclick="switchFilter('ontology', this)">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        인물·기업·체납 브리지 접점
+        <span class="segment-badge" id="badgeOntology">3</span>
+      </button>
     </div>
 
-    <footer>
-      <p>© 2026 렛츠에셋 (Let's Asset) — pyw31337 Autonomous WealthTech Ecosystem</p>
-      <p style="margin-top:6px; font-size:12px;">LDS v1.0.0 Light Theme System · 8-Point Grid Spacing · 100% Zero Cost Cloud-Free Guarantee</p>
+    <!-- Dynamic Cards Container -->
+    <section class="section-wrap">
+      <div class="section-header">
+        <div>
+          <h3 class="section-title" id="sectionTitle">
+            <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            금융 및 현물 자산 온톨로지 원장
+          </h3>
+          <p class="section-subtitle" id="sectionSubtitle">
+            상장 주식 시가총액, 연간 매출/영업이익, 프라임 오피스 실거래 추정가 및 체납 압류 현황을 실시간 관제합니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="cards-grid" id="cardsGrid">
+        <!-- Rendered dynamically via JavaScript -->
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div>
+        <strong>Let's Asset Intelligence Platform</strong> · LDS v2.5.0 Wide Editorial
+      </div>
+      <div class="footer-links">
+        <a href="https://pyw31337.github.io/lets/">Let's 마스터 허브</a>
+        <a href="https://pyw31337.github.io/people/">Let's 피플</a>
+        <a href="https://github.com/pyw31337/asset">GitHub 리포지토리</a>
+      </div>
     </footer>
-  </div>
+
+  </main>
 
   <script>
-    let centuryDB = {};
-    let assetDB = {};
-    let powersDB = {};
+    let assetData = null;
+    let currentFilter = 'all';
 
-    async function init() {
+    async function loadAssetData() {
       try {
-        const [cRes, aRes, pRes, hRes] = await Promise.all([
-          fetch('data/century_macro_and_wealth_db.json'),
-          fetch('data/asset_ontology.json'),
-          fetch('data/global_major_powers_corps.json'),
-          fetch('data/collection_health_pulse.json')
-        ]);
-        centuryDB = await cRes.json();
-        assetDB = await aRes.json();
-        powersDB = await pRes.json();
-        const healthDB = await hRes.json();
-
-        if (healthDB.pipeline_health_score) {
-          document.getElementById('txtAssetPulse').innerHTML = `자가진화 감시망: ${healthDB.status} (${healthDB.pipeline_health_score}점) — 7일 MA ${healthDB.moving_average_7d}건/일 (무사고 ${healthDB.consecutive_healthy_days}일)`;
-        }
-
-        renderCycles(centuryDB.century_cycles || []);
-        renderMacro(assetDB);
-        renderPowers(powersDB.major_powers_indices || {});
-        runWealthSim();
-      } catch (err) {
-        console.error('Data load error:', err);
+        const res = await fetch('data/asset_ontology.json');
+        if (!res.ok) throw new Error('Failed to load asset ontology JSON');
+        assetData = await res.json();
+        renderDashboard();
+      } catch (e) {
+        console.error(e);
+        document.getElementById('cardsGrid').innerHTML = '<p style="color:#ef4444; padding:32px;">자산 데이터를 로드하는 중 오류가 발생했습니다.</p>';
       }
     }
 
-    function runCrisisStressTest() {
-      const asset = parseFloat(document.getElementById('inpAsset').value) || 10;
-      const strat = document.getElementById('selStrategy').value;
-
-      let mdd29 = strat === 'all_weather' ? '-16.2%' : strat === 'classic' ? '-45.8%' : '-22.4%';
-      let recovery08 = strat === 'all_weather' ? '1.5년' : strat === 'classic' ? '3.8년' : '2.1년';
-      let lossAmt29 = Math.round(asset * (strat === 'all_weather' ? 0.162 : strat === 'classic' ? 0.458 : 0.224) * 10) / 10;
-
-      document.getElementById('stressTestResult').innerHTML = `
-        • <b>1929 대공황 (-86.1% 하락장)</b>: 보유 자산 ${asset}억 중 예상 낙폭 <b>${mdd29}</b> (최대 손실 -${lossAmt29}억 방어)<br>
-        • <b>1970년대 스태그플레이션 (물가 14.8%)</b>: 실물 금/원자재 헤지로 인플레이션 실질 구매력 100% 보존<br>
-        • <b>2008 리먼 금융위기 (-56.4%)</b>: 국채 쿠폰 및 리밸런싱으로 <b>${recovery08}</b> 내 완전 원금 회복<br>
-        • <b>종합 판정</b>: ${strat === 'all_weather' ? '🛡️ 최상급 방어력 (100년 위기 통과율 99.8%)' : '균형 성장형 포트폴리오 (위기 시 현금 비중 15% 권고)'}
-      `;
+    function switchFilter(filter, btn) {
+      currentFilter = filter;
+      document.querySelectorAll('.segment-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderDashboard();
     }
 
-    function renderCycles(cycles) {
-      const box = document.getElementById('cycleList');
-      box.innerHTML = cycles.map(c => `
-        <div class="cycle-card">
-          <div class="cycle-title">
-            <span>${c.era} ${c.event}</span>
-          </div>
-          <div class="cycle-stats">
-            <span class="cycle-badge-red">📉 하락폭: ${c.sp500_drawdown}</span>
-            <span class="cycle-badge-green">🛡️ 피난처: ${c.safe_haven}</span>
-          </div>
-          <div style="font-size: 11px; color: #475569;"><b>인플레이션 국면:</b> ${c.inflation_regime}</div>
-          <div class="cycle-lesson">💡 <b>교훈:</b> ${c.key_lesson}</div>
-        </div>
-      `).join('');
-    }
+    function renderDashboard() {
+      if (!assetData) return;
 
-    function renderPowers(powers) {
-      const box = document.getElementById('powerGrid');
-      box.innerHTML = Object.entries(powers).map(([k, p]) => `
-        <div class="power-box">
-          <div style="font-weight:800; color:#2563eb; display:flex; justify-content:space-between;">
-            <span>${p.name}</span>
-            <span style="color:#0f172a;">${p.tracked_corps}사</span>
-          </div>
-          <div style="font-size:11px; color:var(--text-muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-top:2px;">
-            ${(p.leaders || []).slice(0, 3).join(', ')}
-          </div>
-        </div>
-      `).join('');
-    }
+      const mkt = assetData.lets_market_financial || {};
+      const land = assetData.lets_land_physical || {};
+      const junc = assetData.ontology_junctions || {};
 
-    function renderMacro(asset) {
-      const box = document.getElementById('macroGrid');
-      const macro = asset.macro_assets || {};
-      box.innerHTML = `
-        <div style="background:#f8fafc; border:1px solid var(--border-subtle); border-radius:10px; padding:12px;">
-          <b style="font-size:12px; color:#4f46e5;">주요 증시 지수 (실시간)</b>
-          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin-top:8px;">
-            ${(macro.equities || []).map(eq => `
-              <div style="display:flex; justify-content:space-between; font-size:12px; background:#ffffff; border:1px solid #e2e8f0; padding:6px 10px; border-radius:6px;">
-                <span style="font-weight:600;">${eq.name}</span>
-                <b style="color:${eq.change_pct>=0?'#059669':'#dc2626'}">${eq.current}</b>
+      document.getElementById('kpiMarketAssets').innerText = mkt.total_tracked_assets_krw_trillion || '328.5';
+      document.getElementById('kpiLandAssets').innerText = land.total_tracked_assets_krw_trillion || '42.8';
+      document.getElementById('kpiEdges').innerText = junc.edges_count || '42';
+
+      const grid = document.getElementById('cardsGrid');
+      let cardsHtml = '';
+
+      // 1. Let's Market Cards
+      if (currentFilter === 'all' || currentFilter === 'market') {
+        (mkt.equities || []).forEach(eq => {
+          cardsHtml += `
+            <div class="asset-card">
+              <div class="card-top">
+                <div class="card-title-group">
+                  <div class="card-title">${eq.entity}</div>
+                  <div style="font-size:12px; color:var(--text-muted);">${eq.market} 상장사 · 건전성: ${eq.financial_health || '우수'}</div>
+                </div>
+                <span class="card-category-pill market">
+                  <svg class="icon" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline></svg>
+                  Let's Market
+                </span>
               </div>
-            `).join('')}
-          </div>
-        </div>
-        <div style="background:#f8fafc; border:1px solid var(--border-subtle); border-radius:10px; padding:12px;">
-          <b style="font-size:12px; color:#4f46e5;">국채 금리 & 원자재 (실시간)</b>
-          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin-top:8px;">
-            ${(macro.bonds || []).slice(0, 2).map(b => `
-              <div style="display:flex; justify-content:space-between; font-size:12px; background:#ffffff; border:1px solid #e2e8f0; padding:6px 10px; border-radius:6px;">
-                <span style="color:#475569;">${b.name.split('(')[0]}</span>
-                <b style="color:#0f172a;">${b.current}${b.unit}</b>
+
+              <div class="card-metrics-row">
+                <div class="submetric-col">
+                  <span class="submetric-label">시가총액</span>
+                  <span class="submetric-val">${eq.market_cap_trillion_krw}조</span>
+                </div>
+                <div class="submetric-col">
+                  <span class="submetric-label">연간 매출</span>
+                  <span class="submetric-val">${eq.annual_revenue_trillion_krw}조</span>
+                </div>
+                <div class="submetric-col">
+                  <span class="submetric-label">영업이익</span>
+                  <span class="submetric-val" style="color:var(--primary);">${eq.annual_operating_profit_trillion_krw}조</span>
+                </div>
               </div>
-            `).join('')}
-            ${(macro.commodities_futures || []).slice(0, 2).map(c => `
-              <div style="display:flex; justify-content:space-between; font-size:12px; background:#ffffff; border:1px solid #e2e8f0; padding:6px 10px; border-radius:6px;">
-                <span style="color:#475569;">${c.name.split('(')[0]}</span>
-                <b style="color:#0f172a;">${c.current}</b>
+
+              <div class="card-details-list">
+                <div class="card-detail-item">
+                  <span>주요 대주주 지분 (DART):</span>
+                  <strong>${(eq.major_stakeholders || []).map(s => `${s.name} ${s.stake_pct}% (${s.value_trillion_krw ? s.value_trillion_krw + '조' : ''})`).join(' · ')}</strong>
+                </div>
+                <div class="card-detail-item">
+                  <span>납세/체납 상태:</span>
+                  <strong style="color:var(--land-emerald);">${eq.tax_delinquency_status}</strong>
+                </div>
               </div>
-            `).join('')}
-          </div>
-        </div>
-      `;
-    }
-
-    function runWealthSim() {
-      const assetWon = (parseFloat(document.getElementById('inpAsset').value) || 0) * 100000000;
-      const annualExpense = (parseFloat(document.getElementById('inpExpense').value) || 0) * 10000 * 12;
-
-      const safeWithdrawal = assetWon * 0.04;
-      const isFire = safeWithdrawal >= annualExpense;
-
-      const resElem = document.getElementById('simResult');
-      const detElem = document.getElementById('simDetail');
-
-      if (isFire) {
-        resElem.textContent = "🎉 조기 은퇴 (FIRE) 완전 가능";
-        resElem.style.color = "#059669";
-        detElem.innerHTML = `
-          연 4% 안전인출액(<b>${(safeWithdrawal/10000).toLocaleString()}만원</b>)이 연간 필요생활비(<b>${(annualExpense/10000).toLocaleString()}만원</b>)를 상회합니다.<br>
-          추천 계좌 전략: ISA 만기자금 IRP 이관(추가 세액공제 300만원) + 연금계좌 저율 분리과세(5.5%) 활용.
-        `;
-      } else {
-        const shortage = annualExpense - safeWithdrawal;
-        resElem.textContent = "⚠️ 은퇴 자산 추가 축적 필요";
-        resElem.style.color = "#dc2626";
-        detElem.innerHTML = `
-          연 4% 안전인출액 대비 연간 약 <b>${(shortage/10000).toLocaleString()}만원</b> 부족합니다.<br>
-          목표 자산: 연 생활비의 25배인 <b>${((annualExpense * 25)/100000000).toFixed(1)}억원</b> 축적 시 100년간 원금 고갈 없이 은퇴 가능.
-        `;
+            </div>
+          `;
+        });
       }
+
+      // 2. Let's Land Cards
+      if (currentFilter === 'all' || currentFilter === 'land') {
+        (land.properties || []).forEach(prop => {
+          const isPending = prop.tax_lien_status && prop.tax_lien_status.includes('ENFORCEMENT');
+          cardsHtml += `
+            <div class="asset-card" style="${isPending ? 'border-top:3.5px solid var(--tax-rose);' : ''}">
+              <div class="card-top">
+                <div class="card-title-group">
+                  <div class="card-title">${prop.name}</div>
+                  <div style="font-size:12px; color:var(--text-muted);">${prop.location}</div>
+                </div>
+                <span class="card-category-pill land">
+                  <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+                  Let's Land
+                </span>
+              </div>
+
+              <div class="card-metrics-row">
+                <div class="submetric-col">
+                  <span class="submetric-label">추정 시가</span>
+                  <span class="submetric-val" style="color:var(--land-emerald);">${prop.estimated_market_value_billion_krw.toLocaleString()}억</span>
+                </div>
+                <div class="submetric-col">
+                  <span class="submetric-label">부동산 유형</span>
+                  <span class="submetric-val" style="font-size:13px; font-weight:700;">${prop.type.split(' ')[0]}</span>
+                </div>
+                <div class="submetric-col">
+                  <span class="submetric-label">압류/권리 상태</span>
+                  <span class="submetric-val" style="font-size:12px; color:${isPending ? 'var(--tax-rose)' : 'var(--land-emerald)'};">
+                    ${isPending ? '압류 진행 중' : '정상 권리'}
+                  </span>
+                </div>
+              </div>
+
+              <div class="card-details-list">
+                <div class="card-detail-item">
+                  <span>소유 주체:</span>
+                  <strong>${prop.owner_entity}</strong>
+                </div>
+                ${prop.connected_people ? `
+                  <div class="card-detail-item">
+                    <span>연계 인물:</span>
+                    <strong>${prop.connected_people.join(' · ')}</strong>
+                  </div>
+                ` : ''}
+                ${prop.connected_defaulters ? `
+                  <div class="card-detail-item" style="color:var(--tax-rose);">
+                    <span>연계 고액 체납자:</span>
+                    <strong>${prop.connected_defaulters.map(d => `${d.name} (${d.delinquent_amount_billion_krw}억 체납)`).join(', ')}</strong>
+                  </div>
+                ` : ''}
+              </div>
+            </div>
+          `;
+        });
+      }
+
+      // 3. Ontology Cross-Bridge Cards
+      if (currentFilter === 'all' || currentFilter === 'ontology') {
+        (junc.sample_bridges || []).forEach(br => {
+          const isDefaulter = br.person.includes('체납');
+          cardsHtml += `
+            <div class="asset-card" style="${isDefaulter ? 'border-top:3.5px solid var(--tax-rose);' : 'border-top:3.5px solid #be185d;'}">
+              <div class="card-top">
+                <div class="card-title-group">
+                  <div class="card-title">${br.person}</div>
+                  <div style="font-size:12px; color:var(--text-muted);">${br.ontology_signature}</div>
+                </div>
+                <span class="card-category-pill ontology">
+                  <svg class="icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle></svg>
+                  온톨로지 접점
+                </span>
+              </div>
+
+              <div class="card-details-list" style="margin-top:6px;">
+                <div class="card-detail-item">
+                  <span>📈 금융투자 (Let's Market):</span>
+                  <strong>${br.market_assets}</strong>
+                </div>
+                <div class="card-detail-item">
+                  <span>🏢 현물투자 (Let's Land):</span>
+                  <strong>${br.land_assets}</strong>
+                </div>
+                <div class="card-detail-item">
+                  <span>💼 기업 매출 규모:</span>
+                  <strong>${br.enterprise_revenue}</strong>
+                </div>
+                <div class="card-detail-item">
+                  <span>⚖️ 체납 현황:</span>
+                  <strong style="color:${isDefaulter ? 'var(--tax-rose)' : 'var(--land-emerald)'};">${br.tax_delinquency}</strong>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+      }
+
+      grid.innerHTML = cardsHtml;
     }
 
-    init();
+    function refreshAssetData() {
+      loadAssetData();
+    }
+
+    document.addEventListener('DOMContentLoaded', loadAssetData);
   </script>
 </body>
 </html>
