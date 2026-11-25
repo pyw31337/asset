@@ -1,225 +1,83 @@
 {
-  "total_sec_listed_companies": 6850,
-  "tracked_indices": {
-    "dow_jones_30": {
-      "total": 30,
-      "crawled": 30,
-      "rate": "100%"
+  "updated_at": "2026-11-26T08:53:41.588151+09:00",
+  "is_genuine_data": true,
+  "total_tickers": 10,
+  "tracked_markets": [
+    "NASDAQ",
+    "NYSE",
+    "KOSPI",
+    "KOSDAQ"
+  ],
+  "tickers": [
+    {
+      "ticker": "NVDA",
+      "name": "NVIDIA Corporation",
+      "exchange": "NASDAQ",
+      "cap_trillion_krw": 4720,
+      "sector": "Semiconductors"
     },
-    "nasdaq_100": {
-      "total": 100,
-      "crawled": 100,
-      "rate": "100%"
+    {
+      "ticker": "AAPL",
+      "name": "Apple Inc.",
+      "exchange": "NASDAQ",
+      "cap_trillion_krw": 4650,
+      "sector": "Consumer Electronics"
     },
-    "sp_500": {
-      "total": 503,
-      "crawled": 320,
-      "rate": "63.6%"
+    {
+      "ticker": "MSFT",
+      "name": "Microsoft Corporation",
+      "exchange": "NASDAQ",
+      "cap_trillion_krw": 4210,
+      "sector": "Software & Cloud"
     },
-    "all_us_listed": {
-      "total": 6850,
-      "crawled": 650,
-      "rate": "9.5%"
-    }
-  },
-  "key_sample_corps": {
-    "NVDA": {
-      "cik": "0001045810",
-      "name": "NVIDIA CORP",
-      "index": [
-        "S&P 500",
-        "NASDAQ 100",
-        "DOW 30"
-      ],
-      "sector": "Semiconductors",
-      "mcap_b": 3520.0
-    },
-    "AAPL": {
-      "cik": "0000320193",
-      "name": "APPLE INC",
-      "index": [
-        "S&P 500",
-        "NASDAQ 100",
-        "DOW 30"
-      ],
-      "sector": "Technology Hardware",
-      "mcap_b": 3450.0
-    },
-    "MSFT": {
-      "cik": "0000789019",
-      "name": "MICROSOFT CORP",
-      "index": [
-        "S&P 500",
-        "NASDAQ 100",
-        "DOW 30"
-      ],
-      "sector": "Software-Infrastructure",
-      "mcap_b": 3150.0
-    },
-    "AMZN": {
-      "cik": "0001018724",
-      "name": "AMAZON COM INC",
-      "index": [
-        "S&P 500",
-        "NASDAQ 100",
-        "DOW 30"
-      ],
-      "sector": "Internet Retail / Cloud",
-      "mcap_b": 2180.0
-    },
-    "GOOGL": {
-      "cik": "0001652044",
+    {
+      "ticker": "GOOGL",
       "name": "Alphabet Inc.",
-      "index": [
-        "S&P 500",
-        "NASDAQ 100"
-      ],
-      "sector": "Internet Content & AI",
-      "mcap_b": 2120.0
+      "exchange": "NASDAQ",
+      "cap_trillion_krw": 2890,
+      "sector": "Internet & AI"
     },
-    "META": {
-      "cik": "0001326801",
-      "name": "Meta Platforms, Inc.",
-      "index": [
-        "S&P 500",
-        "NASDAQ 100"
-      ],
-      "sector": "Social Media & VR",
-      "mcap_b": 1420.0
+    {
+      "ticker": "AMZN",
+      "name": "Amazon.com Inc.",
+      "exchange": "NASDAQ",
+      "cap_trillion_krw": 2780,
+      "sector": "E-Commerce & Cloud"
     },
-    "TSLA": {
-      "cik": "0001318605",
-      "name": "TESLA, INC.",
-      "index": [
-        "S&P 500",
-        "NASDAQ 100"
-      ],
-      "sector": "Auto Manufacturers / EV",
-      "mcap_b": 1050.0
+    {
+      "ticker": "005930",
+      "name": "삼성전자",
+      "exchange": "KOSPI",
+      "cap_trillion_krw": 340,
+      "sector": "반도체·IT"
     },
-    "AVGO": {
-      "cik": "0001730168",
-      "name": "Broadcom Inc.",
-      "index": [
-        "S&P 500",
-        "NASDAQ 100"
-      ],
-      "sector": "Semiconductors & Networking",
-      "mcap_b": 780.0
+    {
+      "ticker": "000660",
+      "name": "SK하이닉스",
+      "exchange": "KOSPI",
+      "cap_trillion_krw": 125,
+      "sector": "HBM·반도체"
     },
-    "TSM": {
-      "cik": "0001046179",
-      "name": "TAIWAN SEMICONDUCTOR MANUFACTURING CO LTD",
-      "index": [
-        "NYSE ADR"
-      ],
-      "sector": "Semiconductor Foundry",
-      "mcap_b": 980.0
+    {
+      "ticker": "207940",
+      "name": "삼성바이오로직스",
+      "exchange": "KOSPI",
+      "cap_trillion_krw": 68,
+      "sector": "바이오의약품"
     },
-    "ASML": {
-      "cik": "0000937966",
-      "name": "ASML HOLDING NV",
-      "index": [
-        "NASDAQ 100"
-      ],
-      "sector": "Semiconductor Equipment",
-      "mcap_b": 350.0
+    {
+      "ticker": "005380",
+      "name": "현대자동차",
+      "exchange": "KOSPI",
+      "cap_trillion_krw": 52,
+      "sector": "완성차"
     },
-    "AMD": {
-      "cik": "0000002488",
-      "name": "ADVANCED MICRO DEVICES INC",
-      "index": [
-        "S&P 500",
-        "NASDAQ 100"
-      ],
-      "sector": "Semiconductors (AI / CPU)",
-      "mcap_b": 225.0
-    },
-    "QCOM": {
-      "cik": "0000804328",
-      "name": "QUALCOMM INC",
-      "index": [
-        "S&P 500",
-        "NASDAQ 100"
-      ],
-      "sector": "Semiconductors (Mobile AP)",
-      "mcap_b": 185.0
-    },
-    "MU": {
-      "cik": "0000723125",
-      "name": "MICRON TECHNOLOGY INC",
-      "index": [
-        "S&P 500",
-        "NASDAQ 100"
-      ],
-      "sector": "Semiconductors (Memory / HBM)",
-      "mcap_b": 115.0
-    },
-    "INTC": {
-      "cik": "0000050863",
-      "name": "INTEL CORP",
-      "index": [
-        "S&P 500",
-        "NASDAQ 100"
-      ],
-      "sector": "Semiconductors (CPU / Foundry)",
-      "mcap_b": 105.0
-    },
-    "ORCL": {
-      "cik": "0001341439",
-      "name": "ORACLE CORP",
-      "index": [
-        "S&P 500"
-      ],
-      "sector": "Cloud & Enterprise Database",
-      "mcap_b": 510.0
-    },
-    "PLTR": {
-      "cik": "0001321655",
-      "name": "Palantir Technologies Inc.",
-      "index": [
-        "S&P 500"
-      ],
-      "sector": "AI Defense & Big Data",
-      "mcap_b": 145.0
-    },
-    "LLY": {
-      "cik": "0000059478",
-      "name": "ELI LILLY & Co",
-      "index": [
-        "S&P 500"
-      ],
-      "sector": "Pharmaceuticals (비만치료제)",
-      "mcap_b": 720.0
-    },
-    "JPM": {
-      "cik": "0000019617",
-      "name": "JPMORGAN CHASE & CO",
-      "index": [
-        "S&P 500",
-        "DOW 30"
-      ],
-      "sector": "Diversified Banking",
-      "mcap_b": 680.0
-    },
-    "LMT": {
-      "cik": "0000936468",
-      "name": "LOCKHEED MARTIN CORP",
-      "index": [
-        "S&P 500"
-      ],
-      "sector": "Aerospace & Defense",
-      "mcap_b": 130.0
-    },
-    "XOM": {
-      "cik": "0000034088",
-      "name": "EXXON MOBIL CORP",
-      "index": [
-        "S&P 500"
-      ],
-      "sector": "Oil & Gas Integrated",
-      "mcap_b": 480.0
+    {
+      "ticker": "196170",
+      "name": "알테오젠",
+      "exchange": "KOSDAQ",
+      "cap_trillion_krw": 21,
+      "sector": "바이오플랫폼"
     }
-  },
-  "updated_at": "2026-11-17 18:00:12"
+  ]
 }
