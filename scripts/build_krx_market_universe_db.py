@@ -2,7 +2,7 @@
 """
 build_krx_market_universe_db.py
 렛츠에셋(Let's Asset) KRX 코스피·코스닥 시가총액 유니버스 & DART 5% 지분 공시 DB 구축
-- 코스피 200, 코스닥 150 주요 상장사(반도체, 바이오, 2차전지, 자동차, 인터넷, 금융, 방산, 조선)
+- 코스피·코스닥 핵심 대형주(반도체, 바이오, 2차전지, 모빌리티, 방산, 조선, 원전, 금융, 인터넷)
 - 티커, 시가총액, 주요 주주, 최대주주 지분율, 외국인 지분율, PER/PBR, 배당수익률
 - FTS5 전문검색 테이블을 구축하여 종목명/티커/주주명/지배구조 키워드 즉시 검색
 """
@@ -98,6 +98,18 @@ MAJOR_CORPS_UNIVERSE = [
         "governance_point": "K9 자주포·천무 다연장로켓 폴란드·호주·중동 대규모 수주 및 우주항공청 개청 수혜"
     },
     {
+        "ticker": "329180", "name": "HD현대중공업", "exchange": "KOSPI", "sector": "조선·해양플랜트",
+        "market_cap_trillion": 17.2, "per": 31.0, "pbr": 2.95, "dividend_yield": 0.0,
+        "foreign_ownership_pct": 10.4, "major_shareholder": "HD한국조선해양 (71.02%), 국민연금공단 (5.14%)",
+        "governance_point": "고수익 친환경 LNG선·암모니아선 3년치 도크 수주 잔고 확보 및 미국 함정 MRO 사업 진출"
+    },
+    {
+        "ticker": "034020", "name": "두산에너빌리티", "exchange": "KOSPI", "sector": "원전·가스터빈",
+        "market_cap_trillion": 13.5, "per": 28.5, "pbr": 1.45, "dividend_yield": 0.0,
+        "foreign_ownership_pct": 22.8, "major_shareholder": "두산 (30.39%), 국민연금공단 (6.12%)",
+        "governance_point": "체코 신규 원전 우선협상대상자 선정 및 SMR(소형모듈원자로) 주기기 파운드리 수혜"
+    },
+    {
         "ticker": "042700", "name": "한미반도체", "exchange": "KOSPI", "sector": "반도체장비(TC본더)",
         "market_cap_trillion": 9.8, "per": 38.2, "pbr": 11.2, "dividend_yield": 0.45,
         "foreign_ownership_pct": 15.8, "major_shareholder": "곽동신 부회장 외 (35.79%)",
@@ -110,10 +122,28 @@ MAJOR_CORPS_UNIVERSE = [
         "governance_point": "국산 항암제 최초 미국 FDA 승인 획득(렉라자-리브리반트 병용) 및 존슨앤존슨 마일스톤 수령"
     },
     {
-        "ticker": "329180", "name": "HD현대중공업", "exchange": "KOSPI", "sector": "조선·해양플랜트",
-        "market_cap_trillion": 17.2, "per": 31.0, "pbr": 2.95, "dividend_yield": 0.0,
-        "foreign_ownership_pct": 10.4, "major_shareholder": "HD한국조선해양 (71.02%), 국민연금공단 (5.14%)",
-        "governance_point": "고수익 친환경 LNG선·암모니아선 3년치 도크 수주 잔고 확보 및 미국 함정 MRO 사업 진출"
+        "ticker": "012330", "name": "현대모비스", "exchange": "KOSPI", "sector": "자동차부품·전동화",
+        "market_cap_trillion": 23.4, "per": 6.2, "pbr": 0.52, "dividend_yield": 3.80,
+        "foreign_ownership_pct": 39.5, "major_shareholder": "기아 (17.55%), 정몽구 (7.29%), 현대제철 (5.88%), 정의선 (0.33%)",
+        "governance_point": "현대차그룹 순환출자 지배구조의 최상단 핵심 고리 및 전동화 부품 턴어라운드"
+    },
+    {
+        "ticker": "005490", "name": "POSCO홀딩스", "exchange": "KOSPI", "sector": "철강·2차전지소재",
+        "market_cap_trillion": 26.5, "per": 19.5, "pbr": 0.55, "dividend_yield": 3.20,
+        "foreign_ownership_pct": 28.4, "major_shareholder": "국민연금공단 (7.55%), 블랙록 (5.12%)",
+        "governance_point": "리튬·니켈 원소재 자체 공급망 구축 및 글로벌 철강 탄소중립 전환"
+    },
+    {
+        "ticker": "086520", "name": "에코프로", "exchange": "KOSDAQ", "sector": "2차전지지주",
+        "market_cap_trillion": 21.2, "per": 48.0, "pbr": 4.80, "dividend_yield": 0.15,
+        "foreign_ownership_pct": 8.5, "major_shareholder": "이동채 전 회장 외 (25.43%)",
+        "governance_point": "에코프로비엠, 머티리얼즈 등 양극재 전주기 클로즈드 루프 에코시스템 구축"
+    },
+    {
+        "ticker": "064350", "name": "현대로템", "exchange": "KOSPI", "sector": "방산·철도차량",
+        "market_cap_trillion": 7.4, "per": 21.8, "pbr": 3.40, "dividend_yield": 0.25,
+        "foreign_ownership_pct": 25.1, "major_shareholder": "현대자동차 (33.77%), 국민연금공단 (5.80%)",
+        "governance_point": "폴란드 K2 전차 2차 이행계약 체결 및 루마니아 등 동유럽 수출 파이프라인 확장"
     }
 ]
 
@@ -178,16 +208,14 @@ def build_universe():
     cur.execute("INSERT INTO corps_fts(corps_fts) VALUES('rebuild')")
     conn.commit()
 
-    # 웹 서비스용 요약 JSON 생성
     with open(DATA / "krx_universe_summary.json", "w", encoding="utf-8") as f:
         json.dump({
-            "schema_version": "3.3.0",
+            "schema_version": "3.5.0",
             "updated_at": now_kst,
             "total_corps": len(MAJOR_CORPS_UNIVERSE),
             "corps": MAJOR_CORPS_UNIVERSE
         }, f, ensure_ascii=False, indent=2)
 
-    # 헬스 펄스 갱신
     with open(DATA / "collection_health_pulse.json", "w", encoding="utf-8") as f:
         json.dump({
             "status": "HEALTHY_GENUINE",

@@ -1,7 +1,7 @@
 {
-  "schema_version": "3.3.0",
-  "updated_at": "2026-11-26T18:03:46.146391+09:00",
-  "total_corps": 16,
+  "schema_version": "3.5.0",
+  "updated_at": "2026-11-27T08:29:38.534050+09:00",
+  "total_corps": 21,
   "corps": [
     {
       "ticker": "005930",
@@ -173,6 +173,32 @@
       "governance_point": "K9 자주포·천무 다연장로켓 폴란드·호주·중동 대규모 수주 및 우주항공청 개청 수혜"
     },
     {
+      "ticker": "329180",
+      "name": "HD현대중공업",
+      "exchange": "KOSPI",
+      "sector": "조선·해양플랜트",
+      "market_cap_trillion": 17.2,
+      "per": 31.0,
+      "pbr": 2.95,
+      "dividend_yield": 0.0,
+      "foreign_ownership_pct": 10.4,
+      "major_shareholder": "HD한국조선해양 (71.02%), 국민연금공단 (5.14%)",
+      "governance_point": "고수익 친환경 LNG선·암모니아선 3년치 도크 수주 잔고 확보 및 미국 함정 MRO 사업 진출"
+    },
+    {
+      "ticker": "034020",
+      "name": "두산에너빌리티",
+      "exchange": "KOSPI",
+      "sector": "원전·가스터빈",
+      "market_cap_trillion": 13.5,
+      "per": 28.5,
+      "pbr": 1.45,
+      "dividend_yield": 0.0,
+      "foreign_ownership_pct": 22.8,
+      "major_shareholder": "두산 (30.39%), 국민연금공단 (6.12%)",
+      "governance_point": "체코 신규 원전 우선협상대상자 선정 및 SMR(소형모듈원자로) 주기기 파운드리 수혜"
+    },
+    {
       "ticker": "042700",
       "name": "한미반도체",
       "exchange": "KOSPI",
@@ -199,17 +225,56 @@
       "governance_point": "국산 항암제 최초 미국 FDA 승인 획득(렉라자-리브리반트 병용) 및 존슨앤존슨 마일스톤 수령"
     },
     {
-      "ticker": "329180",
-      "name": "HD현대중공업",
+      "ticker": "012330",
+      "name": "현대모비스",
       "exchange": "KOSPI",
-      "sector": "조선·해양플랜트",
-      "market_cap_trillion": 17.2,
-      "per": 31.0,
-      "pbr": 2.95,
-      "dividend_yield": 0.0,
-      "foreign_ownership_pct": 10.4,
-      "major_shareholder": "HD한국조선해양 (71.02%), 국민연금공단 (5.14%)",
-      "governance_point": "고수익 친환경 LNG선·암모니아선 3년치 도크 수주 잔고 확보 및 미국 함정 MRO 사업 진출"
+      "sector": "자동차부품·전동화",
+      "market_cap_trillion": 23.4,
+      "per": 6.2,
+      "pbr": 0.52,
+      "dividend_yield": 3.8,
+      "foreign_ownership_pct": 39.5,
+      "major_shareholder": "기아 (17.55%), 정몽구 (7.29%), 현대제철 (5.88%), 정의선 (0.33%)",
+      "governance_point": "현대차그룹 순환출자 지배구조의 최상단 핵심 고리 및 전동화 부품 턴어라운드"
+    },
+    {
+      "ticker": "005490",
+      "name": "POSCO홀딩스",
+      "exchange": "KOSPI",
+      "sector": "철강·2차전지소재",
+      "market_cap_trillion": 26.5,
+      "per": 19.5,
+      "pbr": 0.55,
+      "dividend_yield": 3.2,
+      "foreign_ownership_pct": 28.4,
+      "major_shareholder": "국민연금공단 (7.55%), 블랙록 (5.12%)",
+      "governance_point": "리튬·니켈 원소재 자체 공급망 구축 및 글로벌 철강 탄소중립 전환"
+    },
+    {
+      "ticker": "086520",
+      "name": "에코프로",
+      "exchange": "KOSDAQ",
+      "sector": "2차전지지주",
+      "market_cap_trillion": 21.2,
+      "per": 48.0,
+      "pbr": 4.8,
+      "dividend_yield": 0.15,
+      "foreign_ownership_pct": 8.5,
+      "major_shareholder": "이동채 전 회장 외 (25.43%)",
+      "governance_point": "에코프로비엠, 머티리얼즈 등 양극재 전주기 클로즈드 루프 에코시스템 구축"
+    },
+    {
+      "ticker": "064350",
+      "name": "현대로템",
+      "exchange": "KOSPI",
+      "sector": "방산·철도차량",
+      "market_cap_trillion": 7.4,
+      "per": 21.8,
+      "pbr": 3.4,
+      "dividend_yield": 0.25,
+      "foreign_ownership_pct": 25.1,
+      "major_shareholder": "현대자동차 (33.77%), 국민연금공단 (5.80%)",
+      "governance_point": "폴란드 K2 전차 2차 이행계약 체결 및 루마니아 등 동유럽 수출 파이프라인 확장"
     }
   ]
 }
