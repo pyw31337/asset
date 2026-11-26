@@ -1,7 +1,7 @@
 {
   "status": "HEALTHY_GENUINE",
-  "last_checked_kst": "2026-11-26T16:48:59.472845+09:00",
-  "total_corps_indexed": 8,
+  "last_checked_kst": "2026-11-26T18:03:46.146391+09:00",
+  "total_corps_tracked": 16,
   "fts5_engine_active": true,
   "is_genuine_data": true
 }
