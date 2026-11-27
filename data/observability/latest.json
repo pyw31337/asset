@@ -1,7 +1,7 @@
 {
   "schema": "lets_observability_v1",
-  "run_id": "asset-20261126T232510Z",
-  "observed_at": "2026-11-26T23:25:10.609940+00:00",
+  "run_id": "asset-20261127T230612Z",
+  "observed_at": "2026-11-27T23:06:12.508612+00:00",
   "service_id": "asset",
   "source": "world_bank_open_data",
   "stages": {
@@ -29,7 +29,7 @@
     "increment": 0
   },
   "artifacts": {
-    "raw": "ff565a680c60fa7ff7a20a837f6c0cc2c841cb1c2cb02a14fa5fa537cbc384c9"
+    "raw": "bf19e9713ff3fd6b9f1a67678da7c579321bbb96d58cd1afba4ceabb1f91ae7e"
   },
   "note": "World Bank Korea GDP series snapshot."
 }

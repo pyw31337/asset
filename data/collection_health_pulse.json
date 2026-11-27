@@ -1,7 +1,15 @@
 {
+  "version": "3.0.0",
+  "last_monitored_at": "2026-11-28T08:06:12.425317+09:00",
+  "pipeline_health_score": 100.0,
   "status": "HEALTHY_GENUINE",
-  "last_checked_kst": "2026-11-27T08:57:07.244232+09:00",
-  "total_corps_tracked": 21,
-  "fts5_engine_active": true,
-  "is_genuine_data": true
+  "monitored_billionaires": 18,
+  "monitored_tickers": 10,
+  "data_sources": [
+    "금융감독원 DART 전자공시시스템",
+    "한국거래소(KRX) 유가증권·코스닥 시가총액",
+    "Bloomberg Billionaires / SEC EDGAR"
+  ],
+  "is_genuine_data": true,
+  "mock_increment_detected": false
 }
